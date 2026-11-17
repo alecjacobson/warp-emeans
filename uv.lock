@@ -1180,6 +1180,10 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+reference = [
+    { name = "faiss-cpu" },
+    { name = "scipy" },
+]
 research = [
     { name = "faiss-cpu" },
     { name = "matplotlib" },
@@ -1189,16 +1193,18 @@ research = [
 
 [package.metadata]
 requires-dist = [
+    { name = "faiss-cpu", marker = "extra == 'reference'" },
     { name = "faiss-cpu", marker = "extra == 'research'" },
     { name = "matplotlib", marker = "extra == 'research'" },
     { name = "numpy", specifier = ">=2" },
     { name = "pytest", marker = "extra == 'dev'" },
     { name = "ruff", marker = "extra == 'dev'" },
+    { name = "scipy", marker = "extra == 'reference'" },
     { name = "scipy", marker = "extra == 'research'" },
     { name = "torch", marker = "extra == 'research'" },
-    { name = "warp-lang", specifier = ">=1.10" },
+    { name = "warp-lang", specifier = ">=1.19,<2" },
 ]
-provides-extras = ["research", "dev"]
+provides-extras = ["reference", "research", "dev"]
 
 [[package]]
 name = "warp-lang"

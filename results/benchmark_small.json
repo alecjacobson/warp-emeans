@@ -1,0 +1,1754 @@
+{
+  "upstream_revision": "c8f283867285af547db7a701c1b8dfa89631b3ea",
+  "warp": "1.19.0",
+  "torch": "2.15.0+cu132",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+  "records": [
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.5909760340000503,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11948359186471502,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.0,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 0,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.025229691993445158,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11948359186471502,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.0,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 0,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.023988833010662347,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.12029501589809635,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.014425868983380497,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.1202950158808033,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.004302337008994073,
+      "setup_seconds": 0.02769312000600621,
+      "validation_mse_fp64": 0.12029501586228653,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.0029107570298947394,
+      "setup_seconds": 0.02789836999727413,
+      "validation_mse_fp64": 0.12029501597811287,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.025402571016456932,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11757376029195893,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.0,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 1,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.024544752028305084,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11757376029195893,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.0,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 1,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.014381039014551789,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11623844861276567,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.014282489020843059,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11623844855913548,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.0029580380069091916,
+      "setup_seconds": 0.02744768001139164,
+      "validation_mse_fp64": 0.11623844887483789,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.0028809680370613933,
+      "setup_seconds": 0.027770899992901832,
+      "validation_mse_fp64": 0.11623844889487003,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.02500738197704777,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11737499372162438,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.0,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 2,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.024569351982790977,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11737499372162438,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.0,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 2,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.014318370027467608,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11850775596396301,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.014231329027097672,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 0.11850775606229003,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.0029876379994675517,
+      "setup_seconds": 0.027347259980160743,
+      "validation_mse_fp64": 0.11850775601497543,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.002905467990785837,
+      "setup_seconds": 0.02772615000139922,
+      "validation_mse_fp64": 0.11850775603878264,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.0,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.06268141500186175,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.684915842346609,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 0,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.027387419948354363,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.684915842346609,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 0,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 1.3667006940231659,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.6789584758245475,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.01939930598018691,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.6789584764888383,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.007098604983184487,
+      "setup_seconds": 0.03726037300657481,
+      "validation_mse_fp64": 1.678958475988605,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.006681365019176155,
+      "setup_seconds": 0.0374466729699634,
+      "validation_mse_fp64": 1.6789584761012422,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.030681278032716364,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.677323879727835,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 1,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.027028090960811824,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.677323879727835,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 1,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.019405656028538942,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.686304459473249,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.019277955987490714,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.6863044594617445,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.00709921499947086,
+      "setup_seconds": 0.03682636300800368,
+      "validation_mse_fp64": 1.686304459897232,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.006685255037155002,
+      "setup_seconds": 0.0375808629905805,
+      "validation_mse_fp64": 1.6863044592646,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.0285380799905397,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.6799279765079365,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 2,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.02696982101770118,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.6799279765079365,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 2,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.019305435998830944,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.6894839051405275,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.019050606002565473,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 1.689483905020083,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.007206954003777355,
+      "setup_seconds": 0.03663284401409328,
+      "validation_mse_fp64": 1.689483906213435,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.006726034975145012,
+      "setup_seconds": 0.03756077296566218,
+      "validation_mse_fp64": 1.6894839062155644,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.03340728598413989,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.040538067857059,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 0,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.028252580028492957,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.040538067857059,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 0,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 1.077125492040068,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.061859519491302,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.019278446037787944,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.061859519606819,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 0,
+      "seconds": 0.008496803988236934,
+      "setup_seconds": 0.03697316301986575,
+      "validation_mse_fp64": 6.061859520491818,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 0,
+      "repeat": 1,
+      "seconds": 0.007658833987079561,
+      "setup_seconds": 0.03763526299735531,
+      "validation_mse_fp64": 6.061859520832343,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.03035760798957199,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.061442472657257,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 1,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.0281730389688164,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.061442472657257,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 1,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.01956429600249976,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.056936101708224,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.019350325979758054,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.056936101057702,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 0,
+      "seconds": 0.008046714006923139,
+      "setup_seconds": 0.03735632303869352,
+      "validation_mse_fp64": 6.0569361000298345,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 1,
+      "repeat": 1,
+      "seconds": 0.007563114981167018,
+      "setup_seconds": 0.03828499198425561,
+      "validation_mse_fp64": 6.056936100773681,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.029764617967884988,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.056876894582255,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 2,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "triton",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.02804706001188606,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.056876894582255,
+      "recipe": {
+        "name": "canonical_v1",
+        "batch_law": "quality",
+        "batch_law_requested": "auto",
+        "batch_law_reason": "d <= 16",
+        "batch_size": 64,
+        "batch_size_requested": null,
+        "alpha0": 0.09946776326822092,
+        "alpha0_source": "step_law",
+        "nepochs": 3,
+        "steps_per_pass": 157,
+        "total_steps": 471,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "epoch_steps": [
+          157,
+          157,
+          157
+        ],
+        "tail_policy": "keep",
+        "alpha_min_factor": 0.1,
+        "check_unused_every": 5,
+        "unused_threshold": 0.1,
+        "split_epsilon": 0.0001,
+        "init_usage": 1.52587890625e-05,
+        "seed": 2,
+        "backend": "torch",
+        "assignment_chunk_size": 1048576,
+        "assignment_backend": "triton",
+        "assignment_backend_requested": "triton",
+        "device": "cuda:0",
+        "centroid_chunk_size": 4096,
+        "representation": "bfloat16"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.019266267016064376,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.043988851158785,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.019010855990927666,
+      "setup_seconds": 0.0,
+      "validation_mse_fp64": 6.043988852084774,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 0,
+      "seconds": 0.008125033986289054,
+      "setup_seconds": 0.03673433401854709,
+      "validation_mse_fp64": 6.043988850540377,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    },
+    {
+      "mode": "warp_graph",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "epochs": 3,
+      "seed": 2,
+      "repeat": 1,
+      "seconds": 0.007582504011224955,
+      "setup_seconds": 0.037898403010331094,
+      "validation_mse_fp64": 6.043988850782819,
+      "recipe": {
+        "batch_size": 64,
+        "alpha0": 0.09946776326822092,
+        "epoch_rows": [
+          10000,
+          10000,
+          10000
+        ],
+        "total_steps": 471,
+        "unused_threshold": 0.1,
+        "batch_law": "quality"
+      }
+    }
+  ]
+}
