@@ -1,0 +1,22 @@
+{
+  "bunny.tar.gz": {
+    "url": "https://graphics.stanford.edu/pub/3Dscanrep/bunny.tar.gz",
+    "sha256": "a5720bd96d158df403d153381b8411a727a1d73cff2f33dc9b212d6f75455b84",
+    "bytes": 4894286
+  },
+  "drill.tar.gz": {
+    "url": "https://graphics.stanford.edu/pub/3Dscanrep/drill.tar.gz",
+    "sha256": "2da2acaba36903a9893c920c11506e1bd01c531bdf738d037bc505b313df5e1b",
+    "bytes": 555087
+  },
+  "BSR_bsds500.tgz": {
+    "url": "https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/BSR/BSR_bsds500.tgz",
+    "sha256": "97e49d31764f3912f0c4122707d53062ac9e783ba0f095e447a4d53c1a41af8e",
+    "bytes": 70763455
+  },
+  "intel.gfs.log.gz": {
+    "url": "http://www2.informatik.uni-freiburg.de/~stachnis/datasets/datasets/intel-lab/intel.gfs.log.gz",
+    "sha256": "152d4db32761a71ac4a557d2bd383d4ba054864c290b799df92096ba34b70dea",
+    "bytes": 438259
+  }
+}

@@ -1,6 +1,6 @@
 # Warp e-means research handoff
 
-Workspace: /home/horde/projects/emeans (persistent). Engine: Codex. Ledger run: 21cbfd40-dc1c-49f1-959a-bbc8c9bf5312. Native conversation ID not supplied. Last checkpoint: 2026-11-17T09:29:00Z.
+Workspace: /home/horde/projects/emeans (persistent). Engine: Codex. Ledger run: 21cbfd40-dc1c-49f1-959a-bbc8c9bf5312. Native conversation ID not supplied. Last checkpoint: 2026-11-17T09:38:00Z.
 
 User authorized running upstream e-means, developing pure Warp, studying low-dimensional scaling, creating issues/PRs and self-merging in alecjacobson/warp-emeans. README only usage + current flagship result. Research detail belongs in docs/results/issues. No subagents requested or used.
 
@@ -13,3 +13,5 @@ Initial benchmark with scalar GPU path saved results/benchmark_scalar.json; coop
 Downloaded ignored data/raw: Stanford bunny.tar.gz, drill.tar.gz, Berkeley BSR_bsds500.tgz. Intel lab corrected laser log official URL connection refused; seek a cited public mirror or record missing acquisition. Need deterministic data preparation, manifest/checksums and application use-case documentation. Primary references found: Celebi color quantization arXiv:1101.0395; SLIC EPFL (5D local constrained kmeans, not equivalent to unrestricted 5D clustering); Jiang et al arXiv:1710.05193 multi-view XYZ kmeans registration; Vlassis 1997 mobile robot free-space Voronoi kmeans (CMU motionplanning mirror); Papon CVPR2013 VCCS (connectivity constrained, not plain Euclidean).
 
 Next: broaden low-dimensional benchmarks; commit/PR implementation with honest speed scope. Build real and synthetic datasets (d2..10/16/32/64/100), sweep step/batch/size/budget with >=3 seeds, fit Appendix B laws with heldout regret and censoring; report evidence without claiming universal law from a pilot. Clean created scratch logs/archives at end after retaining data needed for reproducibility. No in-flight external writes uncertain.
+
+2026-11-17 checkpoint: PR #7 merged after CPU CI passed. Source corpus builder completed all seven datasets; Intel HTTP worked (HTTPS did not). Current branch corpus-and-scaling has dataset preparation and a 14,040-run first sweep (104 problems x 5 batches x 9 alphas x 3 seeds), plus fitter. Sweep logs in .cache/scaling.log; append-only raw results results/scaling_sweep.jsonl. Prepared graph run(alpha0=...) added and tested against fresh execution; 25 model tests passed, 4 dataset tests passed. Need finish fit, extend censored boundaries if necessary, independently evaluate predicted laws/test loss, write report/plots, PR and self-merge. README result currently speed only; no universal low-d law claim.

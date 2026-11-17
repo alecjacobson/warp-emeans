@@ -86,10 +86,12 @@ def update_kernel(
     counts: wp.array[int],
     closing_sums: wp.array2d[float],
     closing_counts: wp.array[int],
-    alpha: float,
+    schedule: float,
+    peak: wp.array[float],
     closing: int,
 ):
     cluster = wp.tid()
+    alpha = schedule * peak[0]
     count = counts[cluster]
     old_mass = usage[cluster]
     mass = (1.0 - alpha) * old_mass + alpha * float(count)

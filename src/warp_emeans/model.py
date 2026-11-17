@@ -1,6 +1,7 @@
 """Expose Euclidean e-means with a GPU-resident training loop."""
 
 import math
+from dataclasses import replace
 
 import warp as wp
 from warp import utils
@@ -126,6 +127,7 @@ class Emeans:
         self.prefix = wp.empty_like(self.dead)
         self.total_usage = wp.empty(1, dtype=float, device=self.device)
         self.split_count = wp.zeros(1, dtype=int, device=self.device)
+        self._peak = wp.full(1, self.recipe.alpha0, dtype=float, device=self.device)
         self._assign_kernel = (
             kernels.cooperative_assignment_kernel(d) if self.device.is_cuda else kernels.assignment_kernel(d)
         )
@@ -192,9 +194,7 @@ class Emeans:
                     device=self.device,
                     block_dim=self._assignment_width,
                 )
-                alpha = self.recipe.alpha0 * (
-                    0.1 + 0.45 * (1 + math.cos(math.pi * step / self.recipe.total_steps))
-                )
+                schedule = 0.1 + 0.45 * (1 + math.cos(math.pi * step / self.recipe.total_steps))
                 wp.launch(
                     kernels.update_kernel,
                     self.k,
@@ -205,7 +205,8 @@ class Emeans:
                         self.counts,
                         self.closing_sums,
                         self.closing_counts,
-                        alpha,
+                        schedule,
+                        self._peak,
                         closing,
                     ],
                     device=self.device,
@@ -250,8 +251,12 @@ class Emeans:
             device=self.device,
         )
 
-    def run(self):
+    def run(self, alpha0=None):
         """Reinitialize and run prepared training, returning centers and moving labels.
+
+        Args:
+            alpha0: Optional new peak step in (0,1] for this and later runs.
+                Reuses a captured graph while changing the cosine amplitude.
 
         Returns:
             Device arrays containing (k,d) centroids and n last-pass labels.
@@ -260,6 +265,11 @@ class Emeans:
         """
         if not self._ready:
             raise RuntimeError("call prepare before run")
+        if alpha0 is not None:
+            if not math.isfinite(alpha0) or not 0 < alpha0 <= 1:
+                raise ValueError("alpha0 must be finite and in (0,1]")
+            self.recipe = replace(self.recipe, alpha0=float(alpha0))
+            self._peak.fill_(float(alpha0))
         if self.graph is None:
             self._execute()
         else:
