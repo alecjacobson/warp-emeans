@@ -1,0 +1,207 @@
+{
+  "bsds_rgb": {
+    "description": "sRGB/255 pixels; distinct original scene splits; repeated colors retained",
+    "sources": {
+      "train": [
+        "BSR/BSDS500/data/images/train/100075.jpg",
+        "BSR/BSDS500/data/images/train/100080.jpg",
+        "BSR/BSDS500/data/images/train/100098.jpg",
+        "BSR/BSDS500/data/images/train/103041.jpg",
+        "BSR/BSDS500/data/images/train/104022.jpg",
+        "BSR/BSDS500/data/images/train/105019.jpg"
+      ],
+      "validation": [
+        "BSR/BSDS500/data/images/val/101085.jpg",
+        "BSR/BSDS500/data/images/val/101087.jpg",
+        "BSR/BSDS500/data/images/val/102061.jpg"
+      ],
+      "test": [
+        "BSR/BSDS500/data/images/test/100007.jpg",
+        "BSR/BSDS500/data/images/test/100039.jpg",
+        "BSR/BSDS500/data/images/test/100099.jpg"
+      ]
+    },
+    "splits": {
+      "train": {
+        "rows": 926406,
+        "d": 3,
+        "sha256": "80cb0205d059972d7f70630d2fb7156cbdc7108978b8786bd9c921913aa74b23"
+      },
+      "validation": {
+        "rows": 463203,
+        "d": 3,
+        "sha256": "86a5ffd67753070b3e13feea21837cfff735ce38ec5e872a660cd197a8ae10a1"
+      },
+      "test": {
+        "rows": 463203,
+        "d": 3,
+        "sha256": "1a2dcbd3d2c7943379d633842843acff4343fb435675b636aebfcaa1f1cf7014"
+      }
+    }
+  },
+  "bsds_labxy": {
+    "description": "D65 CIELAB/100 plus x,y/max(height,width); global Euclidean surrogate, without SLIC locality/connectivity",
+    "sources": {
+      "train": [
+        "BSR/BSDS500/data/images/train/100075.jpg",
+        "BSR/BSDS500/data/images/train/100080.jpg",
+        "BSR/BSDS500/data/images/train/100098.jpg",
+        "BSR/BSDS500/data/images/train/103041.jpg",
+        "BSR/BSDS500/data/images/train/104022.jpg",
+        "BSR/BSDS500/data/images/train/105019.jpg"
+      ],
+      "validation": [
+        "BSR/BSDS500/data/images/val/101085.jpg",
+        "BSR/BSDS500/data/images/val/101087.jpg",
+        "BSR/BSDS500/data/images/val/102061.jpg"
+      ],
+      "test": [
+        "BSR/BSDS500/data/images/test/100007.jpg",
+        "BSR/BSDS500/data/images/test/100039.jpg",
+        "BSR/BSDS500/data/images/test/100099.jpg"
+      ]
+    },
+    "splits": {
+      "train": {
+        "rows": 926406,
+        "d": 5,
+        "sha256": "61a04f3d24e5c4ee4d4400e2e44533f5441541156a845a5569aa35d2af5912af"
+      },
+      "validation": {
+        "rows": 463203,
+        "d": 5,
+        "sha256": "af71173601b220f05d924133dd5e85befc4346089ac4bfcac625a698736677c9"
+      },
+      "test": {
+        "rows": 463203,
+        "d": 5,
+        "sha256": "1da092df2ce9b6c93f6b5f91fbbe30551b254b06d8533337dea2d93bc3259097"
+      }
+    }
+  },
+  "bunny_xyz": {
+    "description": "Independent area-uniform surface samples; common bounding-box scale; same-object distribution; not new scans",
+    "sources": [
+      "bunny/reconstruction/bun_zipper.ply"
+    ],
+    "splits": {
+      "train": {
+        "rows": 1000000,
+        "d": 3,
+        "sha256": "fa69ebc6741d3933017e2d658e8bb0ecd8ac1d56a25904a8e595c97b732391f6"
+      },
+      "validation": {
+        "rows": 100000,
+        "d": 3,
+        "sha256": "52fd6af0fa9b914729ae7af02aa02f2dd19d2bd34ae3b46717e863dc22c12209"
+      },
+      "test": {
+        "rows": 100000,
+        "d": 3,
+        "sha256": "88af338562b319e8df47667edacd0a76d54ff2312a810649416f5f1347e7118f"
+      }
+    }
+  },
+  "bunny_xyzn": {
+    "description": "Surface samples plus oriented face normals weighted 0.1; Euclidean surrogate, not VCCS",
+    "sources": [
+      "bunny/reconstruction/bun_zipper.ply"
+    ],
+    "splits": {
+      "train": {
+        "rows": 1000000,
+        "d": 6,
+        "sha256": "f3a29d51ef50ecdc241ad1a54a8a0296cee36d02c88e367f2879895718cab87f"
+      },
+      "validation": {
+        "rows": 100000,
+        "d": 6,
+        "sha256": "26e46ad8390634a935eb1e59b31db88b0a17fb29bee1dec511d0e5cfe51d9b1d"
+      },
+      "test": {
+        "rows": 100000,
+        "d": 6,
+        "sha256": "9fbb7b4de6e6e241818ab8d1a22968b8b1a28520574445f78814757724facf4d"
+      }
+    }
+  },
+  "drill_xyz": {
+    "description": "Independent area-uniform surface samples; common bounding-box scale; same-object distribution; not new scans",
+    "sources": [
+      "drill/reconstruction/drill_shaft_vrip.ply"
+    ],
+    "splits": {
+      "train": {
+        "rows": 1000000,
+        "d": 3,
+        "sha256": "5312e360c7399c4798a57a5c904e7588ef85ef557512329ce2624fb343d82070"
+      },
+      "validation": {
+        "rows": 100000,
+        "d": 3,
+        "sha256": "6e77c63da257d08291ecf6715862e36fa7fc8071cdc3ca675fd05945b7f67f3d"
+      },
+      "test": {
+        "rows": 100000,
+        "d": 3,
+        "sha256": "eab5408f181b928256f01847fc3e838a7080de7c1fec61f8667be0d9950a7a02"
+      }
+    }
+  },
+  "drill_xyzn": {
+    "description": "Surface samples plus oriented face normals weighted 0.1; Euclidean surrogate, not VCCS",
+    "sources": [
+      "drill/reconstruction/drill_shaft_vrip.ply"
+    ],
+    "splits": {
+      "train": {
+        "rows": 1000000,
+        "d": 6,
+        "sha256": "539bee5a5e33edbff42d82129c1da1e7cd9c043a666c06e3bee88e68bc273fad"
+      },
+      "validation": {
+        "rows": 100000,
+        "d": 6,
+        "sha256": "346cacb5f860752d804e4c43b2b04d08f5d654103c13dc90d90fc22260129bf1"
+      },
+      "test": {
+        "rows": 100000,
+        "d": 6,
+        "sha256": "cfd80c6421aeb7a997fb6b4e958443e4a06272fad3ad3a059354c549ed17455f"
+      }
+    }
+  },
+  "intel_xy": {
+    "description": "Corrected Intel Lab FLASER endpoints; 180-degree scan from -pi/2 in pi/count steps; 0<range<30m; contiguous 60/20/20 scan blocks; center/scale from training only",
+    "sources": {
+      "archive": "intel.gfs.log.gz",
+      "scan_count": 910,
+      "scan_boundaries": [
+        546,
+        728
+      ],
+      "center": [
+        5.016878368972748,
+        -10.875524962599865
+      ],
+      "scale": 32.57595568318733
+    },
+    "splits": {
+      "train": {
+        "rows": 95172,
+        "d": 2,
+        "sha256": "dd1595dec41701a0f5047c26fb87f792405f5869658c0b35e3588f6133f4ec86"
+      },
+      "validation": {
+        "rows": 32439,
+        "d": 2,
+        "sha256": "dd0285bbd56d5b2553a20c9bbeaf4f770b4b14351a563e4899d76ca146602589"
+      },
+      "test": {
+        "rows": 32017,
+        "d": 2,
+        "sha256": "c5570897f36960c7fd201f4f784e848ea78fec3f11d3da1313ff83aebadf8443"
+      }
+    }
+  }
+}

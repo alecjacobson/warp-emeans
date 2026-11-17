@@ -82,7 +82,7 @@ def test_graph_reinitializes_state():
     initial = np.zeros((32, 3), dtype=np.float32)
     model = Emeans(32, nepochs=2.5, batch_size=97, unused_threshold=0.2)
     model.prepare(wp.array(x, device="cuda"), wp.array(initial, device="cuda"), capture=True)
-    if model.graph is None or model._assignment_width != 32:
+    if model.graph is None or model._assignment_width != 32 or model.centroids.strides[0] != 4:
         pytest.fail("The cooperative CUDA graph path was not selected")
     first = model.run()[0].numpy().copy()
     splits = model.split_count.numpy()[0]
@@ -142,3 +142,36 @@ def test_nonfinite_input():
     x[3, 0] = np.nan
     with pytest.raises(ValueError, match="finite"):
         Emeans(2).train(wp.array(x, device="cpu"))
+
+
+@pytest.mark.skipif(not wp.is_cuda_available(), reason="CUDA graph required")
+def test_graph_peak_changes():
+    """Apply changed peak steps in a captured graph and match fresh training."""
+    x = wp.array(np.random.default_rng(71).normal(size=(503, 3)).astype(np.float32), device="cuda")
+    model = Emeans(8, nepochs=2, batch_size=61, alpha0=0.1, unused_threshold=0).prepare(x, capture=True)
+    old = model.run()[0].numpy().copy()
+    updated = model.run(alpha0=0.7)[0].numpy()
+    fresh = Emeans(8, nepochs=2, batch_size=61, alpha0=0.7, unused_threshold=0).train(x)[0].numpy()
+    np.testing.assert_allclose(updated, fresh, atol=1e-5, rtol=1e-5)
+    if np.allclose(old, updated):
+        pytest.fail("Changing the graph peak did not affect the result")
+    with pytest.raises(ValueError, match="alpha0"):
+        model.run(alpha0=2)
+
+
+@pytest.mark.parametrize("device", DEVICES)
+@pytest.mark.parametrize("units", [-1, 0, 1])
+def test_subnormal_split_separation(device, units):
+    """Separate collapsed subnormal donor and child exactly as the reference does."""
+    tiny = np.nextafter(np.float32(0), np.float32(1))
+    value = np.float32(units) * tiny
+    centers = wp.array(np.array([[value, 0], [100, 100]], dtype=np.float32), device=device)
+    usage = wp.array(np.array([10, 0], dtype=np.float32), device=device)
+    donors = wp.array(np.array([0, 0, 0, 0], dtype=np.int32), device=device)
+    keys = wp.array(np.array([0, np.finfo(np.float32).max, 0, 0], dtype=np.float32), device=device)
+    dead = wp.array(np.array([0, 1], dtype=np.int32), device=device)
+    prefix = wp.array(np.array([0, 1], dtype=np.int32), device=device)
+    splits = wp.zeros(1, dtype=int, device=device)
+    wp.launch(kernels.split_kernel, 2, [centers, usage, donors, keys, dead, prefix, splits], device=device)
+    expected = np.nextafter(value, np.float32(np.inf))
+    np.testing.assert_equal(centers.numpy()[1, 0], expected)

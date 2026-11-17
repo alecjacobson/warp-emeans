@@ -1,0 +1,811 @@
+{
+  "version": 2,
+  "profile": "canonical",
+  "maximum_steps_per_run": 32768,
+  "warp": "1.19.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+  "validation_rows": 4096,
+  "alphas": [
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    1.0
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "configurations": [
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 2,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 3,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 5,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 10,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 2,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 3,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 5,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 100000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 100000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 100000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 100000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 1000000,
+      "k": 64,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 1,
+      "partition": "fit"
+    },
+    {
+      "dataset": "mixture",
+      "d": 10,
+      "n": 1000000,
+      "k": 256,
+      "epochs": 3,
+      "partition": "fit"
+    },
+    {
+      "dataset": "uniform",
+      "d": 4,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 6,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 7,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 8,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 9,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 16,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 32,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 64,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "uniform",
+      "d": 100,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 4,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 6,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 7,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 8,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 9,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 16,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 32,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 64,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "mixture",
+      "d": 100,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "dimension_holdout"
+    },
+    {
+      "dataset": "gaussian",
+      "d": 2,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "gaussian",
+      "d": 3,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "gaussian",
+      "d": 5,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "gaussian",
+      "d": 10,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "manifold",
+      "d": 2,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "manifold",
+      "d": 3,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "manifold",
+      "d": 5,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "manifold",
+      "d": 10,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "family_holdout"
+    },
+    {
+      "dataset": "intel_xy",
+      "d": 2,
+      "n": 65536,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "d": 3,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "d": 5,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "d": 3,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    },
+    {
+      "dataset": "drill_xyz",
+      "d": 3,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "d": 6,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "d": 6,
+      "n": 100000,
+      "k": 128,
+      "epochs": 2,
+      "partition": "real_holdout"
+    }
+  ],
+  "note": "Pilot: sizes below paper noise threshold; full factorial fit and held-out transfers; FP64 MSE.",
+  "code_sha256": {
+    "/home/horde/projects/emeans/scripts/sweep_scaling.py": "907eea8a332ca332046c8c38c75369dc0eb36b9d777bdf8eee545ba0cc2f3941",
+    "src/warp_emeans/__init__.py": "10d32dde92066c6623be3b8ac8dea624045e7390eb478e894fb5c4354731bf81",
+    "src/warp_emeans/datasets.py": "f0f421a2de86bc94411b66cab476adac027edf624fc54362420d4a79913b543b",
+    "src/warp_emeans/model.py": "f17751b5c97230a8c85e3a1f428fe864af29776ef42757e007c2608fc44245f0",
+    "src/warp_emeans/recipe.py": "8bb00602db6f5026bed2465cab5a8b197fe79b9789ed50629ec5826b020e981a",
+    "src/warp_emeans/kernels.py": "28785018eee90673359490573857873b9a3555a947fadedb4c64d7b32997f39e"
+  },
+  "verified_source_commit": "682326e4cf238ae37587c1fd87a4d2b9fe9f6ae7"
+}

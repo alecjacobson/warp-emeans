@@ -86,10 +86,12 @@ def update_kernel(
     counts: wp.array[int],
     closing_sums: wp.array2d[float],
     closing_counts: wp.array[int],
-    alpha: float,
+    schedule: float,
+    peak: wp.array[float],
     closing: int,
 ):
     cluster = wp.tid()
+    alpha = schedule * peak[0]
     count = counts[cluster]
     old_mass = usage[cluster]
     mass = (1.0 - alpha) * old_mass + alpha * float(count)
@@ -166,8 +168,13 @@ def split_kernel(
                 centers[target, column] = child_value
                 different = different or donor_value != child_value
             if not different:
-                # The smallest positive FP32 value separates a zero donor, as upstream does.
-                centers[target, 0] = wp.float32(1.401298464324817e-45)
+                # A collapsed split has only zero/subnormal coordinates. Advance
+                # one subnormal spacing toward +infinity, matching nextafter.
+                value = centers[target, 0]
+                neighbor = value + wp.float32(1.401298464324817e-45)
+                if value < 0.0 and neighbor == 0.0:
+                    neighbor = -0.0
+                centers[target, 0] = neighbor
             wp.atomic_add(splits, 0, 1)
 
 

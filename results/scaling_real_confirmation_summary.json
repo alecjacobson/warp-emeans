@@ -1,0 +1,128 @@
+[
+  {
+    "dataset": "intel_xy",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.980432040270736,
+    "ratio_95": [
+      0.9626108432609003,
+      0.999863756219191
+    ]
+  },
+  {
+    "dataset": "intel_xy",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.9557466601789681,
+    "ratio_95": [
+      0.9358575800237354,
+      0.9746152221716975
+    ]
+  },
+  {
+    "dataset": "bsds_rgb",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.9739614391044337,
+    "ratio_95": [
+      0.9645049551171926,
+      0.9840791652736717
+    ]
+  },
+  {
+    "dataset": "bsds_rgb",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.9801936999011653,
+    "ratio_95": [
+      0.9659761597839356,
+      0.9946008264557571
+    ]
+  },
+  {
+    "dataset": "bsds_labxy",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.9978887383866154,
+    "ratio_95": [
+      0.9906120193710105,
+      1.0050581847081976
+    ]
+  },
+  {
+    "dataset": "bsds_labxy",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.9972035066165739,
+    "ratio_95": [
+      0.9912651173973436,
+      1.0029106196130422
+    ]
+  },
+  {
+    "dataset": "bunny_xyz",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.9884338912540657,
+    "ratio_95": [
+      0.9843853174041775,
+      0.9927212982449579
+    ]
+  },
+  {
+    "dataset": "bunny_xyz",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.989469908147201,
+    "ratio_95": [
+      0.9860215165666977,
+      0.9931636292882707
+    ]
+  },
+  {
+    "dataset": "drill_xyz",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.990119766690088,
+    "ratio_95": [
+      0.9857979772933925,
+      0.9945651447924486
+    ]
+  },
+  {
+    "dataset": "drill_xyz",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.9922229322058138,
+    "ratio_95": [
+      0.9873190468967108,
+      0.9972566729704079
+    ]
+  },
+  {
+    "dataset": "bunny_xyzn",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.9875260800549349,
+    "ratio_95": [
+      0.9846007130928407,
+      0.9907090947342208
+    ]
+  },
+  {
+    "dataset": "bunny_xyzn",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.9937626435130957,
+    "ratio_95": [
+      0.9895595853259227,
+      0.9980223056285893
+    ]
+  },
+  {
+    "dataset": "drill_xyzn",
+    "model": "interval_no_dimension",
+    "ratio_to_upstream_auto": 0.9724609270122024,
+    "ratio_95": [
+      0.9672945953940638,
+      0.9777036545864349
+    ]
+  },
+  {
+    "dataset": "drill_xyzn",
+    "model": "interval_dimension",
+    "ratio_to_upstream_auto": 0.9846063994397508,
+    "ratio_95": [
+      0.979440126409294,
+      0.9899168925181216
+    ]
+  }
+]

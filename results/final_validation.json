@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-17",
+  "environment": "RTX PRO 6000 Blackwell MIG 2g.48gb; Warp 1.19.0; Ubuntu x86_64",
+  "checks": [
+    {
+      "command": "uv run --no-sync pytest -q",
+      "result": "37 passed"
+    },
+    {
+      "command": "uv run --no-sync ruff check src scripts tests",
+      "result": "All checks passed"
+    },
+    {
+      "command": "/home/horde/cuda/12.9.1/bin/compute-sanitizer --tool memcheck --error-exitcode 1 .venv/bin/python -m pytest -q tests/test_emeans.py -k 'graph or revival or subnormal'",
+      "result": "10 passed, 21 deselected; ERROR SUMMARY: 0 errors"
+    }
+  ],
+  "code_sha256": {
+    "src/warp_emeans/__init__.py": "10d32dde92066c6623be3b8ac8dea624045e7390eb478e894fb5c4354731bf81",
+    "src/warp_emeans/datasets.py": "f0f421a2de86bc94411b66cab476adac027edf624fc54362420d4a79913b543b",
+    "src/warp_emeans/model.py": "286cf9ca0f1231009f423ce572e3b3a5aba9bb55a0f1bfa5da5c02802ae4203b",
+    "src/warp_emeans/recipe.py": "8bb00602db6f5026bed2465cab5a8b197fe79b9789ed50629ec5826b020e981a",
+    "src/warp_emeans/kernels.py": "1123ef7af6b30414f6be25f95579b01782b3661848e8a0ac75c4f6aa831d3a37",
+    "scripts/benchmark.py": "600ab6ab6a5dab063a9f83a83fb9939063f08c223531b94841183234caf8b5ad",
+    "scripts/benchmark_equal_loss.py": "3640199c74943c6925561c62c8be639a1014c34eeec41a2684d4f1915403a4ab",
+    "tests/test_datasets.py": "63fb5e6aecb9901ecc67bff10d7c9ee911929fc764ae6f89a9fecccf44e4d75a",
+    "tests/test_scaling.py": "0c114b44e37f3e438572616554ff30e85102e8ed1e64d4356ac2aec04a0a4171",
+    "tests/test_emeans.py": "eb2d6126ed4defd5824c00f366576e42987c93a7f8829dcc73c4be5fd99e4808"
+  },
+  "final_performance_files": [
+    "results/benchmark_small_final.json",
+    "results/benchmark_transposed.json",
+    "results/benchmark_large_final.json",
+    "results/equal_loss_test.json"
+  ],
+  "note": "Final performance measurements use this implementation and timing script state. Scaling archives retain their own provenance and predate some correctness/layout changes. CI is CPU-only; GPU checks were run locally."
+}
