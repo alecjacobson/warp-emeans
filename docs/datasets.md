@@ -18,7 +18,7 @@ Run `uv run python scripts/build_corpus.py`. Source archives are checksum-verifi
 |---|---:|---|---|
 | bsds_rgb | 3 | Pixels from six original BSDS500 train images, sRGB in [0,1] | Three original validation and three original test images; no image crosses a split |
 | bsds_labxy | 5 | Same scenes, D65 Lab/100 plus x,y divided by longest image side | Same original scene split; fixed feature weights independent of k |
-| bunny_xyz, drill_xyz | 3 | 1M independent area-uniform samples of each Stanford reconstructed surface, centered and divided by a common bounding-box side | 100k independent samples per split of the same object; hold out the other object for cross-object law evaluation |
+| bunny_xyz, drill_xyz | 3 | 1M independent area-uniform samples of each Stanford reconstructed surface, centered and divided by a common bounding-box side | 100k independent samples per split of the same object; both objects are held out from synthetic law fitting |
 | bunny_xyzn, drill_xyzn | 6 | Above XYZ plus 0.1 × oriented face normal | Same independent surface draws; feature weight is part of the metric |
 | intel_xy | 2 | Corrected Intel Lab laser endpoints in the first 60% of scans; ranges in (0,30)m | Next 20% and last 20% of scans; common scale/center fitted on training only |
 | uniform, gaussian, mixture, manifold | 2–10,16,32,64,100 | Controlled generators with fixed parameters and independent samples | Separate RNG streams; n settings are nested prefixes |

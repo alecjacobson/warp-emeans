@@ -25,9 +25,13 @@ def main():
     parser.add_argument("--output", default="results/scaling_evaluation.jsonl")
     parser.add_argument("--only-real", action="store_true")
     parser.add_argument("--seed-start", type=int, default=20)
+    parser.add_argument("--seed-count", type=int, default=3)
+    parser.add_argument("--methods", nargs="+")
     parser.add_argument("--test-offset", type=int, default=16384)
     parser.add_argument("--test-rows", type=int, default=8192)
     args = parser.parse_args()
+    if args.seed_start < 0 or args.seed_count < 1 or args.test_offset < 0 or args.test_rows < 1:
+        parser.error("Seed count/test rows must be positive; offsets and starting seed must be nonnegative")
     models = {}
     for filename in args.fits:
         models.update(json.loads(Path(filename).read_text())["models"])
@@ -42,17 +46,31 @@ def main():
     if output.exists():
         done = {json.loads(line)["run_id"] for line in output.read_text().splitlines()}
     meta = {
-        "seeds": list(range(args.seed_start, args.seed_start + 3)),
+        "seeds": list(range(args.seed_start, args.seed_start + args.seed_count)),
         "test_rows": args.test_rows,
         "test_offset": args.test_offset,
         "validation_rows": 4096,
         "fit_files": args.fits,
+        "methods": args.methods,
         "sweep": args.sweep,
+        "sweep_sha256": hashlib.sha256(Path(args.sweep).read_bytes()).hexdigest(),
+        "only_real": args.only_real,
+        "warp": wp.__version__,
+        "gpu": wp.get_device("cuda").name,
+        "code_sha256": {
+            str(p): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in [Path(__file__), Path("scripts/fit_scaling.py"), *Path("src/warp_emeans").glob("*.py")]
+        },
         "fit_sha256": {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in args.fits},
         "timing": "Quality evaluation only. Possible concurrent sweep; these times are not performance evidence.",
         "oracle": "Best median validation-grid setting on seeds 0,1,2, rerun on fresh evaluation seeds; not a test-selected oracle.",
     }
-    output.with_suffix(".meta.json").write_text(json.dumps(meta, indent=2) + "\n")
+    meta_path = output.with_suffix(".meta.json")
+    if done:
+        if not meta_path.exists() or json.loads(meta_path.read_text()) != meta:
+            raise ValueError("Existing results use another evaluation/fit revision; use a new --output path")
+    else:
+        meta_path.write_text(json.dumps(meta, indent=2) + "\n")
     with output.open("a", buffering=1) as file:
         for index, problem in enumerate(problems):
             config = problem["config"]
@@ -78,7 +96,12 @@ def main():
                 if model["alpha"] is not None and model["batch"] is not None:
                     batch, alpha = predict(model, config)
                     settings[label] = {"batch_size": batch, "alpha0": alpha}
-            for seed in range(args.seed_start, args.seed_start + 3):
+            if args.methods:
+                missing = set(args.methods) - settings.keys()
+                if missing:
+                    raise ValueError(f"Unknown/unavailable evaluation methods: {sorted(missing)}")
+                settings = {name: settings[name] for name in args.methods}
+            for seed in range(args.seed_start, args.seed_start + args.seed_count):
                 initial = x[np.random.default_rng(seed).choice(n, k, replace=False)]
                 initial_wp = wp.array(initial, device="cuda")
                 for label, parameters in settings.items():
@@ -103,7 +126,13 @@ def main():
                         centers = model.centroids
                         recipe = {"backend": "faiss_cpu", "iterations": 25, "training_rows": n}
                     else:
-                        model = Emeans(k, nepochs=epochs, seed=seed, **parameters)
+                        model = Emeans(
+                            k,
+                            nepochs=epochs,
+                            seed=seed,
+                            unused_threshold=config.get("unused_threshold"),
+                            **parameters,
+                        )
                         model.prepare(x_wp, initial_wp)
                         if model.recipe.total_steps > 32768:
                             file.write(

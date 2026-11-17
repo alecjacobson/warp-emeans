@@ -69,6 +69,20 @@ def configurations(profile="pilot"):
                     partition="real_holdout",
                 )
             )
+    if profile == "revival":
+        configs = []
+        for family, d, threshold in itertools.product(("uniform", "mixture"), (2, 3, 5, 10), (0.0, 0.1)):
+            configs.append(
+                dict(
+                    dataset=family,
+                    d=d,
+                    n=100000,
+                    k=128,
+                    epochs=3,
+                    unused_threshold=threshold,
+                    partition="revival_on" if threshold else "revival_off",
+                )
+            )
     return configs
 
 
@@ -77,7 +91,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="results/scaling_sweep.jsonl")
     parser.add_argument("--limit", type=int)
-    parser.add_argument("--profile", choices=["pilot", "canonical"], default="pilot")
+    parser.add_argument("--profile", choices=["pilot", "canonical", "revival"], default="pilot")
     args = parser.parse_args()
     wp.init()
     wp.config.quiet = True
@@ -94,6 +108,8 @@ def main():
         if args.profile == "canonical"
         else [1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1, 3e-1, 1.0]
     )
+    if args.profile == "revival":
+        alphas = [1e-3, 1e-2, 1e-1, 3e-1, 1.0]
     metadata = {
         "version": 2,
         "profile": args.profile,
@@ -110,7 +126,17 @@ def main():
             for p in [Path(__file__), *Path("src/warp_emeans").glob("*.py")]
         },
     }
-    output.with_suffix(".meta.json").write_text(json.dumps(metadata, indent=2) + "\n")
+    meta_path = output.with_suffix(".meta.json")
+    if done:
+        if not meta_path.exists():
+            raise ValueError("Existing results have no provenance; use a new --output path")
+        previous = json.loads(meta_path.read_text())
+        if any(previous.get(key) != value for key, value in metadata.items()):
+            raise ValueError(
+                "Existing results use another code/grid revision; use a new --output path. Original provenance preserved."
+            )
+    else:
+        meta_path.write_text(json.dumps(metadata, indent=2) + "\n")
     start = time.perf_counter()
     with output.open("a", buffering=1) as file:
         for index, config in enumerate(configs):
@@ -125,6 +151,8 @@ def main():
                     else [128, 512, 2048, 8192, n]
                 )
             )
+            if args.profile == "revival":
+                batches = [32, 128, 512, 2048]
             batches = [b for b in batches if b <= n and epochs * ((n + b - 1) // b) <= 32768]
             for batch, seed in itertools.product(batches, range(3)):
                 pending = []
@@ -136,7 +164,14 @@ def main():
                 if not pending:
                     continue
                 initial = x[np.random.default_rng(seed).choice(n, k, replace=False)]
-                model = Emeans(k, nepochs=epochs, batch_size=batch, alpha0=alphas[0], seed=seed)
+                model = Emeans(
+                    k,
+                    nepochs=epochs,
+                    batch_size=batch,
+                    alpha0=alphas[0],
+                    seed=seed,
+                    unused_threshold=config.get("unused_threshold"),
+                )
                 prep = time.perf_counter()
                 model.prepare(x_wp, wp.array(initial, device="cuda"), capture=True)
                 wp.synchronize()

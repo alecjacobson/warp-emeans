@@ -1,6 +1,7 @@
 """Select Warp budgets on validation, then benchmark fresh seeds on test data."""
 
 import argparse
+import gc
 import json
 import sys
 import time
@@ -31,6 +32,7 @@ def run(backend, x_wp, x_torch, initial, seed, k, epochs):
     """Time ordinary resident-input training after inputs are synchronized."""
     init_wp = wp.array(initial, device="cuda")
     init_torch = torch.tensor(initial, device="cuda")
+    gc.collect()
     torch.cuda.synchronize()
     start = time.perf_counter()
     if backend == "warp":
@@ -42,6 +44,8 @@ def run(backend, x_wp, x_torch, initial, seed, k, epochs):
     torch.cuda.synchronize()
     seconds = time.perf_counter() - start
     centers = centers.numpy() if backend == "warp" else centers.cpu().numpy()
+    del model
+    gc.collect()
     return centers, seconds
 
 

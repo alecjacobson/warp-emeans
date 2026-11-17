@@ -111,7 +111,13 @@ class Emeans:
             if not np.all(np.sort(orders.numpy(), axis=1) == np.arange(n)):
                 raise ValueError("each orders row must be a permutation of [0,n)")
         self.initial, self.orders = init_centroids, orders
-        self.centroids = wp.empty((self.k, d), dtype=float, device=self.device)
+        # Adjacent CUDA lanes search adjacent centers. A transposed owning
+        # allocation keeps that access contiguous while preserving (k,d).
+        self.centroids = (
+            wp.empty((d, self.k), dtype=float, device=self.device).transpose()
+            if self.device.is_cuda
+            else wp.empty((self.k, d), dtype=float, device=self.device)
+        )
         self.usage = wp.empty(self.k, dtype=float, device=self.device)
         self.sums = wp.zeros((self.k, d), dtype=float, device=self.device)
         self.counts = wp.zeros(self.k, dtype=int, device=self.device)

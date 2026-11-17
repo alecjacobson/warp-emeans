@@ -1,0 +1,52 @@
+{
+  "seeds": [
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59
+  ],
+  "test_rows": 4096,
+  "test_offset": 24576,
+  "validation_rows": 4096,
+  "fit_files": [
+    "results/scaling_intervals.json"
+  ],
+  "methods": [
+    "upstream_auto",
+    "validation_oracle",
+    "interval_no_dimension",
+    "interval_dimension"
+  ],
+  "sweep": "results/scaling_canonical.jsonl",
+  "fit_sha256": {
+    "results/scaling_intervals.json": "7a80539c86ced0ec45cd5deb05f8a1a677626151b9148295f86588a7f0d1daa3"
+  },
+  "timing": "Quality evaluation only. Possible concurrent sweep; these times are not performance evidence.",
+  "oracle": "Best median validation-grid setting on seeds 0,1,2, rerun on fresh evaluation seeds; not a test-selected oracle."
+}

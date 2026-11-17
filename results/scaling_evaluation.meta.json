@@ -1,0 +1,20 @@
+{
+  "seeds": [
+    20,
+    21,
+    22
+  ],
+  "test_rows": 8192,
+  "test_offset": 16384,
+  "validation_rows": 4096,
+  "fit_files": [
+    "results/scaling_intervals.json"
+  ],
+  "methods": null,
+  "sweep": "results/scaling_canonical.jsonl",
+  "fit_sha256": {
+    "results/scaling_intervals.json": "7a80539c86ced0ec45cd5deb05f8a1a677626151b9148295f86588a7f0d1daa3"
+  },
+  "timing": "Quality evaluation only. Possible concurrent sweep; these times are not performance evidence.",
+  "oracle": "Best median validation-grid setting on seeds 0,1,2, rerun on fresh evaluation seeds; not a test-selected oracle."
+}

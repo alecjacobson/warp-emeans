@@ -13,7 +13,7 @@ lines = [
     "|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
 ]
 ratios = []
-for name in ("benchmark_small", "benchmark_cooperative", "benchmark_large"):
+for name in ("benchmark_small_final", "benchmark_transposed", "benchmark_large_final"):
     records = json.loads(Path(f"results/{name}.json").read_text())["records"]
     for d in sorted({r["d"] for r in records}):
         med = {}
@@ -34,8 +34,4 @@ lines += [
     "",
 ]
 text = text[:start] + "\n".join(lines) + text[end:]
-text = text.replace(
-    "No other experiment was intentionally using the GPU during the timed runs. This remains single-machine evidence.",
-    "The GPU is shared with other possible users; this remains single-machine evidence. The cooperative sweep was repeated after initial kernel testing.",
-)
 path.write_text(text)

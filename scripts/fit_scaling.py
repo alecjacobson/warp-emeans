@@ -30,6 +30,8 @@ def aggregate(path):
     problems = []
     for key, rows in groups.items():
         config = dict(zip(KEYS, key, strict=True))
+        if "unused_threshold" in rows[0]:
+            config["unused_threshold"] = rows[0]["unused_threshold"]
         batches = sorted({r["batch"] for r in rows})
         alphas = sorted({r["alpha"] for r in rows})
         seeds = sorted({r["seed"] for r in rows})

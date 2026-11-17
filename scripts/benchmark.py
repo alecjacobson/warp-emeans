@@ -1,6 +1,7 @@
 """Compare ordinary training and graph replay against pinned upstream Triton."""
 
 import argparse
+import gc
 import json
 import sys
 import time
@@ -38,6 +39,7 @@ for d in args.dimensions:
         init_wp, init_torch = wp.array(initial, device="cuda"), torch.tensor(initial, device="cuda")
         for mode in ("triton", "warp", "warp_graph"):
             for repeat in range(2):
+                gc.collect()
                 torch.cuda.synchronize()
                 start = time.perf_counter()
                 setup = 0.0
@@ -72,6 +74,8 @@ for d in args.dimensions:
                     "recipe": model.recipe if mode == "triton" else asdict(model.recipe),
                 }
                 records.append(record)
+                del model
+                gc.collect()
                 print(json.dumps({k: v for k, v in record.items() if k != "recipe"}), flush=True)
     Path(args.output).write_text(
         json.dumps(

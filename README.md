@@ -34,4 +34,6 @@ uv run pytest -q
 
 ## Current flagship result
 
-On an RTX PRO 6000 Blackwell MIG slice, **ordinary Warp training is 1.4–2.4× faster than pinned upstream Triton** in the measured d=2–10 cases (n=10,000–1,000,000; k=32–1,024; three passes, three seeds, FP32). Validation MSE is close but varies with the different random streams; this is a matched-recipe speed comparison, not an equal-loss guarantee. Reusable CUDA graphs have separately reported setup costs. Dimensions 32 and 100 remain slower. [Measurements and raw results](docs/experiments/warp-baseline.md).
+**Pure Warp trains 1.44× faster than upstream Triton on Bunny XYZ** (100,000 points, k=256, three passes), with test loss within a predeclared 0.2% margin: Warp/Triton mean MSE 0.99869, paired 95% interval [0.99474, 1.00195], ten fresh seeds. Median ordinary training is 25.05ms versus 36.06ms on an RTX PRO 6000 Blackwell MIG slice. The quality margin passes narrowly; four other workloads did not establish the same match. [Full protocol and all five results](docs/experiments/equal-loss.md).
+
+Matched-recipe training is 1.37–2.34× faster in tested d=2–10 cases and 1.85× at d=32; d=100 remains slower. [Performance matrix](docs/experiments/warp-baseline.md). Experimental scaling laws, fitted on synthetic data, reduce mean test loss on six of seven real feature datasets in a 30-seed confirmation; defaults remain unchanged. [Scaling results, coefficients and limitations](docs/experiments/scaling.md).
