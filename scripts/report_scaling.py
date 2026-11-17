@@ -197,4 +197,6 @@ for axis, partition, title in zip(
 figure.savefig(ROOT / "scaling-transfer.png", dpi=180)
 figure.savefig(ROOT / "scaling-transfer.svg")
 plt.close(figure)
+for svg in ROOT.glob("scaling-*.svg"):
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
 print(ROOT / "scaling.md")
