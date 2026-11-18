@@ -48,3 +48,9 @@ RGB flagship: validation selected 100 Lloyd iterations, then seeds 200–209 gav
 All GPU work, documentation and archived results are committed. PR #16 is open: https://github.com/alecjacobson/warp-emeans/pull/16. GitHub rendering validated all five tables and report regeneration leaves no diff. One CPU CI run passed (21 seconds); the PR-triggered run is pending at this checkpoint. Remaining: verify the final checks, self-merge with a merge commit, and remove task scratch files. Consult PR #16 and private Ledger for the final merge receipt; this checkpoint precedes that external action. Follow-up issue #15 records initialization/local-minimum and wide-dimension limitations. Ledger log rejects this already-finished run; remember still delivers. Do not start another run.
 
 Last checkpoint: 2026-11-18T03:14:36.163632+00:00
+
+## Flash-KMeans comparison (Codex, active)
+
+User authorized adding the paper's GPU Lloyd baseline. Prior PR #16 merged at 686d81d; issue #14 closed. Current branch flash-kmeans-baseline, issue #17. Installed pinned flash-kmeans 0.3.1 in the existing research environment. Small and tail dimensions work without source patches; package uses conservative split-D kernels on this unrecognized RTX PRO architecture. FP32 inputs default to TF32 products; benchmark uses separate processes for default TF32 and an IEEE control, plus paper-style FP16. Actual compiled TTIR precision is checked. Added scripts/flash_reference.py and scripts/benchmark_flash.py; optional CUDA tests are running. Final benchmarks, report, README update, PR and merge remain. Existing archives stay unchanged. Source must be committed before final measurements. No new Ledger run: supplied run is already sealed.
+
+Last checkpoint: 2026-11-18T05:00:38.809480+00:00
