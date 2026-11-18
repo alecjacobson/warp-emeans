@@ -1,0 +1,68 @@
+{
+  "records": [
+    {
+      "n": 100000,
+      "k": 256,
+      "d": 32,
+      "variant": "matmul16x32",
+      "seconds": 0.024713703081943095,
+      "samples": [
+        0.025118052028119564,
+        0.024713911931030452,
+        0.024713703081943095,
+        0.024709762074053288,
+        0.02471329306717962
+      ]
+    },
+    {
+      "n": 100000,
+      "k": 256,
+      "d": 32,
+      "variant": "matmul32x32",
+      "seconds": 0.021741103962995112,
+      "samples": [
+        0.022021883982233703,
+        0.021739215007983148,
+        0.021741103962995112,
+        0.021731395041570067,
+        0.021744245081208646
+      ]
+    },
+    {
+      "n": 100000,
+      "k": 256,
+      "d": 100,
+      "variant": "matmul16x32",
+      "seconds": 0.1523831010563299,
+      "samples": [
+        0.15264085202943534,
+        0.15236747195012867,
+        0.1523831010563299,
+        0.15234299201983958,
+        0.15239856205880642
+      ]
+    },
+    {
+      "n": 100000,
+      "k": 256,
+      "d": 100,
+      "variant": "matmul32x32",
+      "seconds": 0.10077746899332851,
+      "samples": [
+        0.10099747800268233,
+        0.10073454794473946,
+        0.10078776895534247,
+        0.10077425802592188,
+        0.10077746899332851
+      ]
+    }
+  ],
+  "iterations": 25,
+  "timing": "Prepared graph replay; includes reset and full assignment/accumulation/mean updates; setup excluded",
+  "warp": "1.19.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+  "code_sha256": {
+    "/home/horde/projects/emeans/scripts/tune_kmeans.py": "56cee343b3aae4346c5356ef7febdb6a3134472a875463f506ddc3b9eca29d4a",
+    "src/warp_emeans/lloyd_kernels.py": "f4e8ae12db64046f57ef8ababd4d1a66cc4246117096e0169b5b902519353675"
+  }
+}

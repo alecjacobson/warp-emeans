@@ -1,0 +1,42 @@
+{
+  "records": [
+    {
+      "n": 1000000,
+      "k": 1024,
+      "d": 3,
+      "variant": "scalar",
+      "seconds": 0.023344943998381495,
+      "samples": [
+        0.023571033962070942,
+        0.023332683951593935,
+        0.02334113500546664,
+        0.023344943998381495,
+        0.023350575007498264
+      ]
+    },
+    {
+      "n": 1000000,
+      "k": 1024,
+      "d": 3,
+      "variant": "compact",
+      "seconds": 0.018281947006471455,
+      "samples": [
+        0.02005492604803294,
+        0.01827640808187425,
+        0.01826604804955423,
+        0.01828230789396912,
+        0.018281947006471455
+      ],
+      "full_search_fraction": 0.6198504
+    }
+  ],
+  "iterations": 25,
+  "timing": "Prepared graph replay; includes reset and full assignment/accumulation/mean updates; setup excluded",
+  "warp": "1.19.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+  "code_sha256": {
+    "/home/horde/projects/emeans/scripts/tune_kmeans.py": "f068a6db4f78eaa20528444658c84642bae702ae1e4bc5dea1252e632b3a6381",
+    "src/warp_emeans/lloyd_kernels.py": "571d1935dd7a73f8ea28ece7412c98d8e0d3cd5fb2fea6ff0bfa9b78eb55d80e",
+    "scripts/kmeans_variants.py": "8e1538d95e5bf40acabe95acd621c5171e2e39efe417425e8b1070c7a8d987c1"
+  }
+}
