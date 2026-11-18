@@ -1,0 +1,4640 @@
+{
+  "matrix": [
+    {
+      "dataset": "normal",
+      "n": 10000,
+      "d": 2,
+      "k": 32,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.2963489862158895,
+          "mse": 0.11706541407652456,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.263776984065771,
+          "mse": 0.11682200599548924,
+          "budget": 25,
+          "warp_loss_percent": 0.20835807343071444,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.3722661476706
+        },
+        "flash_ieee": {
+          "milliseconds": 5.324416910298169,
+          "mse": 0.11706541482370646,
+          "budget": 25,
+          "warp_loss_percent": -6.382601558385659e-07,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.65275206551595
+        },
+        "flash_fp16": {
+          "milliseconds": 5.64017693977803,
+          "mse": 0.11712539471195503,
+          "budget": 25,
+          "warp_loss_percent": -0.05121061540751537,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.01580996381104
+        },
+        "warp_emeans": {
+          "milliseconds": 15.14746097382158,
+          "mse": 0.11834707338277771,
+          "budget": 3,
+          "warp_loss_percent": -1.082966624876136,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 91.44180672618144
+        },
+        "triton_emeans": {
+          "milliseconds": 25.656934012658894,
+          "mse": 0.11814411516055949,
+          "budget": 3,
+          "warp_loss_percent": -0.9130383536826714,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.94737373695438
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 10000,
+      "d": 5,
+      "k": 32,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3321490259841084,
+          "mse": 1.6805531341558673,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.499606020748615,
+          "mse": 1.6812034656025723,
+          "budget": 25,
+          "warp_loss_percent": -0.03868249501091103,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.77737348896905
+        },
+        "flash_ieee": {
+          "milliseconds": 5.435746978037059,
+          "mse": 1.6805531318740918,
+          "budget": 25,
+          "warp_loss_percent": 1.3577525770358534e-07,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.49280657531322
+        },
+        "flash_fp16": {
+          "milliseconds": 5.756636033765972,
+          "mse": 1.6811566428549651,
+          "budget": 25,
+          "warp_loss_percent": -0.03589842158152612,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.8588978325138
+        },
+        "warp_emeans": {
+          "milliseconds": 20.08632803335786,
+          "mse": 1.684915614258266,
+          "budget": 3,
+          "warp_loss_percent": -0.25891386283574125,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 93.3678817563281
+        },
+        "triton_emeans": {
+          "milliseconds": 28.31241302192211,
+          "mse": 1.68072256660353,
+          "budget": 3,
+          "warp_loss_percent": -0.010080928942668432,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 95.29482342267106
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 10000,
+      "d": 10,
+      "k": 32,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.343779033049941,
+          "mse": 6.053201561485513,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.380986956879497,
+          "mse": 6.054476301140582,
+          "budget": 25,
+          "warp_loss_percent": -0.02105449904609147,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.02727578010678
+        },
+        "flash_ieee": {
+          "milliseconds": 5.348437000066042,
+          "mse": 6.05320156018621,
+          "budget": 25,
+          "warp_loss_percent": 2.146471889119539e-08,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.87529472566756
+        },
+        "flash_fp16": {
+          "milliseconds": 5.783216911368072,
+          "mse": 6.055288836150922,
+          "budget": 25,
+          "warp_loss_percent": -0.03447027419976045,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.76415991922292
+        },
+        "warp_emeans": {
+          "milliseconds": 20.087457029148936,
+          "mse": 6.0542614907366366,
+          "budget": 3,
+          "warp_loss_percent": -0.01750716008460662,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 93.31035764706314
+        },
+        "triton_emeans": {
+          "milliseconds": 29.09939200617373,
+          "mse": 6.052952478030009,
+          "budget": 3,
+          "warp_loss_percent": 0.004115073700128313,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 95.38210615271672
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 2,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3369990047067404,
+          "mse": 0.018839630730483132,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.46319701243192,
+          "mse": 0.01855967366661562,
+          "budget": 25,
+          "warp_loss_percent": 1.5084158746340837,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.52716840223229
+        },
+        "flash_ieee": {
+          "milliseconds": 8.323183981701732,
+          "mse": 0.018840627691042985,
+          "budget": 25,
+          "warp_loss_percent": -0.005291546418739745,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.93644778673531
+        },
+        "flash_fp16": {
+          "milliseconds": 5.898555973544717,
+          "mse": 0.01882416873698887,
+          "budget": 25,
+          "warp_loss_percent": 0.08213905065501681,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.33345227707866
+        },
+        "warp_emeans": {
+          "milliseconds": 18.71281792409718,
+          "mse": 0.01799364675927245,
+          "budget": 3,
+          "warp_loss_percent": 4.7015704072034925,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 92.85517012921373
+        },
+        "triton_emeans": {
+          "milliseconds": 35.46823805663735,
+          "mse": 0.01811901216134809,
+          "budget": 3,
+          "warp_loss_percent": 3.9771404904307195,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 96.23043297901701
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.4980989508330822,
+          "mse": 0.13186767528278928,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.5477069690823555,
+          "mse": 0.1318634672830913,
+          "budget": 25,
+          "warp_loss_percent": 0.0031911793195504856,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.99606920152667
+        },
+        "flash_ieee": {
+          "milliseconds": 8.221504045650363,
+          "mse": 0.13184701440163696,
+          "budget": 25,
+          "warp_loss_percent": 0.01567034433513914,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.77828603483252
+        },
+        "flash_fp16": {
+          "milliseconds": 5.884965998120606,
+          "mse": 0.13203652853533546,
+          "budget": 25,
+          "warp_loss_percent": -0.1278837412792111,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.54362605813682
+        },
+        "warp_emeans": {
+          "milliseconds": 25.045743095688522,
+          "mse": 0.13236714152970497,
+          "budget": 3,
+          "warp_loss_percent": -0.37733401291558666,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.01854860081603
+        },
+        "triton_emeans": {
+          "milliseconds": 35.8623779611662,
+          "mse": 0.13199742809105514,
+          "budget": 3,
+          "warp_loss_percent": -0.09829949730258969,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 95.82264468782492
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 4,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.7157290130853653,
+          "mse": 0.3929054309070518,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.4381260415539145,
+          "mse": 0.39330964600907087,
+          "budget": 25,
+          "warp_loss_percent": -0.10277274054186769,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 68.44999545845198
+        },
+        "flash_ieee": {
+          "milliseconds": 8.240884053520858,
+          "mse": 0.3929042859793959,
+          "budget": 25,
+          "warp_loss_percent": 0.00029140116226678003,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 79.18027966487003
+        },
+        "flash_fp16": {
+          "milliseconds": 5.811325972899795,
+          "mse": 0.39324442356372735,
+          "budget": 25,
+          "warp_loss_percent": -0.08620405945072296,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.4761181684456
+        },
+        "warp_emeans": {
+          "milliseconds": 24.95743299368769,
+          "mse": 0.38947315710221425,
+          "budget": 3,
+          "warp_loss_percent": 0.8812606831173131,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 93.12537866566922
+        },
+        "triton_emeans": {
+          "milliseconds": 35.816804971545935,
+          "mse": 0.3920372730750321,
+          "budget": 3,
+          "warp_loss_percent": 0.22144777847528108,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 95.2097094800935
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 5,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.0413590827956796,
+          "mse": 0.794533809365785,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.5020860163494945,
+          "mse": 0.7938587795183105,
+          "budget": 25,
+          "warp_loss_percent": 0.08503147724636673,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 62.89845202838043
+        },
+        "flash_ieee": {
+          "milliseconds": 8.282094961032271,
+          "mse": 0.7945932503152227,
+          "budget": 25,
+          "warp_loss_percent": -0.007480676360394067,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.35214106575219
+        },
+        "flash_fp16": {
+          "milliseconds": 5.879316013306379,
+          "mse": 0.7939791292341022,
+          "budget": 25,
+          "warp_loss_percent": 0.06986079498310094,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 65.27896989759408
+        },
+        "warp_emeans": {
+          "milliseconds": 25.31740302219987,
+          "mse": 0.791340334285595,
+          "budget": 3,
+          "warp_loss_percent": 0.40355267409351026,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 91.93693333788742
+        },
+        "triton_emeans": {
+          "milliseconds": 36.45988495554775,
+          "mse": 0.7905337898767512,
+          "budget": 3,
+          "warp_loss_percent": 0.5059896920607931,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.40108194174358
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.2612790344282985,
+          "mse": 1.3180070832225457,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.4888969752937555,
+          "mse": 1.3190248527702584,
+          "budget": 25,
+          "warp_loss_percent": -0.07716075596112537,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 58.8026693777163
+        },
+        "flash_ieee": {
+          "milliseconds": 8.426163927651942,
+          "mse": 1.3180083439165984,
+          "budget": 25,
+          "warp_loss_percent": -9.565144700740547e-05,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.16360025933612
+        },
+        "flash_fp16": {
+          "milliseconds": 5.874205962754786,
+          "mse": 1.3185938348757198,
+          "budget": 25,
+          "warp_loss_percent": -0.04449828579923265,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.50494128456058
+        },
+        "warp_emeans": {
+          "milliseconds": 25.108283036388457,
+          "mse": 1.3239969120351656,
+          "budget": 3,
+          "warp_loss_percent": -0.45240504401272696,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 90.99389221018771
+        },
+        "triton_emeans": {
+          "milliseconds": 36.47688508499414,
+          "mse": 1.3166944744015505,
+          "budget": 3,
+          "warp_loss_percent": 0.09968970376303954,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 93.80078910477326
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 8,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.7090279618278146,
+          "mse": 2.597963266737883,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.609745974652469,
+          "mse": 2.597147609535932,
+          "budget": 25,
+          "warp_loss_percent": 0.03140588540120337,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 51.70854484198561
+        },
+        "flash_ieee": {
+          "milliseconds": 8.16260406281799,
+          "mse": 2.5975271689515407,
+          "budget": 25,
+          "warp_loss_percent": 0.01678895957488713,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 66.81171914036742
+        },
+        "flash_fp16": {
+          "milliseconds": 5.951765924692154,
+          "mse": 2.5978407062676157,
+          "budget": 25,
+          "warp_loss_percent": 0.004717782347918309,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 54.483627277933735
+        },
+        "warp_emeans": {
+          "milliseconds": 25.09093307889998,
+          "mse": 2.5953188648242103,
+          "budget": 3,
+          "warp_loss_percent": 0.10189121458306083,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 89.20315974974262
+        },
+        "triton_emeans": {
+          "milliseconds": 36.43346601165831,
+          "mse": 2.5980790608959206,
+          "budget": 3,
+          "warp_loss_percent": -0.004456914332606754,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 92.5644517022867
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 10,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4081279300153255,
+          "mse": 4.110964547760103,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.567085929214954,
+          "mse": 4.112604241913785,
+          "budget": 25,
+          "warp_loss_percent": -0.03986997185313479,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 38.78075579667001
+        },
+        "flash_ieee": {
+          "milliseconds": 8.356864098459482,
+          "mse": 4.110942949736663,
+          "budget": 25,
+          "warp_loss_percent": 0.0005253788170733742,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 59.217621707602184
+        },
+        "flash_fp16": {
+          "milliseconds": 6.048706010915339,
+          "mse": 4.111153762183776,
+          "budget": 25,
+          "warp_loss_percent": -0.004602465259595512,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 43.6552557875171
+        },
+        "warp_emeans": {
+          "milliseconds": 25.377103011123836,
+          "mse": 4.1076455850966145,
+          "budget": 3,
+          "warp_loss_percent": 0.08079963557543479,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 86.57006700677614
+        },
+        "triton_emeans": {
+          "milliseconds": 36.493385094217956,
+          "mse": 4.108035442182785,
+          "budget": 3,
+          "warp_loss_percent": 0.07130185750690021,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 90.66097069039695
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 32,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 9.687563055194914,
+          "mse": 24.58222981849417,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.523166968487203,
+          "mse": 24.589564190412787,
+          "budget": 25,
+          "warp_loss_percent": -0.02982717327489892,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -75.39869988482968
+        },
+        "flash_ieee": {
+          "milliseconds": 11.834062053821981,
+          "mse": 24.580407980360633,
+          "budget": 25,
+          "warp_loss_percent": 0.007411748962793396,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 18.138311163695676
+        },
+        "flash_fp16": {
+          "milliseconds": 5.960316048003733,
+          "mse": 24.582401737207068,
+          "budget": 25,
+          "warp_loss_percent": -0.0006993568599789057,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -62.534385377760884
+        },
+        "warp_emeans": {
+          "milliseconds": 4.087756969965994,
+          "mse": 24.609873338256858,
+          "budget": 3,
+          "warp_loss_percent": -0.11232694854920178,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -136.98970184314808
+        },
+        "triton_emeans": {
+          "milliseconds": 7.491916068829596,
+          "mse": 24.610611842379754,
+          "budget": 3,
+          "warp_loss_percent": -0.11532433272020137,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -29.30688179356935
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 100000,
+      "d": 100,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 37.154534948058426,
+          "mse": 92.57003586631156,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 12.105591944418848,
+          "mse": 92.55898552396,
+          "budget": 25,
+          "warp_loss_percent": 0.011938702967628778,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -206.92043081121798
+        },
+        "flash_ieee": {
+          "milliseconds": 37.18737605959177,
+          "mse": 92.57445940349201,
+          "budget": 25,
+          "warp_loss_percent": -0.004778355940682211,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 0.08831252702722336
+        },
+        "flash_fp16": {
+          "milliseconds": 10.211382992565632,
+          "mse": 92.57576223668703,
+          "budget": 25,
+          "warp_loss_percent": -0.006185604349473461,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -263.85409278164065
+        },
+        "warp_emeans": {
+          "milliseconds": 12.916740961372852,
+          "mse": 92.49791139834277,
+          "budget": 3,
+          "warp_loss_percent": 0.07797415841983568,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -187.646358002905
+        },
+        "triton_emeans": {
+          "milliseconds": 9.191493969410658,
+          "mse": 92.50056210807355,
+          "budget": 3,
+          "warp_loss_percent": 0.07510630925338102,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -304.22737665616626
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 1000000,
+      "d": 2,
+      "k": 1024,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 16.485248925164342,
+          "mse": 0.005027869036069587,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 43.46530104521662,
+          "mse": 0.0048832287491049,
+          "budget": 25,
+          "warp_loss_percent": 2.9619805746597505,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 62.07262223258303
+        },
+        "flash_ieee": {
+          "milliseconds": 180.7390310568735,
+          "mse": 0.005028629681878959,
+          "budget": 25,
+          "warp_loss_percent": -0.015126303933510332,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 90.87897681603876
+        },
+        "flash_fp16": {
+          "milliseconds": 39.508694084361196,
+          "mse": 0.005026372606451389,
+          "budget": 25,
+          "warp_loss_percent": 0.029771561628311183,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 58.2743765461746
+        },
+        "warp_emeans": {
+          "milliseconds": 23.56333495117724,
+          "mse": 0.004658586243456883,
+          "budget": 3,
+          "warp_loss_percent": 7.926928327910043,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 30.03855795743069
+        },
+        "triton_emeans": {
+          "milliseconds": 54.23542391508818,
+          "mse": 0.004613100054647669,
+          "budget": 3,
+          "warp_loss_percent": 8.991111758004045,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 69.6042775456611
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 1000000,
+      "d": 5,
+      "k": 1024,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 26.504632900469005,
+          "mse": 0.47079665093931916,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 45.60545994900167,
+          "mse": 0.4708016204538197,
+          "budget": 25,
+          "warp_loss_percent": -0.0010555432021885913,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 41.882763752173915
+        },
+        "flash_ieee": {
+          "milliseconds": 178.36900195106864,
+          "mse": 0.47075596772982137,
+          "budget": 25,
+          "warp_loss_percent": 0.008642101701639149,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 85.14056107812952
+        },
+        "flash_fp16": {
+          "milliseconds": 44.07124104909599,
+          "mse": 0.4707590808454512,
+          "budget": 25,
+          "warp_loss_percent": 0.007980747562097434,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 39.85957220732117
+        },
+        "warp_emeans": {
+          "milliseconds": 31.193969072774053,
+          "mse": 0.46840973203378633,
+          "budget": 3,
+          "warp_loss_percent": 0.509579272652827,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 15.032829459326091
+        },
+        "triton_emeans": {
+          "milliseconds": 54.59307401906699,
+          "mse": 0.46792073038368925,
+          "budget": 3,
+          "warp_loss_percent": 0.6146170427780984,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 51.450557828613775
+        }
+      }
+    },
+    {
+      "dataset": "normal",
+      "n": 1000000,
+      "d": 10,
+      "k": 1024,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 50.16581597737968,
+          "mse": 3.17454060622068,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 45.55134009569883,
+          "mse": 3.1753888615715398,
+          "budget": 25,
+          "warp_loss_percent": -0.026713432207481347,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -10.130274700999564
+        },
+        "flash_ieee": {
+          "milliseconds": 183.6209180764854,
+          "mse": 3.174317836883803,
+          "budget": 25,
+          "warp_loss_percent": 0.007017864887015612,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.67968350071988
+        },
+        "flash_fp16": {
+          "milliseconds": 39.409653982147574,
+          "mse": 3.174591841528194,
+          "budget": 25,
+          "warp_loss_percent": -0.0016139179482621557,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -27.293216022918166
+        },
+        "warp_emeans": {
+          "milliseconds": 30.925588915124536,
+          "mse": 3.17937784041405,
+          "budget": 3,
+          "warp_loss_percent": -0.15214404943894033,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -62.214585840418636
+        },
+        "triton_emeans": {
+          "milliseconds": 54.376133950427175,
+          "mse": 3.17939254330641,
+          "budget": 3,
+          "warp_loss_percent": -0.15260578930227364,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 7.742952040109907
+        }
+      }
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3279690174385905,
+          "mse": 0.00508063214525581,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.387046956457198,
+          "mse": 0.005081106143687137,
+          "budget": 25,
+          "warp_loss_percent": -0.00932864651757015,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.34885015533757
+        },
+        "flash_ieee": {
+          "milliseconds": 5.606426042504609,
+          "mse": 0.005080188744848452,
+          "budget": 25,
+          "warp_loss_percent": 0.008728030189963931,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.31344804389259
+        },
+        "flash_fp16": {
+          "milliseconds": 5.714145954698324,
+          "mse": 0.005081118054293563,
+          "budget": 25,
+          "warp_loss_percent": -0.00956303381579593,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.75997379194175
+        },
+        "warp_emeans": {
+          "milliseconds": 24.090244085527956,
+          "mse": 0.0032638510199714753,
+          "budget": 3,
+          "warp_loss_percent": 55.66372711767378,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.48752361028853
+        },
+        "triton_emeans": {
+          "milliseconds": 42.30943194124848,
+          "mse": 0.004382068606964929,
+          "budget": 3,
+          "warp_loss_percent": 15.941410346259133,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 96.86129319986469
+        }
+      }
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3387290528044105,
+          "mse": 0.006505335306955293,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.478527047671378,
+          "mse": 0.006331581640164841,
+          "budget": 25,
+          "warp_loss_percent": 2.7442379592522936,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.56406966406361
+        },
+        "flash_ieee": {
+          "milliseconds": 5.458625964820385,
+          "mse": 0.006492668768413451,
+          "budget": 25,
+          "warp_loss_percent": 0.19508986202196876,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.47498104042634
+        },
+        "flash_fp16": {
+          "milliseconds": 6.0054060304537416,
+          "mse": 0.0065563082375361655,
+          "budget": 25,
+          "warp_loss_percent": -0.7774639131370109,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.70793438419247
+        },
+        "warp_emeans": {
+          "milliseconds": 24.957122979685664,
+          "mse": 0.0060125991413746945,
+          "budget": 3,
+          "warp_loss_percent": 8.195060971051893,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.63588389617628
+        },
+        "triton_emeans": {
+          "milliseconds": 36.10682603903115,
+          "mse": 0.006198338035706908,
+          "budget": 3,
+          "warp_loss_percent": 4.952896558397724,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 96.29231034775182
+        }
+      }
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3500889763236046,
+          "mse": 0.04494156034730042,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.476585938595235,
+          "mse": 0.04478966340886531,
+          "budget": 25,
+          "warp_loss_percent": 0.33913391366331425,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.34798154432126
+        },
+        "flash_ieee": {
+          "milliseconds": 5.352286039851606,
+          "mse": 0.044942958016776675,
+          "budget": 25,
+          "warp_loss_percent": -0.003109874244888733,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.77547040140932
+        },
+        "flash_fp16": {
+          "milliseconds": 5.891556036658585,
+          "mse": 0.04489722684344488,
+          "budget": 25,
+          "warp_loss_percent": 0.09874441468318285,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.08433955438856
+        },
+        "warp_emeans": {
+          "milliseconds": 25.141982943750918,
+          "mse": 0.043801815625048146,
+          "budget": 3,
+          "warp_loss_percent": 2.6020490383519945,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.63014122893925
+        },
+        "triton_emeans": {
+          "milliseconds": 36.073616007342935,
+          "mse": 0.04515021065466116,
+          "budget": 3,
+          "warp_loss_percent": -0.46212477048365175,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 96.2574060331274
+        }
+      }
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.509738969616592,
+          "mse": 0.0014496887169849796,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.550585919991136,
+          "mse": 0.0014508566343986453,
+          "budget": 25,
+          "warp_loss_percent": -0.08049847145302769,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.80036753995508
+        },
+        "flash_ieee": {
+          "milliseconds": 8.24232492595911,
+          "mse": 0.0014497050472745444,
+          "budget": 25,
+          "warp_loss_percent": -0.0011264560053514394,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.68309326338633
+        },
+        "flash_fp16": {
+          "milliseconds": 5.911076092161238,
+          "mse": 0.0014492268185900155,
+          "budget": 25,
+          "warp_loss_percent": 0.03187205681256522,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.45915183499874
+        },
+        "warp_emeans": {
+          "milliseconds": 25.20467306021601,
+          "mse": 0.001435811350527314,
+          "budget": 3,
+          "warp_loss_percent": 0.9665173946820538,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.01008310637594
+        },
+        "triton_emeans": {
+          "milliseconds": 35.89834598824382,
+          "mse": 0.0014510211992426632,
+          "budget": 3,
+          "warp_loss_percent": -0.0918306540510283,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 95.79440520710617
+        }
+      }
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.2880289470776916,
+          "mse": 0.002447783153686407,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.515596945770085,
+          "mse": 0.0024455306918009377,
+          "budget": 25,
+          "warp_loss_percent": 0.09210523887601685,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 58.517111210738804
+        },
+        "flash_ieee": {
+          "milliseconds": 8.420745027251542,
+          "mse": 0.002447744107127229,
+          "budget": 25,
+          "warp_loss_percent": 0.001595205931237409,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.82866373850433
+        },
+        "flash_fp16": {
+          "milliseconds": 5.877956049516797,
+          "mse": 0.0024509722823918634,
+          "budget": 25,
+          "warp_loss_percent": -0.1301168817112841,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.07441212892735
+        },
+        "warp_emeans": {
+          "milliseconds": 24.973824038170278,
+          "mse": 0.0024228191727493327,
+          "budget": 3,
+          "warp_loss_percent": 1.030369134347997,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 90.83829155046243
+        },
+        "triton_emeans": {
+          "milliseconds": 36.59411601256579,
+          "mse": 0.002429169064238984,
+          "budget": 3,
+          "warp_loss_percent": 0.7662739379259653,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 93.74754961619507
+        }
+      }
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3270999770611525,
+          "mse": 0.00024556107692367803,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.385796073824167,
+          "mse": 0.0002459385757638437,
+          "budget": 25,
+          "warp_loss_percent": -0.1534931390869465,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.35926056482029
+        },
+        "flash_ieee": {
+          "milliseconds": 6.246585980989039,
+          "mse": 0.00024555784229114946,
+          "budget": 25,
+          "warp_loss_percent": 0.0013172588985144174,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.75479532179546
+        },
+        "flash_fp16": {
+          "milliseconds": 5.845866049639881,
+          "mse": 0.0002452796951293604,
+          "budget": 25,
+          "warp_loss_percent": 0.11471874757884581,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.2984880975351
+        },
+        "warp_emeans": {
+          "milliseconds": 25.03911394160241,
+          "mse": 0.0002443052702533518,
+          "budget": 3,
+          "warp_loss_percent": 0.5140317558536056,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 94.69989241569695
+        },
+        "triton_emeans": {
+          "milliseconds": 36.34306602180004,
+          "mse": 0.0002445779824614616,
+          "budget": 3,
+          "warp_loss_percent": 0.40195542228391723,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 96.34840941525103
+        }
+      }
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.6590189188718796,
+          "mse": 0.0008254602270370233,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.5612759897485375,
+          "mse": 0.0008244385245201536,
+          "budget": 25,
+          "warp_loss_percent": 0.12392707114994295,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.16837643141507
+        },
+        "flash_ieee": {
+          "milliseconds": 6.223456002771854,
+          "mse": 0.0008254611836908721,
+          "budget": 25,
+          "warp_loss_percent": -0.0001158932567246751,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.34248176362182
+        },
+        "flash_fp16": {
+          "milliseconds": 6.020875996910036,
+          "mse": 0.0008257038225033018,
+          "budget": 25,
+          "warp_loss_percent": -0.029501554872302105,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.44555576757764
+        },
+        "warp_emeans": {
+          "milliseconds": 24.904202902689576,
+          "mse": 0.0008026500781704521,
+          "budget": 3,
+          "warp_loss_percent": 2.841854686984435,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 93.33839783849211
+        },
+        "triton_emeans": {
+          "milliseconds": 36.94871603511274,
+          "mse": 0.0007965891138327305,
+          "budget": 3,
+          "warp_loss_percent": 3.624341922698582,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 95.50994162477717
+        }
+      }
+    }
+  ],
+  "confirmation": [
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "validation_selected": null,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 6.254670966882259,
+          "mse": 0.005144449671042205,
+          "budget": 200
+        },
+        "flash_tf32": {
+          "milliseconds": 37.23734547384083,
+          "mse": 0.0051706244075034645,
+          "budget": 200,
+          "warp_loss_percent": -0.5062200306654496,
+          "warp_loss_percent_95": [
+            -1.2967888344932232,
+            0.02054436084120148
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 83.20323082300226
+        },
+        "flash_ieee": {
+          "milliseconds": 36.36764595285058,
+          "mse": 0.005144450215480652,
+          "budget": 200,
+          "warp_loss_percent": -1.0583024889765369e-05,
+          "warp_loss_percent_95": [
+            -2.4843943291497084e-05,
+            5.796795576884506e-06
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 82.80155120573043
+        },
+        "flash_fp16": {
+          "milliseconds": 40.06096796365455,
+          "mse": 0.0051457915567809055,
+          "budget": 200,
+          "warp_loss_percent": -0.02607734347366275,
+          "warp_loss_percent_95": [
+            -0.055460925734041044,
+            8.368448400908335e-06
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 84.38711972072959
+        },
+        "warp_emeans": {
+          "milliseconds": 24.25167348701507,
+          "mse": 0.004720072161313595,
+          "budget": 3,
+          "warp_loss_percent": 8.990911478152185,
+          "warp_loss_percent_95": [
+            -13.903469733499197,
+            37.27504759499798
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 74.2093222134499
+        },
+        "triton_emeans": {
+          "milliseconds": 42.360976920463145,
+          "mse": 0.004532023848374677,
+          "budget": 3,
+          "warp_loss_percent": 13.51329655705944,
+          "warp_loss_percent_95": [
+            2.2999683247903135,
+            29.274986718810723
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 85.23482832176884
+        }
+      }
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "validation_selected": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4299775143153965,
+          "mse": 0.006197534847357547,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.270457501988858,
+          "mse": 0.006095631094562112,
+          "budget": 100,
+          "warp_loss_percent": 1.6717506557498707,
+          "warp_loss_percent_95": [
+            -0.12764908455137336,
+            3.5979717257649924
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 82.20085063387106
+        },
+        "flash_ieee": {
+          "milliseconds": 18.872803018894047,
+          "mse": 0.006199399511444298,
+          "budget": 100,
+          "warp_loss_percent": -0.030078140363565264,
+          "warp_loss_percent_95": [
+            -0.1610062699751058,
+            0.14607764749543506
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 81.82581829057635
+        },
+        "flash_fp16": {
+          "milliseconds": 20.77834599185735,
+          "mse": 0.006208710912975496,
+          "budget": 100,
+          "warp_loss_percent": -0.18000621666233174,
+          "warp_loss_percent_95": [
+            -0.5502141130041993,
+            0.08400729163573484
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 83.49253826238363
+        },
+        "warp_emeans": {
+          "milliseconds": 24.880223558284342,
+          "mse": 0.006224443375943439,
+          "budget": 3,
+          "warp_loss_percent": -0.43230417501891605,
+          "warp_loss_percent_95": [
+            -1.7756944703022137,
+            1.1163527677627627
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 86.21404061631384
+        },
+        "triton_emeans": {
+          "milliseconds": 36.22697101673111,
+          "mse": 0.006175799268559818,
+          "budget": 3,
+          "warp_loss_percent": 0.3519476241461206,
+          "warp_loss_percent_95": [
+            -2.041750128561015,
+            2.293244813936157
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 90.53197819731798
+        }
+      }
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "validation_selected": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3084089732728899,
+          "mse": 0.04471909049970792,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.450055992696434,
+          "mse": 0.044615225986197396,
+          "budget": 25,
+          "warp_loss_percent": 0.23280059937980102,
+          "warp_loss_percent_95": [
+            -0.07402986076133766,
+            0.5660511690106729
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 75.99274255115405
+        },
+        "flash_ieee": {
+          "milliseconds": 5.391812475863844,
+          "mse": 0.04472001353691549,
+          "budget": 25,
+          "warp_loss_percent": -0.0020640360647639078,
+          "warp_loss_percent_95": [
+            -0.014417781017761477,
+            0.007912621194394731
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 75.73341099806584
+        },
+        "flash_fp16": {
+          "milliseconds": 5.847811000421643,
+          "mse": 0.04472839890255047,
+          "budget": 25,
+          "warp_loss_percent": -0.020810945777050005,
+          "warp_loss_percent_95": [
+            -0.134073538515167,
+            0.0743184518599227
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 77.62566243713161
+        },
+        "warp_emeans": {
+          "milliseconds": 24.890703964047134,
+          "mse": 0.04394041261362806,
+          "budget": 3,
+          "warp_loss_percent": 1.7721223806586472,
+          "warp_loss_percent_95": [
+            0.47298579665742135,
+            2.8948177964534194
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 94.74338301093134
+        },
+        "triton_emeans": {
+          "milliseconds": 36.146995960734785,
+          "mse": 0.043930939504693144,
+          "budget": 3,
+          "warp_loss_percent": 1.7940681531078528,
+          "warp_loss_percent_95": [
+            0.23111097010457549,
+            3.370532239460622
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 96.3803106219555
+        }
+      }
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "validation_selected": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.227567987982184,
+          "mse": 0.0014230228430921802,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.095444993581623,
+          "mse": 0.0014225145461982337,
+          "budget": 100,
+          "warp_loss_percent": 0.03573228093203262,
+          "warp_loss_percent_95": [
+            -0.1998120918141666,
+            0.29211465877836407
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 77.86085640107807
+        },
+        "flash_ieee": {
+          "milliseconds": 30.94360395334661,
+          "mse": 0.0014227750214491576,
+          "budget": 100,
+          "warp_loss_percent": 0.017418189052142985,
+          "warp_loss_percent_95": [
+            -0.018652815550379565,
+            0.056191609902978
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 86.337829315693
+        },
+        "flash_fp16": {
+          "milliseconds": 20.582893979735672,
+          "mse": 0.0014221335765457047,
+          "budget": 100,
+          "warp_loss_percent": 0.06253045150901304,
+          "warp_loss_percent_95": [
+            -0.11405490980643807,
+            0.24632403995004104
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 79.46076974333968
+        },
+        "warp_emeans": {
+          "milliseconds": 24.94143194053322,
+          "mse": 0.0014260910512332037,
+          "budget": 3,
+          "warp_loss_percent": -0.2151481238431674,
+          "warp_loss_percent_95": [
+            -0.6077886445234326,
+            0.16329375445847116
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 83.05001894814303
+        },
+        "triton_emeans": {
+          "milliseconds": 35.90631653787568,
+          "mse": 0.0014267952187519014,
+          "budget": 3,
+          "warp_loss_percent": -0.26439503091558736,
+          "warp_loss_percent_95": [
+            -0.4826120531549738,
+            -0.00976795715540435
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 88.22611619456218
+        }
+      }
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "validation_selected": 50,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.993398044258356,
+          "mse": 0.0024135544781549788,
+          "budget": 50
+        },
+        "flash_tf32": {
+          "milliseconds": 10.131398972589523,
+          "mse": 0.0024147076295602896,
+          "budget": 50,
+          "warp_loss_percent": -0.04775532206028332,
+          "warp_loss_percent_95": [
+            -0.21221624950733542,
+            0.1187713467167173
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 60.58394250327635
+        },
+        "flash_ieee": {
+          "milliseconds": 16.14733098540455,
+          "mse": 0.0024135910700622733,
+          "budget": 50,
+          "warp_loss_percent": -0.001516077340046884,
+          "warp_loss_percent_95": [
+            -0.004806715198990563,
+            0.0018593229719421345
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 75.26898997817064
+        },
+        "flash_fp16": {
+          "milliseconds": 10.936349048279226,
+          "mse": 0.002413577672234533,
+          "budget": 50,
+          "warp_loss_percent": -0.0009609833493628983,
+          "warp_loss_percent_95": [
+            -0.04901746014156494,
+            0.049602041162333244
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 63.48508970745868
+        },
+        "warp_emeans": {
+          "milliseconds": 24.82782246079296,
+          "mse": 0.002415657873662441,
+          "budget": 3,
+          "warp_loss_percent": -0.08707340266993491,
+          "warp_loss_percent_95": [
+            -0.29556687650847957,
+            0.13070289287109293
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 83.91563315484247
+        },
+        "triton_emeans": {
+          "milliseconds": 36.26893652835861,
+          "mse": 0.0024076801575216317,
+          "budget": 3,
+          "warp_loss_percent": 0.24398259939117928,
+          "warp_loss_percent_95": [
+            -0.1795841009170629,
+            0.6453185149071672
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 88.9894812848016
+        }
+      }
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "validation_selected": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3205690192990005,
+          "mse": 0.0002473981881746107,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.383617011830211,
+          "mse": 0.0002471365456431303,
+          "budget": 25,
+          "warp_loss_percent": 0.105869623935817,
+          "warp_loss_percent_95": [
+            -0.13236828259932665,
+            0.34790570228806494
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 75.470598736925
+        },
+        "flash_ieee": {
+          "milliseconds": 5.984866933431476,
+          "mse": 0.0002473876158044871,
+          "budget": 25,
+          "warp_loss_percent": 0.004273605244620171,
+          "warp_loss_percent_95": [
+            -0.0017802202175953852,
+            0.013128995168631974
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 77.93486415007325
+        },
+        "flash_fp16": {
+          "milliseconds": 5.817631958052516,
+          "mse": 0.00024724842661298885,
+          "budget": 25,
+          "warp_loss_percent": 0.060571290047573,
+          "warp_loss_percent_95": [
+            -0.036606931440763546,
+            0.17272056706869598
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 77.30057472145302
+        },
+        "warp_emeans": {
+          "milliseconds": 24.980771995615214,
+          "mse": 0.0002443654389917359,
+          "budget": 3,
+          "warp_loss_percent": 1.2410712396106582,
+          "warp_loss_percent_95": [
+            0.7201451968485761,
+            1.7017706860829263
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 94.71365809058744
+        },
+        "triton_emeans": {
+          "milliseconds": 36.40145598910749,
+          "mse": 0.0002451256881757191,
+          "budget": 3,
+          "warp_loss_percent": 0.9270754182493235,
+          "warp_loss_percent_95": [
+            0.5331423094155241,
+            1.3471834285003537
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 96.37220824437858
+        }
+      }
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "validation_selected": null,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 9.011670539621264,
+          "mse": 0.0008021257615576175,
+          "budget": 200
+        },
+        "flash_tf32": {
+          "milliseconds": 37.115905492100865,
+          "mse": 0.0007981144267964575,
+          "budget": 200,
+          "warp_loss_percent": 0.5026014599511797,
+          "warp_loss_percent_95": [
+            0.14674587254031035,
+            0.9132770315536831
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 75.7201921382757
+        },
+        "flash_ieee": {
+          "milliseconds": 44.07633695518598,
+          "mse": 0.0008021054973502828,
+          "budget": 200,
+          "warp_loss_percent": 0.0025263768172134604,
+          "warp_loss_percent_95": [
+            -1.4510966206415787e-06,
+            0.007572432437119581
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 79.55440228895664
+        },
+        "flash_fp16": {
+          "milliseconds": 39.80528947431594,
+          "mse": 0.0008018444758881197,
+          "budget": 200,
+          "warp_loss_percent": 0.03507982881421068,
+          "warp_loss_percent_95": [
+            -0.02139768577720247,
+            0.11194233985369895
+          ],
+          "warp_loss_margin_pass": true,
+          "warp_time_reduction_percent": 77.36062051392447
+        },
+        "warp_emeans": {
+          "milliseconds": 24.835017044097185,
+          "mse": 0.0008023836597278514,
+          "budget": 3,
+          "warp_loss_percent": -0.032141503270555205,
+          "warp_loss_percent_95": [
+            -0.6591040300813145,
+            0.6669719331074075
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 63.71385401660851
+        },
+        "triton_emeans": {
+          "milliseconds": 36.6777409799397,
+          "mse": 0.0007975484201677294,
+          "budget": 3,
+          "warp_loss_percent": 0.5739264568946689,
+          "warp_loss_percent_95": [
+            -0.32713477161110394,
+            1.4997400961535456
+          ],
+          "warp_loss_margin_pass": false,
+          "warp_time_reduction_percent": 75.43013746525433
+        }
+      }
+    }
+  ],
+  "scaling": [
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 4,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3260090490803123,
+          "mse": 0.1192921755907811,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.422716028988361,
+          "mse": 0.11932244325154007,
+          "budget": 25,
+          "warp_loss_percent": -0.02536627639709854,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.54714202270911
+        },
+        "flash_ieee": {
+          "milliseconds": 6.136615993455052,
+          "mse": 0.11929060114302237,
+          "budget": 25,
+          "warp_loss_percent": 0.0013198422538440724,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.3918522766529
+        },
+        "flash_fp16": {
+          "milliseconds": 5.886666011065245,
+          "mse": 0.11932057442587392,
+          "budget": 25,
+          "warp_loss_percent": -0.02380045120421448,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.47436245596752
+        }
+      },
+      "warp_emeans_mse": 0.11941505543725668
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 4,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4499779576435685,
+          "mse": 0.11881427855326913,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.737428006716073,
+          "mse": 0.11872230216047709,
+          "budget": 100,
+          "warp_loss_percent": 0.07747187438102987,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.58777204423686
+        },
+        "flash_ieee": {
+          "milliseconds": 22.099455003626645,
+          "mse": 0.1187964037602491,
+          "budget": 100,
+          "warp_loss_percent": 0.015046577551380835,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.38885503250009
+        },
+        "flash_fp16": {
+          "milliseconds": 20.504117012023926,
+          "mse": 0.11885189637982739,
+          "budget": 100,
+          "warp_loss_percent": -0.031651010799216284,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.17421835029302
+        }
+      },
+      "warp_emeans_mse": 0.11941505543725668
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.62504892796278,
+          "mse": 0.40905985873162987,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.471436074003577,
+          "mse": 0.4091704884922427,
+          "budget": 25,
+          "warp_loss_percent": -0.027037570822985302,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.29940757813343
+        },
+        "flash_ieee": {
+          "milliseconds": 6.228995975106955,
+          "mse": 0.40905386894174384,
+          "budget": 25,
+          "warp_loss_percent": 0.001464303442855197,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.91154313701611
+        },
+        "flash_fp16": {
+          "milliseconds": 5.721217021346092,
+          "mse": 0.40907558899153057,
+          "budget": 25,
+          "warp_loss_percent": -0.0038453186462339417,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.59609709088718
+        }
+      },
+      "warp_emeans_mse": 0.4090914965715258
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.783087060786784,
+          "mse": 0.4086578323391059,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.974727019667625,
+          "mse": 0.40859758053581885,
+          "budget": 100,
+          "warp_loss_percent": 0.01474600099393708,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.79232741620456
+        },
+        "flash_ieee": {
+          "milliseconds": 22.455014986917377,
+          "mse": 0.40860871241075075,
+          "budget": 100,
+          "warp_loss_percent": 0.012021263096761992,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.699247969447
+        },
+        "flash_fp16": {
+          "milliseconds": 20.531515940092504,
+          "mse": 0.4086455627918619,
+          "budget": 100,
+          "warp_loss_percent": 0.003002491244519234,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.70368289052291
+        }
+      },
+      "warp_emeans_mse": 0.4090914965715258
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 7,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.7837189370766282,
+          "mse": 0.5912135819939708,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.4233960108831525,
+          "mse": 0.591031479103823,
+          "budget": 25,
+          "warp_loss_percent": 0.03081103064490609,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 67.11066399176399
+        },
+        "flash_ieee": {
+          "milliseconds": 6.200316012836993,
+          "mse": 0.5912303528915236,
+          "budget": 25,
+          "warp_loss_percent": -0.0028366097022614056,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.23180603402058
+        },
+        "flash_fp16": {
+          "milliseconds": 6.051905918866396,
+          "mse": 0.5910684956705211,
+          "budget": 25,
+          "warp_loss_percent": 0.02454644842559972,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.5263273919046
+        }
+      },
+      "warp_emeans_mse": 0.5878570185908757
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 7,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 5.5067859357222915,
+          "mse": 0.5886728541204724,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.02686699759215,
+          "mse": 0.5885619731014146,
+          "budget": 100,
+          "warp_loss_percent": 0.018839310748131055,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.05784185899246
+        },
+        "flash_ieee": {
+          "milliseconds": 22.526834974996746,
+          "mse": 0.5887135994995493,
+          "budget": 100,
+          "warp_loss_percent": -0.006921086774869245,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.55455108614038
+        },
+        "flash_fp16": {
+          "milliseconds": 20.426575909368694,
+          "mse": 0.5886198701863884,
+          "budget": 100,
+          "warp_loss_percent": 0.009001383875695268,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.04107178728574
+        }
+      },
+      "warp_emeans_mse": 0.5878570185908757
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 8,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.88103795517236,
+          "mse": 0.8111978602875016,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.492367083206773,
+          "mse": 0.8110821307666781,
+          "budget": 25,
+          "warp_loss_percent": 0.014268532918371157,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 65.75178012183962
+        },
+        "flash_ieee": {
+          "milliseconds": 6.086495937779546,
+          "mse": 0.8112226059275504,
+          "budget": 25,
+          "warp_loss_percent": -0.0030504130269393137,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 69.09489508574956
+        },
+        "flash_fp16": {
+          "milliseconds": 5.827146000228822,
+          "mse": 0.8112602970771524,
+          "budget": 25,
+          "warp_loss_percent": -0.0076962708363437216,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 67.71939547939085
+        }
+      },
+      "warp_emeans_mse": 0.8103525772689079
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 8,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 5.766295944340527,
+          "mse": 0.7987673202821771,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.900388036854565,
+          "mse": 0.7988653912391953,
+          "budget": 100,
+          "warp_loss_percent": -0.012276280596668077,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 69.49112402826539
+        },
+        "flash_ieee": {
+          "milliseconds": 22.296134964562953,
+          "mse": 0.7986987495618116,
+          "budget": 100,
+          "warp_loss_percent": 0.008585304584873832,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.13768819795284
+        },
+        "flash_fp16": {
+          "milliseconds": 20.425726077519357,
+          "mse": 0.7987169928184268,
+          "budget": 100,
+          "warp_loss_percent": 0.006301038315559282,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.76944446206524
+        }
+      },
+      "warp_emeans_mse": 0.8103525772689079
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 9,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.2708780597895384,
+          "mse": 1.075690501511375,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.621406016871333,
+          "mse": 1.0759193695684555,
+          "budget": 25,
+          "warp_loss_percent": -0.021271859542071336,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 59.603023639032116
+        },
+        "flash_ieee": {
+          "milliseconds": 6.240095943212509,
+          "mse": 1.0757338384146733,
+          "budget": 25,
+          "warp_loss_percent": -0.004028589763638291,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 63.60828294219382
+        },
+        "flash_fp16": {
+          "milliseconds": 5.920556024648249,
+          "mse": 1.075974388926354,
+          "budget": 25,
+          "warp_loss_percent": -0.026384216752817213,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.644175811604526
+        }
+      },
+      "warp_emeans_mse": 1.0707997663049003
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 9,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 7.455115090124309,
+          "mse": 1.0689758052277396,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.156866939738393,
+          "mse": 1.0686124768440093,
+          "budget": 100,
+          "warp_loss_percent": 0.03400001325113422,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.0838499135803
+        },
+        "flash_ieee": {
+          "milliseconds": 22.473745048046112,
+          "mse": 1.0685972118344969,
+          "budget": 100,
+          "warp_loss_percent": 0.03542900814730299,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 66.82744654179271
+        },
+        "flash_fp16": {
+          "milliseconds": 20.75709600467235,
+          "mse": 1.0691208055662649,
+          "budget": 100,
+          "warp_loss_percent": -0.013562577565640055,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 64.08401691428229
+        }
+      },
+      "warp_emeans_mse": 1.0707997663049003
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 16,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.3458779798820615,
+          "mse": 3.231851811895915,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.641345982439816,
+          "mse": 3.2321027212835056,
+          "budget": 25,
+          "warp_loss_percent": -0.007763038777763853,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 40.69007661829299
+        },
+        "flash_ieee": {
+          "milliseconds": 6.143026053905487,
+          "mse": 3.231697383715747,
+          "budget": 25,
+          "warp_loss_percent": 0.004778547055361848,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 45.53371659957575
+        },
+        "flash_fp16": {
+          "milliseconds": 5.84596605040133,
+          "mse": 3.2320168481503693,
+          "budget": 25,
+          "warp_loss_percent": -0.0051062931354595165,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 42.76603813577802
+        }
+      },
+      "warp_emeans_mse": 3.238785625310961
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 16,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 11.760551948100328,
+          "mse": 3.2271493057310274,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.09568696282804,
+          "mse": 3.2267029622386527,
+          "budget": 100,
+          "warp_loss_percent": 0.013832803874369581,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 38.412522309390596
+        },
+        "flash_ieee": {
+          "milliseconds": 22.410294972360134,
+          "mse": 3.2281991626285094,
+          "budget": 100,
+          "warp_loss_percent": -0.03252144135453827,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 47.52165483495298
+        },
+        "flash_fp16": {
+          "milliseconds": 20.613266970030963,
+          "mse": 3.227318629953236,
+          "budget": 100,
+          "warp_loss_percent": -0.005246591416085966,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 42.94668591253071
+        }
+      },
+      "warp_emeans_mse": 3.238785625310961
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 32,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 5.8935260167345405,
+          "mse": 8.449835976770004,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.45893597882241,
+          "mse": 8.448560651373962,
+          "budget": 25,
+          "warp_loss_percent": 0.015095179506530165,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -7.961075923918037
+        },
+        "flash_ieee": {
+          "milliseconds": 7.8386550303548574,
+          "mse": 8.45029035318367,
+          "budget": 25,
+          "warp_loss_percent": -0.005377050902100056,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 24.814576047649606
+        },
+        "flash_fp16": {
+          "milliseconds": 5.890606087632477,
+          "mse": 8.449160145709484,
+          "budget": 25,
+          "warp_loss_percent": 0.007998795724839525,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -0.04956924735119994
+        }
+      },
+      "warp_emeans_mse": 8.45517021988026
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 32,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 21.77284494973719,
+          "mse": 8.446340109258125,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.993417033925653,
+          "mse": 8.443206929444843,
+          "budget": 100,
+          "warp_loss_percent": 0.037108883383596414,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -14.633638122339864
+        },
+        "flash_ieee": {
+          "milliseconds": 29.422821011394262,
+          "mse": 8.444423666963447,
+          "budget": 100,
+          "warp_loss_percent": 0.022694767224629153,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 26.000144781136203
+        },
+        "flash_fp16": {
+          "milliseconds": 20.396706997416914,
+          "mse": 8.444331181821552,
+          "budget": 100,
+          "warp_loss_percent": 0.023790249260935425,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -6.746863366201983
+        }
+      },
+      "warp_emeans_mse": 8.45517021988026
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 64,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 13.373212073929608,
+          "mse": 19.09867436744656,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.754797020927072,
+          "mse": 19.094999102056303,
+          "budget": 25,
+          "warp_loss_percent": 0.019247266630451065,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -132.38373178582142
+        },
+        "flash_ieee": {
+          "milliseconds": 11.76537200808525,
+          "mse": 19.09848187764088,
+          "budget": 25,
+          "warp_loss_percent": 0.0010078801389257208,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -13.665866788907621
+        },
+        "flash_fp16": {
+          "milliseconds": 5.938985967077315,
+          "mse": 19.095453675769434,
+          "budget": 25,
+          "warp_loss_percent": 0.016866274725968466,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -125.17669090420185
+        }
+      },
+      "warp_emeans_mse": 19.093437369461604
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 64,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 51.99736601207405,
+          "mse": 19.100629525302406,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 20.021616015583277,
+          "mse": 19.09594597994408,
+          "budget": 100,
+          "warp_loss_percent": 0.024526385669743078,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -159.7061394624856
+        },
+        "flash_ieee": {
+          "milliseconds": 45.548169990070164,
+          "mse": 19.099513399209382,
+          "budget": 100,
+          "warp_loss_percent": 0.0058437409880207625,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -14.159067254315282
+        },
+        "flash_fp16": {
+          "milliseconds": 20.64546593464911,
+          "mse": 19.09844074593968,
+          "budget": 100,
+          "warp_loss_percent": 0.011460513409677908,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -151.85852514380565
+        }
+      },
+      "warp_emeans_mse": 19.093437369461604
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 100,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 21.76254498772323,
+          "mse": 31.099167359709416,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 8.868564036674798,
+          "mse": 31.097762714283117,
+          "budget": 25,
+          "warp_loss_percent": 0.004516869715698313,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -145.3897259773628
+        },
+        "flash_ieee": {
+          "milliseconds": 21.36678504757583,
+          "mse": 31.09866639245406,
+          "budget": 25,
+          "warp_loss_percent": 0.0016108962649141745,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -1.8522203469833798
+        },
+        "flash_fp16": {
+          "milliseconds": 7.834713906049728,
+          "mse": 31.098942333662034,
+          "budget": 25,
+          "warp_loss_percent": 0.0007235810304040413,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -177.7707680036517
+        }
+      },
+      "warp_emeans_mse": 31.096465745718262
+    },
+    {
+      "dataset": "uniform",
+      "n": 100000,
+      "d": 100,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 85.42166301049292,
+          "mse": 31.100529217554524,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 33.616286935284734,
+          "mse": 31.101458781572024,
+          "budget": 100,
+          "warp_loss_percent": -0.0029888116310883284,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -154.10796610267985
+        },
+        "flash_ieee": {
+          "milliseconds": 83.95528397522867,
+          "mse": 31.09951382352365,
+          "budget": 100,
+          "warp_loss_percent": 0.003264983615602901,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -1.746619111784442
+        },
+        "flash_fp16": {
+          "milliseconds": 29.40206101629883,
+          "mse": 31.098271630988545,
+          "budget": 100,
+          "warp_loss_percent": 0.007259524235836423,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -190.52950731290576
+        }
+      },
+      "warp_emeans_mse": 31.096465745718262
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 4,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.338168978691101,
+          "mse": 0.11847455813911105,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.434665945358574,
+          "mse": 0.11917302646420169,
+          "budget": 25,
+          "warp_loss_percent": -0.5860959864944393,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.37716223691814
+        },
+        "flash_ieee": {
+          "milliseconds": 6.217996007762849,
+          "mse": 0.11847553211698347,
+          "budget": 25,
+          "warp_loss_percent": -0.0008220920007850907,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.47909556357924
+        },
+        "flash_fp16": {
+          "milliseconds": 5.906676989980042,
+          "mse": 0.11838086633063317,
+          "budget": 25,
+          "warp_loss_percent": 0.07914438488412223,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.34480857915302
+        }
+      },
+      "warp_emeans_mse": 0.11807193062639539
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 4,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4608080750331283,
+          "mse": 0.11772783959188866,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.2373669706285,
+          "mse": 0.11872136603493272,
+          "budget": 100,
+          "warp_loss_percent": -0.8368556362059687,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 82.00997007377843
+        },
+        "flash_ieee": {
+          "milliseconds": 22.1693649655208,
+          "mse": 0.1177168130442439,
+          "budget": 100,
+          "warp_loss_percent": 0.009367011694938476,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.3892322562437
+        },
+        "flash_fp16": {
+          "milliseconds": 20.51806589588523,
+          "mse": 0.11757710429825513,
+          "budget": 100,
+          "warp_loss_percent": 0.12820122976593407,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.13287376795503
+        }
+      },
+      "warp_emeans_mse": 0.11807193062639539
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.6454689903184772,
+          "mse": 0.29937281927763465,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.372966988943517,
+          "mse": 0.2996985796688824,
+          "budget": 25,
+          "warp_loss_percent": -0.10869600770470056,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 69.37504001598147
+        },
+        "flash_ieee": {
+          "milliseconds": 6.207415950484574,
+          "mse": 0.29937632369810346,
+          "budget": 25,
+          "warp_loss_percent": -0.0011705736864930927,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.49188449035664
+        },
+        "flash_fp16": {
+          "milliseconds": 5.779036087915301,
+          "mse": 0.29937655042037975,
+          "budget": 25,
+          "warp_loss_percent": -0.001246304274615806,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.52693000551837
+        }
+      },
+      "warp_emeans_mse": 0.29066553703346837
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.795576096512377,
+          "mse": 0.2966694417027355,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.01911699678749,
+          "mse": 0.2967485732057302,
+          "budget": 100,
+          "warp_loss_percent": -0.026666178084655545,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.78549557625416
+        },
+        "flash_ieee": {
+          "milliseconds": 22.413884988054633,
+          "mse": 0.29654647172280635,
+          "budget": 100,
+          "warp_loss_percent": 0.04146735559347192,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.60444051056675
+        },
+        "flash_fp16": {
+          "milliseconds": 20.624775905162096,
+          "mse": 0.29643616619997093,
+          "budget": 100,
+          "warp_loss_percent": 0.07869333413494939,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.74846932367343
+        }
+      },
+      "warp_emeans_mse": 0.29066553703346837
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 7,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.8079689471051097,
+          "mse": 0.5593744685055796,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.321815959177911,
+          "mse": 0.5593085651413354,
+          "budget": 25,
+          "warp_loss_percent": 0.011783006438936816,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 66.02721775849618
+        },
+        "flash_ieee": {
+          "milliseconds": 6.271205958910286,
+          "mse": 0.5593715989761628,
+          "budget": 25,
+          "warp_loss_percent": 0.0005129916180957039,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.17031462606802
+        },
+        "flash_fp16": {
+          "milliseconds": 5.750526092015207,
+          "mse": 0.559282405883948,
+          "budget": 25,
+          "warp_loss_percent": 0.016460847089616593,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 68.5599383747596
+        }
+      },
+      "warp_emeans_mse": 0.553187102125318
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 7,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 5.496336962096393,
+          "mse": 0.5590010900207613,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.944366951473057,
+          "mse": 0.5587306066627908,
+          "budget": 100,
+          "warp_loss_percent": 0.04841033491720381,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.98695894048328
+        },
+        "flash_ieee": {
+          "milliseconds": 22.49324496369809,
+          "mse": 0.5589979948171769,
+          "budget": 100,
+          "warp_loss_percent": 0.0005537056685378516,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.56449960436146
+        },
+        "flash_fp16": {
+          "milliseconds": 20.380066009238362,
+          "mse": 0.5583280540734766,
+          "budget": 100,
+          "warp_loss_percent": 0.1205448915515328,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.03081864600006
+        }
+      },
+      "warp_emeans_mse": 0.553187102125318
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 8,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.8776590004563332,
+          "mse": 0.5906340633486588,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.464365938678384,
+          "mse": 0.5904816139431154,
+          "budget": 25,
+          "warp_loss_percent": 0.025817807353112343,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 65.63811755055215
+        },
+        "flash_ieee": {
+          "milliseconds": 6.4018560806289315,
+          "mse": 0.5906315617971504,
+          "budget": 25,
+          "warp_loss_percent": 0.00042353840705722234,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.67008416296875
+        },
+        "flash_fp16": {
+          "milliseconds": 5.802895990200341,
+          "mse": 0.5904943030871183,
+          "budget": 25,
+          "warp_loss_percent": 0.023668350534422622,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 67.64272522500427
+        }
+      },
+      "warp_emeans_mse": 0.5841144079410483
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 8,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 5.796476034447551,
+          "mse": 0.5895192309318223,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.97229696623981,
+          "mse": 0.5895634452094972,
+          "budget": 100,
+          "warp_loss_percent": -0.007499494419838104,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 69.44768445928256
+        },
+        "flash_ieee": {
+          "milliseconds": 22.512975032441318,
+          "mse": 0.5894142192258767,
+          "budget": 100,
+          "warp_loss_percent": 0.017816283102845,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.25273191972718
+        },
+        "flash_fp16": {
+          "milliseconds": 20.475146011449397,
+          "mse": 0.5893832859329537,
+          "budget": 100,
+          "warp_loss_percent": 0.0230656352348646,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.69018462087524
+        }
+      },
+      "warp_emeans_mse": 0.5841144079410483
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 9,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.2766890469938517,
+          "mse": 0.7435954180586942,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.433126003481448,
+          "mse": 0.7435964543474771,
+          "budget": 25,
+          "warp_loss_percent": -0.0001393617165335037,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 58.096148597787156
+        },
+        "flash_ieee": {
+          "milliseconds": 6.161426077596843,
+          "mse": 0.7435859539186632,
+          "budget": 25,
+          "warp_loss_percent": 0.0012727701459658292,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 63.04931653287262
+        },
+        "flash_fp16": {
+          "milliseconds": 5.870195920579135,
+          "mse": 0.7434590005648799,
+          "budget": 25,
+          "warp_loss_percent": 0.018349027143482743,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.2161318327985
+        }
+      },
+      "warp_emeans_mse": 0.736933798241045
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 9,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 7.400025962851942,
+          "mse": 0.7418932926585482,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.051117007620633,
+          "mse": 0.742149035675031,
+          "budget": 100,
+          "warp_loss_percent": -0.03445979233135388,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.15699693675778
+        },
+        "flash_ieee": {
+          "milliseconds": 22.304565995000303,
+          "mse": 0.7418657051451377,
+          "budget": 100,
+          "warp_loss_percent": 0.003718666763963263,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 66.82282020412009
+        },
+        "flash_fp16": {
+          "milliseconds": 20.865976926870644,
+          "mse": 0.7421139056622108,
+          "budget": 100,
+          "warp_loss_percent": -0.02972764719531007,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 64.53544452393989
+        }
+      },
+      "warp_emeans_mse": 0.736933798241045
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 16,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.381676971912384,
+          "mse": 1.5149529620933555,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.629807012155652,
+          "mse": 1.5152326416693764,
+          "budget": 25,
+          "warp_loss_percent": -0.01845786371872382,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 39.932630645938595
+        },
+        "flash_ieee": {
+          "milliseconds": 6.133375922217965,
+          "mse": 1.5150062465381084,
+          "budget": 25,
+          "warp_loss_percent": -0.0035171105647102685,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 44.86434526763045
+        },
+        "flash_fp16": {
+          "milliseconds": 5.924205994233489,
+          "mse": 1.5151122492791833,
+          "budget": 25,
+          "warp_loss_percent": -0.010513226719910396,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 42.91763360011376
+        }
+      },
+      "warp_emeans_mse": 1.508471911492899
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 16,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 11.74603309482336,
+          "mse": 1.5108479210077974,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.341246923431754,
+          "mse": 1.510690609332625,
+          "budget": 100,
+          "warp_loss_percent": 0.010413229168215743,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 39.26951482847188
+        },
+        "flash_ieee": {
+          "milliseconds": 22.45438494719565,
+          "mse": 1.5109833591439648,
+          "budget": 100,
+          "warp_loss_percent": -0.008963575630915877,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 47.68935723492024
+        },
+        "flash_fp16": {
+          "milliseconds": 20.58535593096167,
+          "mse": 1.5109066725624516,
+          "budget": 100,
+          "warp_loss_percent": -0.00388849660413193,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 42.939859120159355
+        }
+      },
+      "warp_emeans_mse": 1.508471911492899
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 32,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 5.908316001296043,
+          "mse": 3.9177587785748162,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.445376038551331,
+          "mse": 3.9176039572896113,
+          "budget": 25,
+          "warp_loss_percent": 0.003951938146196099,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -8.50152421921393
+        },
+        "flash_ieee": {
+          "milliseconds": 7.8881949884817,
+          "mse": 3.9177399354332105,
+          "budget": 25,
+          "warp_loss_percent": 0.0004809696895646809,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 25.09926529550379
+        },
+        "flash_fp16": {
+          "milliseconds": 5.858086049556732,
+          "mse": 3.9175929634775897,
+          "budget": 25,
+          "warp_loss_percent": 0.004232575940688044,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -0.8574464648417379
+        }
+      },
+      "warp_emeans_mse": 3.9189815667375067
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 32,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 21.73177502118051,
+          "mse": 3.9120672295319996,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.938657944090664,
+          "mse": 3.9124599491174323,
+          "budget": 100,
+          "warp_loss_percent": -0.01003766404104045,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -14.748231291443581
+        },
+        "flash_ieee": {
+          "milliseconds": 29.461349942721426,
+          "mse": 3.9130979950737657,
+          "budget": 100,
+          "warp_loss_percent": -0.026341419076747474,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 26.236322967442792
+        },
+        "flash_fp16": {
+          "milliseconds": 20.46540705487132,
+          "mse": 3.9124229278345166,
+          "budget": 100,
+          "warp_loss_percent": -0.00909150950901827,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -6.187846461660085
+        }
+      },
+      "warp_emeans_mse": 3.9189815667375067
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 64,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 13.323102029971778,
+          "mse": 9.474020185944813,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.979577079415321,
+          "mse": 9.473546907107462,
+          "budget": 25,
+          "warp_loss_percent": 0.004995793465645271,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -122.81010601630209
+        },
+        "flash_ieee": {
+          "milliseconds": 11.886042077094316,
+          "mse": 9.474869076769222,
+          "budget": 25,
+          "warp_loss_percent": -0.008959393713314778,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -12.090315208010516
+        },
+        "flash_fp16": {
+          "milliseconds": 6.121327052824199,
+          "mse": 9.474947648588419,
+          "budget": 25,
+          "warp_loss_percent": -0.009788578027070116,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -117.65055052604798
+        }
+      },
+      "warp_emeans_mse": 9.483408446294197
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 64,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 50.82947702612728,
+          "mse": 9.467270288524361,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 20.750076975673437,
+          "mse": 9.468494817230749,
+          "budget": 100,
+          "warp_loss_percent": -0.012932664906351032,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -144.96042634308165
+        },
+        "flash_ieee": {
+          "milliseconds": 45.71792995557189,
+          "mse": 9.466524054349977,
+          "budget": 100,
+          "warp_loss_percent": 0.007882874116194039,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -11.180617922820923
+        },
+        "flash_fp16": {
+          "milliseconds": 21.56726608518511,
+          "mse": 9.469378183945354,
+          "budget": 100,
+          "warp_loss_percent": -0.022260125005535425,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -135.67881448378304
+        }
+      },
+      "warp_emeans_mse": 9.483408446294197
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 100,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 21.77239500451833,
+          "mse": 14.709050853900928,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 8.918244042433798,
+          "mse": 14.706937802551863,
+          "budget": 25,
+          "warp_loss_percent": 0.014367717994279161,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -144.13320493275737
+        },
+        "flash_ieee": {
+          "milliseconds": 21.323886001482606,
+          "mse": 14.70805533370237,
+          "budget": 25,
+          "warp_loss_percent": 0.006768537212908932,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -2.103317392545345
+        },
+        "flash_fp16": {
+          "milliseconds": 7.830255082808435,
+          "mse": 14.708011035011518,
+          "budget": 25,
+          "warp_loss_percent": 0.0070697450996970446,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -178.05473479810755
+        }
+      },
+      "warp_emeans_mse": 14.701343650111284
+    },
+    {
+      "dataset": "mixture",
+      "n": 100000,
+      "d": 100,
+      "k": 128,
+      "partition": "dimension_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 85.19894408527762,
+          "mse": 14.698195273989962,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 33.716517966240644,
+          "mse": 14.695419273984568,
+          "budget": 100,
+          "warp_loss_percent": 0.018890240241797862,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -152.69200150082165
+        },
+        "flash_ieee": {
+          "milliseconds": 83.94572499673814,
+          "mse": 14.701114186887414,
+          "budget": 100,
+          "warp_loss_percent": -0.019855045409122862,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -1.4928920902025355
+        },
+        "flash_fp16": {
+          "milliseconds": 29.48734094388783,
+          "mse": 14.70087044725558,
+          "budget": 100,
+          "warp_loss_percent": -0.01819738004777971,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": -188.93396745201522
+        }
+      },
+      "warp_emeans_mse": 14.701343650111284
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 2,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.357888919301331,
+          "mse": 0.030841376025443356,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.524976062588394,
+          "mse": 0.03075171355485687,
+          "budget": 25,
+          "warp_loss_percent": 0.2915690224108758,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.42271850739614
+        },
+        "flash_ieee": {
+          "milliseconds": 6.302325986325741,
+          "mse": 0.03083971197308047,
+          "budget": 25,
+          "warp_loss_percent": 0.005395810325148354,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.45416244339685
+        },
+        "flash_fp16": {
+          "milliseconds": 5.977545981295407,
+          "mse": 0.030832282122344068,
+          "budget": 25,
+          "warp_loss_percent": 0.02949474535554053,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.28350524529031
+        }
+      },
+      "warp_emeans_mse": 0.03070022338551498
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 2,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4601480001583695,
+          "mse": 0.029973177999734424,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.137687049806118,
+          "mse": 0.029971034142783553,
+          "budget": 100,
+          "warp_loss_percent": 0.007153096355150268,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.91971688557096
+        },
+        "flash_ieee": {
+          "milliseconds": 22.839704994112253,
+          "mse": 0.030019534238156006,
+          "budget": 100,
+          "warp_loss_percent": -0.15442024534365606,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.85029469053849
+        },
+        "flash_fp16": {
+          "milliseconds": 20.630826009437442,
+          "mse": 0.03003000528236781,
+          "budget": 100,
+          "warp_loss_percent": -0.18923500711721664,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.22826241384836
+        }
+      },
+      "warp_emeans_mse": 0.03070022338551498
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3310590293258429,
+          "mse": 0.2013529115036707,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.494466982781887,
+          "mse": 0.20147947417826403,
+          "budget": 25,
+          "warp_loss_percent": -0.06281665917061696,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.77455586689288
+        },
+        "flash_ieee": {
+          "milliseconds": 6.130145979113877,
+          "mse": 0.201336748838132,
+          "budget": 25,
+          "warp_loss_percent": 0.008027677824329338,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.28666668198578
+        },
+        "flash_fp16": {
+          "milliseconds": 5.930155981332064,
+          "mse": 0.20136169445704688,
+          "budget": 25,
+          "warp_loss_percent": -0.004361779632344742,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.55440103909622
+        }
+      },
+      "warp_emeans_mse": 0.20126591948491449
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.460897016339004,
+          "mse": 0.2001749754448602,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.77500698901713,
+          "mse": 0.19994609681868883,
+          "budget": 100,
+          "warp_loss_percent": 0.11447016461587634,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.56646749392138
+        },
+        "flash_ieee": {
+          "milliseconds": 22.226945031434298,
+          "mse": 0.2000058983463365,
+          "budget": 100,
+          "warp_loss_percent": 0.08453605614717752,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.42927261733695
+        },
+        "flash_fp16": {
+          "milliseconds": 20.343216019682586,
+          "mse": 0.2000221785372073,
+          "budget": 100,
+          "warp_loss_percent": 0.07638998273609143,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 82.9874636685247
+        }
+      },
+      "warp_emeans_mse": 0.20126591948491449
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 5,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.4985789312049747,
+          "mse": 1.0356951599356254,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.535205942578614,
+          "mse": 1.0357261917950356,
+          "budget": 25,
+          "warp_loss_percent": -0.0029961450869864237,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.92641056627332
+        },
+        "flash_ieee": {
+          "milliseconds": 6.30164600443095,
+          "mse": 1.0356929435964533,
+          "budget": 25,
+          "warp_loss_percent": 0.00021399577798675296,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.21924604855207
+        },
+        "flash_fp16": {
+          "milliseconds": 6.014785962179303,
+          "mse": 1.0357768489140653,
+          "budget": 25,
+          "warp_loss_percent": -0.007886735306494863,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.0850829833685
+        }
+      },
+      "warp_emeans_mse": 1.0310012254913488
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 5,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.322128021158278,
+          "mse": 1.0305922252462019,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.102158024907112,
+          "mse": 1.0332011621525206,
+          "budget": 100,
+          "warp_loss_percent": -0.25251006308233404,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.37361393658927
+        },
+        "flash_ieee": {
+          "milliseconds": 22.892504930496216,
+          "mse": 1.0305833700983218,
+          "budget": 100,
+          "warp_loss_percent": 0.0008592364419079956,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.11989913606806
+        },
+        "flash_fp16": {
+          "milliseconds": 20.52569598890841,
+          "mse": 1.03202035547616,
+          "budget": 100,
+          "warp_loss_percent": -0.13838198271769464,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.94284304174704
+        }
+      },
+      "warp_emeans_mse": 1.0310012254913488
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 10,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.4244580417871475,
+          "mse": 4.65831657980038,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.55349700152874,
+          "mse": 4.658970762218307,
+          "budget": 25,
+          "warp_loss_percent": -0.014041350575366707,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 56.34357880953651
+        },
+        "flash_ieee": {
+          "milliseconds": 6.193776032887399,
+          "mse": 4.658401831625973,
+          "budget": 25,
+          "warp_loss_percent": -0.0018300659469505653,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 60.85654326352967
+        },
+        "flash_fp16": {
+          "milliseconds": 5.938685964792967,
+          "mse": 4.658228101844812,
+          "budget": 25,
+          "warp_loss_percent": 0.0018993907905384688,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 59.17517686302396
+        }
+      },
+      "warp_emeans_mse": 4.662488869088453
+    },
+    {
+      "dataset": "gaussian",
+      "n": 100000,
+      "d": 10,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 7.996614906005561,
+          "mse": 4.647245835046812,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.992876983247697,
+          "mse": 4.649646079409647,
+          "budget": 100,
+          "warp_loss_percent": -0.05162208739851737,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 57.89676880938669
+        },
+        "flash_ieee": {
+          "milliseconds": 22.530475980602205,
+          "mse": 4.6462335621578115,
+          "budget": 100,
+          "warp_loss_percent": 0.02178695658447971,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 64.50756338707487
+        },
+        "flash_fp16": {
+          "milliseconds": 20.56536707095802,
+          "mse": 4.647749251634184,
+          "budget": 100,
+          "warp_loss_percent": -0.010831405915345815,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 61.116109046756506
+        }
+      },
+      "warp_emeans_mse": 4.662488869088453
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 2,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3953989837318659,
+          "mse": 0.004383230430286335,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.398117005825043,
+          "mse": 0.00445833529431506,
+          "budget": 25,
+          "warp_loss_percent": -1.684594340055423,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.15026420831362
+        },
+        "flash_ieee": {
+          "milliseconds": 6.210925988852978,
+          "mse": 0.004382876800164249,
+          "budget": 25,
+          "warp_loss_percent": 0.008068447693365677,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.53315711318652
+        },
+        "flash_fp16": {
+          "milliseconds": 5.810155998915434,
+          "mse": 0.004376208836155173,
+          "budget": 25,
+          "warp_loss_percent": 0.16044924714633257,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.98345063381532
+        }
+      },
+      "warp_emeans_mse": 0.004284791988283511
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 2,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4678280353546143,
+          "mse": 0.003935132639089183,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.88281700666994,
+          "mse": 0.004027753266802035,
+          "budget": 100,
+          "warp_loss_percent": -2.2995606130161828,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.63500692651058
+        },
+        "flash_ieee": {
+          "milliseconds": 22.410284960642457,
+          "mse": 0.003945608310529415,
+          "budget": 100,
+          "warp_loss_percent": -0.2655020624393156,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.52572985374837
+        },
+        "flash_fp16": {
+          "milliseconds": 20.39419603534043,
+          "mse": 0.003910211468213204,
+          "budget": 100,
+          "warp_loss_percent": 0.6373356295066746,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 82.99600519017602
+        }
+      },
+      "warp_emeans_mse": 0.004284791988283511
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3146389974281192,
+          "mse": 0.017619984230331023,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.319057032465935,
+          "mse": 0.01766559872611849,
+          "budget": 25,
+          "warp_loss_percent": -0.2582108678831574,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.28435981408066
+        },
+        "flash_ieee": {
+          "milliseconds": 6.276395986787975,
+          "mse": 0.017622780424008857,
+          "budget": 25,
+          "warp_loss_percent": -0.015866926844443352,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 79.05423749241636
+        },
+        "flash_fp16": {
+          "milliseconds": 5.680515896528959,
+          "mse": 0.01760843803641035,
+          "budget": 25,
+          "warp_loss_percent": 0.06557193714058496,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.85704922978175
+        }
+      },
+      "warp_emeans_mse": 0.01737442273785715
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4123279619961977,
+          "mse": 0.01679008645672653,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.10214708186686,
+          "mse": 0.016765210829046497,
+          "budget": 100,
+          "warp_loss_percent": 0.1483764679948818,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 82.13641666891243
+        },
+        "flash_ieee": {
+          "milliseconds": 22.371505037881434,
+          "mse": 0.01679392916798944,
+          "budget": 100,
+          "warp_loss_percent": -0.022881549781894606,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.74698972546489
+        },
+        "flash_fp16": {
+          "milliseconds": 20.297567010857165,
+          "mse": 0.016794157405912058,
+          "budget": 100,
+          "warp_loss_percent": -0.02424027051273203,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.18848776224785
+        }
+      },
+      "warp_emeans_mse": 0.01737442273785715
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 5,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.5041789738461375,
+          "mse": 0.030796839341281888,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.40146604180336,
+          "mse": 0.030810793296534245,
+          "budget": 25,
+          "warp_loss_percent": -0.0452891787564802,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 72.15239414253645
+        },
+        "flash_ieee": {
+          "milliseconds": 6.15996599663049,
+          "mse": 0.030800315381201152,
+          "budget": 25,
+          "warp_loss_percent": -0.011285728331811296,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.58137537335554
+        },
+        "flash_fp16": {
+          "milliseconds": 5.94232592266053,
+          "mse": 0.030795363453662097,
+          "budget": 25,
+          "warp_loss_percent": 0.004792564380706743,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.68703343736018
+        }
+      },
+      "warp_emeans_mse": 0.030692026108757018
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 5,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.3066570069640875,
+          "mse": 0.029755252191559906,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.84664804674685,
+          "mse": 0.029584559943149152,
+          "budget": 100,
+          "warp_loss_percent": 0.5769639593719234,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.14894979583669
+        },
+        "flash_ieee": {
+          "milliseconds": 22.411935962736607,
+          "mse": 0.029655629655241798,
+          "budget": 100,
+          "warp_loss_percent": 0.33593128008495565,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 80.7840919493765
+        },
+        "flash_fp16": {
+          "milliseconds": 20.2499870210886,
+          "mse": 0.029702707190539874,
+          "budget": 100,
+          "warp_loss_percent": 0.1769030704270813,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.73254435926759
+        }
+      },
+      "warp_emeans_mse": 0.030692026108757018
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 10,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 2.5015179999172688,
+          "mse": 0.030935404264864325,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.78643602784723,
+          "mse": 0.03093417062909548,
+          "budget": 25,
+          "warp_loss_percent": 0.00398793872198322,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 56.769279261384554
+        },
+        "flash_ieee": {
+          "milliseconds": 6.17903599049896,
+          "mse": 0.030936082903731593,
+          "budget": 25,
+          "warp_loss_percent": -0.0021936806588573887,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 59.51604742610878
+        },
+        "flash_fp16": {
+          "milliseconds": 6.15862593986094,
+          "mse": 0.030930505506996202,
+          "budget": 25,
+          "warp_loss_percent": 0.01583794958350815,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 59.38188121271493
+        }
+      },
+      "warp_emeans_mse": 0.030561906409189755
+    },
+    {
+      "dataset": "manifold",
+      "n": 100000,
+      "d": 10,
+      "k": 128,
+      "partition": "family_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 8.10356403235346,
+          "mse": 0.029991713506795494,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.95004597119987,
+          "mse": 0.0298562015900251,
+          "budget": 100,
+          "warp_loss_percent": 0.4538819727679888,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 59.380725016614676
+        },
+        "flash_ieee": {
+          "milliseconds": 22.530925925821066,
+          "mse": 0.029978405458954683,
+          "budget": 100,
+          "warp_loss_percent": 0.04439211371343177,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 64.03359516145517
+        },
+        "flash_fp16": {
+          "milliseconds": 21.732685971073806,
+          "mse": 0.029975846764168163,
+          "budget": 100,
+          "warp_loss_percent": 0.052931757865470885,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 62.71255176125353
+        }
+      },
+      "warp_emeans_mse": 0.030561906409189755
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3525389367714524,
+          "mse": 0.0024802826990870126,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.560475983656943,
+          "mse": 0.0030129698591650927,
+          "budget": 25,
+          "warp_loss_percent": -17.67980381409093,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.67584248638491
+        },
+        "flash_ieee": {
+          "milliseconds": 5.382125964388251,
+          "mse": 0.0024802790332032047,
+          "budget": 25,
+          "warp_loss_percent": 0.00014780126584845732,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.86980152971603
+        },
+        "flash_fp16": {
+          "milliseconds": 5.967595963738859,
+          "mse": 0.0024791425517745724,
+          "budget": 25,
+          "warp_loss_percent": 0.045989582633088055,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.33527965046665
+        }
+      },
+      "warp_emeans_mse": 0.002450798389096664
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.458247985690832,
+          "mse": 0.002471805441894392,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.15791805367917,
+          "mse": 0.002477842429340747,
+          "budget": 100,
+          "warp_loss_percent": -0.24363887609921697,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.94872753917697
+        },
+        "flash_ieee": {
+          "milliseconds": 19.23617802094668,
+          "mse": 0.002471802818473132,
+          "budget": 100,
+          "warp_loss_percent": 0.00010613392136260558,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 82.02216686742516
+        },
+        "flash_fp16": {
+          "milliseconds": 20.886465907096863,
+          "mse": 0.0024735763662717004,
+          "budget": 100,
+          "warp_loss_percent": -0.07159368117579668,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.44263696370108
+        }
+      },
+      "warp_emeans_mse": 0.002450798389096664
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3057489413768053,
+          "mse": 0.0052536357167634285,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.385736934840679,
+          "mse": 0.005086202964718096,
+          "budget": 25,
+          "warp_loss_percent": 3.2919007205724604,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.75542665424612
+        },
+        "flash_ieee": {
+          "milliseconds": 6.052316050045192,
+          "mse": 0.005247350633217445,
+          "budget": 25,
+          "warp_loss_percent": 0.1197763211437941,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.42563193032433
+        },
+        "flash_fp16": {
+          "milliseconds": 5.7665660278871655,
+          "mse": 0.005237361682279464,
+          "budget": 25,
+          "warp_loss_percent": 0.31072962822153993,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.35655960475972
+        }
+      },
+      "warp_emeans_mse": 0.005109957472467864
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.3974580001085997,
+          "mse": 0.004959657458024171,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.732286989688873,
+          "mse": 0.004759440250369554,
+          "budget": 100,
+          "warp_loss_percent": 4.206738547438849,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.86309017164471
+        },
+        "flash_ieee": {
+          "milliseconds": 22.180906031280756,
+          "mse": 0.004963965929609235,
+          "budget": 100,
+          "warp_loss_percent": -0.08679494674540544,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.68296112288058
+        },
+        "flash_fp16": {
+          "milliseconds": 20.23922698572278,
+          "mse": 0.005000267756145291,
+          "budget": 100,
+          "warp_loss_percent": -0.8121624701239449,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.21349919883183
+        }
+      },
+      "warp_emeans_mse": 0.005109957472467864
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.4835790498182178,
+          "mse": 0.03537924009397032,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.25510695297271,
+          "mse": 0.03509210687425601,
+          "budget": 25,
+          "warp_loss_percent": 0.8182273601957668,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.76881340199962
+        },
+        "flash_ieee": {
+          "milliseconds": 6.102366023696959,
+          "mse": 0.03537478993892935,
+          "budget": 25,
+          "warp_loss_percent": 0.012580018280394789,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.68846175307868
+        },
+        "flash_fp16": {
+          "milliseconds": 5.722056026570499,
+          "mse": 0.03542786257289035,
+          "budget": 25,
+          "warp_loss_percent": -0.13724361389286788,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.07262279626093
+        }
+      },
+      "warp_emeans_mse": 0.03534399070976275
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.261767026036978,
+          "mse": 0.034949009296908536,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.710977979935706,
+          "mse": 0.034909983540898366,
+          "budget": 100,
+          "warp_loss_percent": 0.11178967175520249,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.22317331244264
+        },
+        "flash_ieee": {
+          "milliseconds": 22.097524954006076,
+          "mse": 0.03495715060961687,
+          "budget": 100,
+          "warp_loss_percent": -0.02328940593371298,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 80.71382639047836
+        },
+        "flash_fp16": {
+          "milliseconds": 20.361626986414194,
+          "mse": 0.034950698305996,
+          "budget": 100,
+          "warp_loss_percent": -0.004832547472100046,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 79.06961448178704
+        }
+      },
+      "warp_emeans_mse": 0.03534399070976275
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.3058490585535765,
+          "mse": 0.002783508621826511,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.343166063539684,
+          "mse": 0.002781650256932666,
+          "budget": 25,
+          "warp_loss_percent": 0.06680799964744466,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.56038792310169
+        },
+        "flash_ieee": {
+          "milliseconds": 6.278255954384804,
+          "mse": 0.002783505242357033,
+          "budget": 25,
+          "warp_loss_percent": 0.0001214105663116527,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 79.2004488501053
+        },
+        "flash_fp16": {
+          "milliseconds": 5.856456002220511,
+          "mse": 0.0027830490168292816,
+          "budget": 25,
+          "warp_loss_percent": 0.016514441335746533,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.70240128059605
+        }
+      },
+      "warp_emeans_mse": 0.002740023446361211
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.404578077606857,
+          "mse": 0.0027330433751450085,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.845916958525777,
+          "mse": 0.0027223961163869333,
+          "budget": 100,
+          "warp_loss_percent": 0.3910988079209421,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.93466476001505
+        },
+        "flash_ieee": {
+          "milliseconds": 22.24861492868513,
+          "mse": 0.0027329339616336853,
+          "budget": 100,
+          "warp_loss_percent": 0.0040035183015429965,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.6975729117531
+        },
+        "flash_fp16": {
+          "milliseconds": 20.405886927619576,
+          "mse": 0.0027255790918529355,
+          "budget": 100,
+          "warp_loss_percent": 0.27386045462354236,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 83.31570644450291
+        }
+      },
+      "warp_emeans_mse": 0.002740023446361211
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.359759015031159,
+          "mse": 0.0002519610197249126,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.475356010720134,
+          "mse": 0.0002533913356669236,
+          "budget": 25,
+          "warp_loss_percent": -0.564469159234049,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.16583373996315
+        },
+        "flash_ieee": {
+          "milliseconds": 6.115985917858779,
+          "mse": 0.0002519614166230073,
+          "budget": 25,
+          "warp_loss_percent": -0.00015752336210983486,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 77.7671329971405
+        },
+        "flash_fp16": {
+          "milliseconds": 5.844576051458716,
+          "mse": 0.00025204476740246616,
+          "budget": 25,
+          "warp_loss_percent": -0.03322730260050255,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.7346852353511
+        }
+      },
+      "warp_emeans_mse": 0.0002494934285813786
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 3.4947979729622602,
+          "mse": 0.0002473900923316727,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.04568704776466,
+          "mse": 0.00024849768282600475,
+          "budget": 100,
+          "warp_loss_percent": -0.44571461662585854,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 81.65044944717583
+        },
+        "flash_ieee": {
+          "milliseconds": 22.313415072858334,
+          "mse": 0.0002473067947430969,
+          "budget": 100,
+          "warp_loss_percent": 0.03368188434220709,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 84.3376822348755
+        },
+        "flash_fp16": {
+          "milliseconds": 20.335076958872378,
+          "mse": 0.0002468258260340317,
+          "budget": 100,
+          "warp_loss_percent": 0.22860909926143425,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 82.81394272551573
+        }
+      },
+      "warp_emeans_mse": 0.0002494934285813786
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.6308290651068091,
+          "mse": 0.004491305211217592,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.488976952619851,
+          "mse": 0.004494439043241522,
+          "budget": 25,
+          "warp_loss_percent": -0.06972687789907894,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 70.28901598268826
+        },
+        "flash_ieee": {
+          "milliseconds": 6.195126101374626,
+          "mse": 0.004491250257461985,
+          "budget": 25,
+          "warp_loss_percent": 0.0012235736700505484,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.67561146584333
+        },
+        "flash_fp16": {
+          "milliseconds": 5.760936066508293,
+          "mse": 0.004497511567858828,
+          "budget": 25,
+          "warp_loss_percent": -0.13799534581719897,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.69159583999244
+        }
+      },
+      "warp_emeans_mse": 0.004463579514301395
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.795357002876699,
+          "mse": 0.0044476043593661045,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 18.906428012996912,
+          "mse": 0.0044435638703862355,
+          "budget": 100,
+          "warp_loss_percent": 0.09092901773724016,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 74.63636706214305
+        },
+        "flash_ieee": {
+          "milliseconds": 22.367654950357974,
+          "mse": 0.0044472241211321786,
+          "budget": 100,
+          "warp_loss_percent": 0.00855001285227086,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.56119913545092
+        },
+        "flash_fp16": {
+          "milliseconds": 20.549066946841776,
+          "mse": 0.004436547726666008,
+          "budget": 100,
+          "warp_loss_percent": 0.24921703498512748,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.66386987165026
+        }
+      },
+      "warp_emeans_mse": 0.004463579514301395
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 25,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 1.6519189812242985,
+          "mse": 0.0008347991867478744,
+          "budget": 25
+        },
+        "flash_tf32": {
+          "milliseconds": 5.501136067323387,
+          "mse": 0.0008330092531935747,
+          "budget": 25,
+          "warp_loss_percent": 0.21487559080977103,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 69.97131208884912
+        },
+        "flash_ieee": {
+          "milliseconds": 6.2547760317102075,
+          "mse": 0.0008348292959915677,
+          "budget": 25,
+          "warp_loss_percent": -0.0036066347740559834,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 73.58947829867182
+        },
+        "flash_fp16": {
+          "milliseconds": 5.8882159646600485,
+          "mse": 0.0008342401739645732,
+          "budget": 25,
+          "warp_loss_percent": 0.06700861463486696,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 71.94533979156333
+        }
+      },
+      "warp_emeans_mse": 0.0008080247022397105
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "partition": "real_holdout",
+      "budget": 100,
+      "methods": {
+        "warp_lloyd": {
+          "milliseconds": 4.793146974407136,
+          "mse": 0.0008165365368068755,
+          "budget": 100
+        },
+        "flash_tf32": {
+          "milliseconds": 19.31640796829015,
+          "mse": 0.0008123472068077043,
+          "budget": 100,
+          "warp_loss_percent": 0.5157068263500486,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 75.1861371830851
+        },
+        "flash_ieee": {
+          "milliseconds": 22.569915046915412,
+          "mse": 0.0008165365303524508,
+          "budget": 100,
+          "warp_loss_percent": 7.904636722955161e-07,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 78.7631146841104
+        },
+        "flash_fp16": {
+          "milliseconds": 20.656977081671357,
+          "mse": 0.000815808928658564,
+          "budget": 100,
+          "warp_loss_percent": 0.08918854927315589,
+          "warp_loss_percent_95": null,
+          "warp_loss_margin_pass": null,
+          "warp_time_reduction_percent": 76.79647435606623
+        }
+      },
+      "warp_emeans_mse": 0.0008080247022397105
+    }
+  ]
+}
