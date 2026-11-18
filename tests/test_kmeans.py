@@ -122,11 +122,12 @@ def test_lloyd_single_cluster(device, n):
 
 @pytest.mark.skipif(not wp.is_cuda_available(), reason="CUDA compaction required")
 @pytest.mark.parametrize("capture", [False, True])
-def test_compact_lloyd_reference(monkeypatch, capture):
+@pytest.mark.parametrize("d", [3, 5, 10])
+def test_compact_lloyd_reference(monkeypatch, capture, d):
     """Exercise compacted searches and match dense Lloyd on a tail-sized workload."""
     monkeypatch.setattr(kmeans_module, "_assignment_policy", lambda *args: "compact")
     rng = np.random.default_rng(12)
-    x = rng.normal(size=(2051, 3)).astype(np.float32)
+    x = rng.normal(size=(2051, d)).astype(np.float32)
     initial = x[rng.choice(len(x), 37, replace=False)]
     expected, labels = reference_lloyd(x, initial, 15)
     model = Kmeans(37, niter=15).prepare(

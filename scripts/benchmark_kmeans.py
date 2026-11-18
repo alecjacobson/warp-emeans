@@ -98,6 +98,9 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--selection", default="results/kmeans_selection.json")
     parser.add_argument("--repeats", type=int, default=3)
+    parser.add_argument(
+        "--datasets", nargs="+", help="Restrict to named datasets; normal selects the synthetic matrix"
+    )
     args = parser.parse_args()
     output = Path(args.output)
     if output.exists():
@@ -121,8 +124,14 @@ def main():
             ]
             for d in dimensions
         ] + REAL_PROBLEMS
+    if args.datasets:
+        missing = set(args.datasets) - {problem[0] for problem in problems}
+        if missing:
+            parser.error(f"Unavailable datasets for this phase: {sorted(missing)}")
+        problems = [problem for problem in problems if problem[0] in args.datasets]
     result = {
         "phase": args.phase,
+        "datasets": args.datasets,
         "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
         "code_sha256": {
             str(path): hashlib.sha256(path.read_bytes()).hexdigest()
