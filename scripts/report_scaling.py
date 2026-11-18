@@ -73,7 +73,7 @@ lines += [
     "",
     "## Independent test comparison",
     "",
-    "Entries are median / 90th-percentile percent loss relative to the validation-selected grid setting, rerun on the same fresh seeds. Negative values mean a method beat that validation-selected setting on test; the comparator is not a test-selected optimum. Lloyd uses 25 iterations with all training rows; e-means transfer runs use two passes. These are loss comparisons, not cross-device timing comparisons.",
+    "Entries are median / 90th-percentile percent loss relative to the validation-selected grid setting, rerun on the same fresh seeds. Negative values mean a method beat that validation-selected setting on test; the comparator is not a test-selected optimum. Historical `lloyd25` uses Faiss CPU with 25 iterations and all training rows; e-means transfer runs use two passes. These are loss comparisons, not cross-device timing comparisons. The added `warp_lloyd25` and `warp_lloyd100` GPU baselines have a [separate benchmark and evaluation](kmeans-baseline.md); this archived table is unchanged.",
     "",
     "| Method | Unseen dimensions | Unseen families | Real feature datasets |",
     "|---|---:|---:|---:|",

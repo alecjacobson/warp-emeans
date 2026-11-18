@@ -1,5 +1,17 @@
 # API and numerical scope
 
+## Full-data Lloyd baseline
+
+`Kmeans(k, niter=25, seed=1234)` performs exactly `niter` full-data assignment-and-mean iterations. Import it with `from warp_emeans import Kmeans`. It supports the same `train(x, init_centroids=None)`, `prepare(x, init_centroids=None, capture=False)`, `run()` and `assign(x)` pattern as `Emeans`. An iteration assigns every point to a nearest center, then replaces each nonempty center with its assigned points' mean. Empty centers retain their previous values; ties in directly computed FP32 squared distance choose the lowest index. Training labels are those used for the last mean update; call `assign` to get labels for the final centers.
+
+All clustering, random initialization and sorting/scanning run through Warp. Explicit initial centers make controlled algorithm comparisons possible. Default initialization samples distinct input row indices using seeded random keys; repeated input values can still give duplicate centers. No convergence test or empty-center revival is performed. CUDA accumulation order can change the last bits between runs; bitwise determinism is not promised. Centers are contiguous `(k,d)` arrays on the input device.
+
+Inputs and initial centers must be finite contiguous FP32 matrices without gradients, on the same device. Require `1 <= k <= n < 2**31`, `k < 2**30`, positive integer `niter`, and integer seed in `[0, 2**31)`. Coordinate magnitudes above `2**60/sqrt(d)` are rejected before arithmetic; common scalar rescaling preserves the objective. Prepared runs retain input/initial-center buffers: keep their shape, device, storage, and validated magnitude range valid. Graph preparation warms up and captures the workload; replay includes initialization and every Lloyd iteration, with no host readback. Validation, allocation, warmup and capture costs are separate. Results are overwritten by later runs.
+
+On CUDA the implementation fuses direct distance search with sharded accumulation. Large low-dimensional workloads can use conservative distance bounds and active-point compaction; all searched distances still use direct FP32 arithmetic. This avoids an `n*k` distance matrix. Dispatch is a measured heuristic for the tested GPU, not a guarantee of optimal performance on other hardware or distributions. CPU uses direct search. [Benchmarks, numerical bounds and tuning evidence](experiments/kmeans-baseline.md).
+
+## E-means
+
 `Emeans(k, nepochs=3, batch_size=None, alpha0=None, batch_law=BatchLaw.AUTO, unused_threshold=None, seed=1234)` clusters finite Euclidean FP32 vectors. `BatchLaw` is an enum with AUTO, QUALITY and THROUGHPUT values. String values are also accepted.
 
 `train(x, init_centroids=None)` allocates and runs once. `prepare(x, init_centroids=None, orders=None, capture=False)` allocates a reusable workload; `run()` resets and trains it. CUDA graph preparation performs a warmup followed by capture. Graph replay includes initialization, shuffling, assignment, EMA, revival and finalization. It excludes preparation/validation/capture. Inputs and initial centers are retained; keep their storage and contents valid and finite until the next preparation. Returned arrays are overwritten by subsequent runs. CPU uses the scalar distance kernel; GPU distributes each point's centroid search over 32 threads. Both choose the lowest centroid index on exact ties. CUDA centroids use a strided view so neighboring search lanes read contiguous centers; consumers must honor Warp array strides.

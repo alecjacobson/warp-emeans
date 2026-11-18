@@ -1,0 +1,41 @@
+{
+  "recorded_at": "2026-11-18T03:09:29.434511+00:00",
+  "runtime_source_commit": "88855d5de53bf09f0e60201d896cec55b304ecb6",
+  "tests_source_commit": "5515cd97c5773011a045bde8fdf0c536274286a7",
+  "ruff": "All checks passed",
+  "pytest": {
+    "command": "uv run pytest -q",
+    "result": "72 passed in 2.11s",
+    "devices": [
+      "cpu",
+      "cuda:0"
+    ]
+  },
+  "sanitizer": {
+    "command": "/home/horde/cuda/12.9.1/bin/compute-sanitizer --tool memcheck --error-exitcode 99 .venv/bin/python -m pytest -q tests/test_kmeans.py -k 'compact or bound_roundoff or graph_reset'",
+    "result": "9 passed, 26 deselected; ERROR SUMMARY: 0 errors"
+  },
+  "source_verification": {
+    "results/kmeans_matrix.json": {
+      "source_commit": "88855d5de53bf09f0e60201d896cec55b304ecb6",
+      "source_hashes_match": true
+    },
+    "results/kmeans_selection.json": {
+      "source_commit": "88855d5de53bf09f0e60201d896cec55b304ecb6",
+      "source_hashes_match": true
+    },
+    "results/kmeans_test.json": {
+      "source_commit": "88855d5de53bf09f0e60201d896cec55b304ecb6",
+      "source_hashes_match": true
+    },
+    "results/kmeans_scaling.meta.json": {
+      "source_commit": "88855d5",
+      "source_hashes_match": true
+    },
+    "results/kmeans_timing_replication.json": {
+      "source_commit": "5515cd97c5773011a045bde8fdf0c536274286a7",
+      "source_hashes_match": true
+    }
+  },
+  "test_sha256": "07cbf98f91d70f26c005c43874c3747b974e2c2d34fdb39639c6448bb17eb4e4"
+}

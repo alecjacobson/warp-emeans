@@ -1,0 +1,39 @@
+{
+  "seeds": [
+    20,
+    21,
+    22
+  ],
+  "test_rows": 8192,
+  "test_offset": 16384,
+  "validation_rows": 4096,
+  "fit_files": [
+    "results/scaling_intervals.json"
+  ],
+  "methods": [
+    "upstream_auto",
+    "warp_lloyd25",
+    "warp_lloyd100"
+  ],
+  "sweep": "results/scaling_canonical.jsonl",
+  "sweep_sha256": "aba600d5481c3bc53ed204bf1a34f8a6eb93876540205c3e38444534244343b5",
+  "only_real": false,
+  "warp": "1.19.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+  "code_sha256": {
+    "/home/horde/projects/emeans/scripts/evaluate_scaling.py": "e043945d89990f8c4081af4c0257830b4b0e04e615c2a3a70542ff6aced9a8d0",
+    "scripts/fit_scaling.py": "99cee5b0e0b68b12f8f2b04d8b526acd68441cf2ba92a7d7da50c8e3224cd6f9",
+    "src/warp_emeans/__init__.py": "7f91dda8967f9920ef4cf2093741709a182bbf8b916070790d5a0d640ac24646",
+    "src/warp_emeans/datasets.py": "f0f421a2de86bc94411b66cab476adac027edf624fc54362420d4a79913b543b",
+    "src/warp_emeans/lloyd_kernels.py": "571d1935dd7a73f8ea28ece7412c98d8e0d3cd5fb2fea6ff0bfa9b78eb55d80e",
+    "src/warp_emeans/kmeans.py": "f131e412ec898fd9806685ae17f48a2efe8a46069ca0adf2b4bfe7c70be77621",
+    "src/warp_emeans/model.py": "286cf9ca0f1231009f423ce572e3b3a5aba9bb55a0f1bfa5da5c02802ae4203b",
+    "src/warp_emeans/recipe.py": "8bb00602db6f5026bed2465cab5a8b197fe79b9789ed50629ec5826b020e981a",
+    "src/warp_emeans/kernels.py": "1123ef7af6b30414f6be25f95579b01782b3661848e8a0ac75c4f6aa831d3a37"
+  },
+  "fit_sha256": {
+    "results/scaling_intervals.json": "7a80539c86ced0ec45cd5deb05f8a1a677626151b9148295f86588a7f0d1daa3"
+  },
+  "timing": "Quality evaluation only. Possible concurrent sweep; these times are not performance evidence.",
+  "oracle": "Best median validation-grid setting on seeds 0,1,2, rerun on fresh evaluation seeds; not a test-selected oracle."
+}

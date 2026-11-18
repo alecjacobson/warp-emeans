@@ -1,0 +1,4033 @@
+{
+  "phase": "test",
+  "source_commit": "88855d5de53bf09f0e60201d896cec55b304ecb6",
+  "code_sha256": {
+    "/home/horde/projects/emeans/scripts/benchmark_kmeans.py": "122c5bf2991cb6d6fc4c3478d1240246c98fbc1b42e2c97eb9bcd8409ed990d3",
+    "src/warp_emeans/__init__.py": "7f91dda8967f9920ef4cf2093741709a182bbf8b916070790d5a0d640ac24646",
+    "src/warp_emeans/datasets.py": "f0f421a2de86bc94411b66cab476adac027edf624fc54362420d4a79913b543b",
+    "src/warp_emeans/kernels.py": "1123ef7af6b30414f6be25f95579b01782b3661848e8a0ac75c4f6aa831d3a37",
+    "src/warp_emeans/kmeans.py": "f131e412ec898fd9806685ae17f48a2efe8a46069ca0adf2b4bfe7c70be77621",
+    "src/warp_emeans/lloyd_kernels.py": "571d1935dd7a73f8ea28ece7412c98d8e0d3cd5fb2fea6ff0bfa9b78eb55d80e",
+    "src/warp_emeans/model.py": "286cf9ca0f1231009f423ce572e3b3a5aba9bb55a0f1bfa5da5c02802ae4203b",
+    "src/warp_emeans/recipe.py": "8bb00602db6f5026bed2465cab5a8b197fe79b9789ed50629ec5826b020e981a"
+  },
+  "upstream_revision": "c8f283867285af547db7a701c1b8dfa89631b3ea",
+  "warp": "1.19.0",
+  "torch": "2.15.0+cu132",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+  "margin": 0.002,
+  "budgets": [
+    1,
+    3,
+    5,
+    10,
+    25,
+    50,
+    100,
+    200
+  ],
+  "selected_iterations": {
+    "intel_xy": null,
+    "bsds_rgb": 100,
+    "bsds_labxy": 25,
+    "bunny_xyz": 100,
+    "bunny_xyzn": 50,
+    "drill_xyz": 25,
+    "drill_xyzn": null
+  },
+  "selection_sha256": "cdb45ca8fd512569b751d9ecce230e6598f22ec246b1b38fa400f6a7be811170",
+  "timing": "Resident FP32 inputs and shared initial centers. Ordinary calls include validation/allocation; exclude transfers, warmup, cleanup and FP64 loss. Graph replay includes reset and all iterations; setup/capture is separate. One untimed warmup; median of recorded repeats. Select-phase timing is not performance evidence.",
+  "quality": "Select: seeds 0..2 and first 16384 validation rows. Test: seeds 200..209 and first 16384 test rows; paired bootstrap describes initialization variation only. Matrix: seeds 0..2 and 8192 test rows (normal uses independent RNG draws).",
+  "records": [
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006839159547031747,
+      "seconds": 0.04274410998914391,
+      "samples": [
+        0.04275832907296717,
+        0.04274410998914391,
+        0.042454599984921515
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006925619918761625,
+      "seconds": 0.02480614196974784,
+      "samples": [
+        0.024778902996331453,
+        0.02480614196974784,
+        0.024848923087120056
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.006836516003437956,
+      "seconds": 0.006447394960559905,
+      "samples": [
+        0.006373584968969226,
+        0.00644760497380048,
+        0.006447394960559905
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.005767535811837209,
+      "seconds": 0.006234064931049943,
+      "samples": [
+        0.006234064931049943,
+        0.006246746052056551,
+        0.006205845973454416
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.005385954064273184,
+      "seconds": 0.024536352953873575,
+      "samples": [
+        0.024536352953873575,
+        0.024540002108551562,
+        0.024380241986364126
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.005319558582380795,
+      "seconds": 0.04232946992851794,
+      "samples": [
+        0.04232946992851794,
+        0.04264138999860734,
+        0.04227809002622962
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0036224164288017916,
+      "seconds": 0.04236731003038585,
+      "samples": [
+        0.04236731003038585,
+        0.04266342904884368,
+        0.04217458004131913
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.003685364636369203,
+      "seconds": 0.024454043013975024,
+      "samples": [
+        0.024308023042976856,
+        0.024454043013975024,
+        0.02446960296947509
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0037024268264337305,
+      "seconds": 0.006224136101081967,
+      "samples": [
+        0.006224136101081967,
+        0.006222394993528724,
+        0.006276516010984778
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0033369316890303046,
+      "seconds": 0.006274386076256633,
+      "samples": [
+        0.006241125985980034,
+        0.006274386076256633,
+        0.0062822450418025255
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.003340153442976824,
+      "seconds": 0.024373883032239974,
+      "samples": [
+        0.024383993004448712,
+        0.024373883032239974,
+        0.02434110303875059
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0033576444742614148,
+      "seconds": 0.042233209940604866,
+      "samples": [
+        0.041994519997388124,
+        0.042484698933549225,
+        0.042233209940604866
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.005335560507607178,
+      "seconds": 0.04238058999180794,
+      "samples": [
+        0.04259854997508228,
+        0.04238058999180794,
+        0.04233332991134375
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006003662011513987,
+      "seconds": 0.02428685303311795,
+      "samples": [
+        0.024349111947230995,
+        0.0242673319298774,
+        0.02428685303311795
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.006023223253283012,
+      "seconds": 0.006196666043251753,
+      "samples": [
+        0.006184955011121929,
+        0.006196666043251753,
+        0.006226606084965169
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.005535044991848401,
+      "seconds": 0.006248155958019197,
+      "samples": [
+        0.006207676022313535,
+        0.006248155958019197,
+        0.006253574974834919
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.005716944075077752,
+      "seconds": 0.024294362985529006,
+      "samples": [
+        0.024337062961421907,
+        0.024294362985529006,
+        0.024269642075523734
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0053674267467462115,
+      "seconds": 0.042475479072891176,
+      "samples": [
+        0.042475479072891176,
+        0.04286213999148458,
+        0.042431449983268976
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0035222161157856258,
+      "seconds": 0.04247553995810449,
+      "samples": [
+        0.04223772999830544,
+        0.04247553995810449,
+        0.042609579977579415
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0035378635123758124,
+      "seconds": 0.024207593058235943,
+      "samples": [
+        0.024197082966566086,
+        0.024207593058235943,
+        0.024412101949565113
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.005469853087067279,
+      "seconds": 0.00630503601860255,
+      "samples": [
+        0.006328184972517192,
+        0.006222716066986322,
+        0.00630503601860255
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.005764307449974563,
+      "seconds": 0.006262765033170581,
+      "samples": [
+        0.006262765033170581,
+        0.006274135084822774,
+        0.00623722595628351
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.003442736626604154,
+      "seconds": 0.02435747196432203,
+      "samples": [
+        0.02444379194639623,
+        0.024246491957455873,
+        0.02435747196432203
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0033352393544216394,
+      "seconds": 0.04272291995584965,
+      "samples": [
+        0.042584119946695864,
+        0.0428390100132674,
+        0.04272291995584965
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0034508988915270275,
+      "seconds": 0.04261859005782753,
+      "samples": [
+        0.04261859005782753,
+        0.042758579016663134,
+        0.04253163991961628
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.003281516018180404,
+      "seconds": 0.024340862990356982,
+      "samples": [
+        0.024340862990356982,
+        0.024331741966307163,
+        0.024391012964770198
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0052454533272736255,
+      "seconds": 0.006245716009289026,
+      "samples": [
+        0.006219835020601749,
+        0.00624922604765743,
+        0.006245716009289026
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.006078561896654357,
+      "seconds": 0.006229215068742633,
+      "samples": [
+        0.006287515047006309,
+        0.006164896069094539,
+        0.006229215068742633
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.003333331148930508,
+      "seconds": 0.02415783202741295,
+      "samples": [
+        0.024245791952125728,
+        0.02415783202741295,
+        0.024154503014869988
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "intel_xy",
+      "n": 65536,
+      "d": 2,
+      "k": 64,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.003163527423028464,
+      "seconds": 0.04268538998439908,
+      "samples": [
+        0.04215490899514407,
+        0.043440658948384225,
+        0.04268538998439908
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0063028265883276055,
+      "seconds": 0.03611205401830375,
+      "samples": [
+        0.056634398992173374,
+        0.03597977396566421,
+        0.03611205401830375
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.005989700819584444,
+      "seconds": 0.02529013203456998,
+      "samples": [
+        0.025439382065087557,
+        0.02524761203676462,
+        0.02529013203456998
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.006016271186826426,
+      "seconds": 0.00356881704647094,
+      "samples": [
+        0.0035769869573414326,
+        0.00356881704647094,
+        0.0034758480032905936
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0059548767455035205,
+      "seconds": 0.003627607016824186,
+      "samples": [
+        0.003659976995550096,
+        0.0034950670087710023,
+        0.003627607016824186
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006116579500346665,
+      "seconds": 0.02543438202701509,
+      "samples": [
+        0.03260930604301393,
+        0.02543438202701509,
+        0.025303442031145096
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006137822506027259,
+      "seconds": 0.03668892290443182,
+      "samples": [
+        0.03747252305038273,
+        0.03668892290443182,
+        0.035750754992477596
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006393921680811829,
+      "seconds": 0.036061183898709714,
+      "samples": [
+        0.03597193397581577,
+        0.036061183898709714,
+        0.03626239509321749
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006123474351379413,
+      "seconds": 0.024934942019172013,
+      "samples": [
+        0.024957553017884493,
+        0.024934942019172013,
+        0.024934501969255507
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.006090765329717083,
+      "seconds": 0.0034083480713889003,
+      "samples": [
+        0.003446197952143848,
+        0.0034083480713889003,
+        0.0033848269376903772
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.006469993425699597,
+      "seconds": 0.0034463779302313924,
+      "samples": [
+        0.0034463779302313924,
+        0.0035119180101901293,
+        0.0034247379517182708
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006505377487475373,
+      "seconds": 0.025087532005272806,
+      "samples": [
+        0.025005141971632838,
+        0.025202622055076063,
+        0.025087532005272806
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006491096730823765,
+      "seconds": 0.04052414104808122,
+      "samples": [
+        0.06696617195848376,
+        0.04052414104808122,
+        0.03576334402896464
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006360202255323034,
+      "seconds": 0.036088373977690935,
+      "samples": [
+        0.036242863978259265,
+        0.036088373977690935,
+        0.0359772639349103
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006229501095701016,
+      "seconds": 0.02535570098552853,
+      "samples": [
+        0.02535570098552853,
+        0.025298381922766566,
+        0.025610940996557474
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.006091313676259882,
+      "seconds": 0.003496507997624576,
+      "samples": [
+        0.003496507997624576,
+        0.0038498680805787444,
+        0.00346415804233402
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.00635566927921344,
+      "seconds": 0.0035158079117536545,
+      "samples": [
+        0.004477276001125574,
+        0.0034905869979411364,
+        0.0035158079117536545
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0063985026737256095,
+      "seconds": 0.025256722001358867,
+      "samples": [
+        0.025256722001358867,
+        0.02521038195118308,
+        0.025528262020088732
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006222341793073544,
+      "seconds": 0.03622161503881216,
+      "samples": [
+        0.04530090803746134,
+        0.03603039390873164,
+        0.03622161503881216
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00614851035794038,
+      "seconds": 0.036203483934514225,
+      "samples": [
+        0.03627875400707126,
+        0.036203483934514225,
+        0.0361786640714854
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006186665645306825,
+      "seconds": 0.025606811977922916,
+      "samples": [
+        0.025482240947894752,
+        0.025606811977922916,
+        0.025773892062716186
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.006261357710692936,
+      "seconds": 0.003471408039331436,
+      "samples": [
+        0.003520817030221224,
+        0.003440688014961779,
+        0.003471408039331436
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.00606616919476953,
+      "seconds": 0.0034512679558247328,
+      "samples": [
+        0.0035298269940540195,
+        0.0034512679558247328,
+        0.0033546179765835404
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006146357506088234,
+      "seconds": 0.025104222004301846,
+      "samples": [
+        0.025147491949610412,
+        0.02508395304903388,
+        0.025104222004301846
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0062000342416475476,
+      "seconds": 0.042562540038488805,
+      "samples": [
+        0.08645809895824641,
+        0.042562540038488805,
+        0.03716564294882119
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006148853860849585,
+      "seconds": 0.03578963491600007,
+      "samples": [
+        0.03578963491600007,
+        0.035650574951432645,
+        0.03614433400798589
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0065801891744440046,
+      "seconds": 0.025404171901755035,
+      "samples": [
+        0.025404171901755035,
+        0.02549100189935416,
+        0.025330301956273615
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.006093344583022416,
+      "seconds": 0.003454606980085373,
+      "samples": [
+        0.003476287005469203,
+        0.003454606980085373,
+        0.003428607014939189
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.005986669111735947,
+      "seconds": 0.0034377670381218195,
+      "samples": [
+        0.0034377670381218195,
+        0.0034492170671001077,
+        0.0034286369336768985
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.006063310210865338,
+      "seconds": 0.025265891919843853,
+      "samples": [
+        0.025265891919843853,
+        0.02505785203538835,
+        0.02536406205035746
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_rgb",
+      "n": 100000,
+      "d": 3,
+      "k": 64,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0061395896216959135,
+      "seconds": 0.035910765058360994,
+      "samples": [
+        0.035910765058360994,
+        0.03619785397313535,
+        0.03577679500449449
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.043370052180188724,
+      "seconds": 0.03647192392963916,
+      "samples": [
+        0.03647192392963916,
+        0.036495394073426723,
+        0.036450114101171494
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04287212332924656,
+      "seconds": 0.02499686204828322,
+      "samples": [
+        0.025277162087149918,
+        0.02499686204828322,
+        0.024867662112228572
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.04285382088077118,
+      "seconds": 0.0013694890076294541,
+      "samples": [
+        0.001396769075654447,
+        0.0013694890076294541,
+        0.0013507689582183957
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.044747384136147775,
+      "seconds": 0.0013548190472647548,
+      "samples": [
+        0.0013548190472647548,
+        0.0013558890204876661,
+        0.001330349943600595
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04409973959787861,
+      "seconds": 0.025161112076602876,
+      "samples": [
+        0.025161112076602876,
+        0.025136952055618167,
+        0.025204602046869695
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04367224892578501,
+      "seconds": 0.03625614405609667,
+      "samples": [
+        0.036241425084881485,
+        0.03625614405609667,
+        0.03637539397459477
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04336793565333776,
+      "seconds": 0.03625119407661259,
+      "samples": [
+        0.03629800502676517,
+        0.03620735392905772,
+        0.03625119407661259
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04340714787610615,
+      "seconds": 0.025009811972267926,
+      "samples": [
+        0.025089161936193705,
+        0.024991611950099468,
+        0.025009811972267926
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.04345149917424956,
+      "seconds": 0.0014011489693075418,
+      "samples": [
+        0.001359049929305911,
+        0.0014011489693075418,
+        0.001418358995579183
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.04504308089988389,
+      "seconds": 0.0013860090402886271,
+      "samples": [
+        0.0013667989987879992,
+        0.0013899790355935693,
+        0.0013860090402886271
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04408990225865289,
+      "seconds": 0.025198212009854615,
+      "samples": [
+        0.02516462199855596,
+        0.025198212009854615,
+        0.02567594195716083
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04464322160792229,
+      "seconds": 0.036180073977448046,
+      "samples": [
+        0.03621266409754753,
+        0.036180073977448046,
+        0.03599138406571001
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.045040917483983034,
+      "seconds": 0.03645224403589964,
+      "samples": [
+        0.03689409408252686,
+        0.03622390399686992,
+        0.03645224403589964
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04545485588701753,
+      "seconds": 0.024995281943120062,
+      "samples": [
+        0.024992041988298297,
+        0.024995281943120062,
+        0.02503183193039149
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.04691596498458704,
+      "seconds": 0.0013877889141440392,
+      "samples": [
+        0.0013699389528483152,
+        0.0013877889141440392,
+        0.0014218289870768785
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.044795171905467356,
+      "seconds": 0.0013571890303865075,
+      "samples": [
+        0.0013408190570771694,
+        0.001372619066387415,
+        0.0013571890303865075
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04493099449986525,
+      "seconds": 0.024920402909629047,
+      "samples": [
+        0.025069011957384646,
+        0.024920402909629047,
+        0.02486779203172773
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.045181530637387154,
+      "seconds": 0.03634449397213757,
+      "samples": [
+        0.03617174399551004,
+        0.03641175397206098,
+        0.03634449397213757
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04395412718660962,
+      "seconds": 0.05089980398770422,
+      "samples": [
+        0.05301579204387963,
+        0.05089980398770422,
+        0.036147414008155465
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04527921135917885,
+      "seconds": 0.025354471988976002,
+      "samples": [
+        0.02522398193832487,
+        0.025354471988976002,
+        0.025492021930404007
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.045153815048594156,
+      "seconds": 0.0014475879725068808,
+      "samples": [
+        0.0015689090359956026,
+        0.0014475879725068808,
+        0.001384139060974121
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.04526276270794562,
+      "seconds": 0.0014159890124574304,
+      "samples": [
+        0.0013493590522557497,
+        0.001429038937203586,
+        0.0014159890124574304
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04438223087498267,
+      "seconds": 0.025371121941134334,
+      "samples": [
+        0.025477102026343346,
+        0.025371121941134334,
+        0.025276222033426166
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04446080070509943,
+      "seconds": 0.03631081397179514,
+      "samples": [
+        0.036159284063614905,
+        0.03636189398821443,
+        0.03631081397179514
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.043991311045862715,
+      "seconds": 0.036292564938776195,
+      "samples": [
+        0.036292564938776195,
+        0.17617422400508076,
+        0.03611137403640896
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.044803528217682985,
+      "seconds": 0.025946152047254145,
+      "samples": [
+        0.025946152047254145,
+        0.02584818098694086,
+        0.025947412010282278
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.043483495304386874,
+      "seconds": 0.001373058999888599,
+      "samples": [
+        0.0013653490459546447,
+        0.001373058999888599,
+        0.001532458933070302
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.04437104816725532,
+      "seconds": 0.0013470490230247378,
+      "samples": [
+        0.0014252489199861884,
+        0.0013470490230247378,
+        0.0013336390256881714
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.044866670709869945,
+      "seconds": 0.025381251936778426,
+      "samples": [
+        0.025340992026031017,
+        0.025381251936778426,
+        0.025396641925908625
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bsds_labxy",
+      "n": 100000,
+      "d": 5,
+      "k": 64,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.04384529710829215,
+      "seconds": 0.03732062294147909,
+      "samples": [
+        0.03732062294147909,
+        0.03640955395530909,
+        0.07176427892409265
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014339026280069912,
+      "seconds": 0.03695435402914882,
+      "samples": [
+        0.03695435402914882,
+        0.03691191296093166,
+        0.050526804057881236
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014119731764471429,
+      "seconds": 0.02542463201098144,
+      "samples": [
+        0.026259621023200452,
+        0.02542463201098144,
+        0.025383191998116672
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0014168031067126094,
+      "seconds": 0.0043447669595479965,
+      "samples": [
+        0.0043447669595479965,
+        0.0043042670004069805,
+        0.004354586941190064
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0014386935844902054,
+      "seconds": 0.004340577055700123,
+      "samples": [
+        0.004340577055700123,
+        0.004301055916585028,
+        0.004352426971308887
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014288695027606197,
+      "seconds": 0.025952160940505564,
+      "samples": [
+        0.025751292007043958,
+        0.02643302094656974,
+        0.025952160940505564
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014306651719042701,
+      "seconds": 0.03676754399202764,
+      "samples": [
+        0.036672962945885956,
+        0.03676754399202764,
+        0.039083622046746314
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014211930520565377,
+      "seconds": 0.037211322924122214,
+      "samples": [
+        0.037211322924122214,
+        0.03616377408616245,
+        0.04055409203283489
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.001412005264206151,
+      "seconds": 0.025606472045183182,
+      "samples": [
+        0.025552092003636062,
+        0.025606472045183182,
+        0.025675522047095
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0014082372268812912,
+      "seconds": 0.004380956990644336,
+      "samples": [
+        0.00445005705114454,
+        0.004360676975920796,
+        0.004380956990644336
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0014247547655187123,
+      "seconds": 0.004338547005318105,
+      "samples": [
+        0.004325066925957799,
+        0.004338547005318105,
+        0.004410727065987885
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014212667800289724,
+      "seconds": 0.02619797200895846,
+      "samples": [
+        0.026472580968402326,
+        0.02619797200895846,
+        0.02597179205622524
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014053786503119014,
+      "seconds": 0.03681361395865679,
+      "samples": [
+        0.03628512402065098,
+        0.03682970302179456,
+        0.03681361395865679
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014275077745091792,
+      "seconds": 0.038221113034524024,
+      "samples": [
+        0.036687204032205045,
+        0.048798106028698385,
+        0.038221113034524024
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014354762555554728,
+      "seconds": 0.025091181974858046,
+      "samples": [
+        0.02506486210040748,
+        0.025091181974858046,
+        0.027726311003789306
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0014223344028420175,
+      "seconds": 0.004260577028617263,
+      "samples": [
+        0.004256967105902731,
+        0.004311236902140081,
+        0.004260577028617263
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.001444572932138424,
+      "seconds": 0.00432216702029109,
+      "samples": [
+        0.0042995569529011846,
+        0.004367757006548345,
+        0.00432216702029109
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.001453606524461487,
+      "seconds": 0.026968650985509157,
+      "samples": [
+        0.027564380085095763,
+        0.024907912011258304,
+        0.026968650985509157
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014421848149546335,
+      "seconds": 0.03661909408401698,
+      "samples": [
+        0.03619798400904983,
+        0.08269219088833779,
+        0.03661909408401698
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014202480708509155,
+      "seconds": 0.03617784404195845,
+      "samples": [
+        0.036422654055058956,
+        0.03617784404195845,
+        0.036014034994877875
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014141879937592037,
+      "seconds": 0.024951483006589115,
+      "samples": [
+        0.024785683024674654,
+        0.024951483006589115,
+        0.02510091196745634
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0014213454089542698,
+      "seconds": 0.004254397004842758,
+      "samples": [
+        0.004254397004842758,
+        0.004256986896507442,
+        0.004253857070580125
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.0013964699117601951,
+      "seconds": 0.004295796970836818,
+      "samples": [
+        0.004295796970836818,
+        0.00427254696842283,
+        0.0043321470730006695
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014160976990450584,
+      "seconds": 0.02541534195188433,
+      "samples": [
+        0.02541354193817824,
+        0.02541534195188433,
+        0.029733458999544382
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.001414306605163149,
+      "seconds": 0.03679823304992169,
+      "samples": [
+        0.03751960303634405,
+        0.03679823304992169,
+        0.036160643910989165
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014298025883322909,
+      "seconds": 0.03614543401636183,
+      "samples": [
+        0.03618414408992976,
+        0.035813155001960695,
+        0.03614543401636183
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014197007430846679,
+      "seconds": 0.027510710060596466,
+      "samples": [
+        0.027510710060596466,
+        0.02852954901754856,
+        0.025025703012943268
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.001416096684574267,
+      "seconds": 0.004293277044780552,
+      "samples": [
+        0.004270425997674465,
+        0.004293277044780552,
+        0.004381406935863197
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 100,
+      "graph": false,
+      "mse": 0.001431992252666459,
+      "seconds": 0.004326337017118931,
+      "samples": [
+        0.004326337017118931,
+        0.004287036950699985,
+        0.004350136965513229
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014350251392299855,
+      "seconds": 0.02724127098917961,
+      "samples": [
+        0.027358249993994832,
+        0.02724127098917961,
+        0.027161070960573852
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 256,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0014344148845692774,
+      "seconds": 0.040062091895379126,
+      "samples": [
+        0.037084334064275026,
+        0.040062091895379126,
+        0.05349696206394583
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002385770243019509,
+      "seconds": 0.03680868400260806,
+      "samples": [
+        0.03680868400260806,
+        0.03683720401022583,
+        0.036708423984237015
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0023705483883031675,
+      "seconds": 0.027250510058365762,
+      "samples": [
+        0.027250510058365762,
+        0.02835252007935196,
+        0.025888622039929032
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0023908017105401377,
+      "seconds": 0.00402243691496551,
+      "samples": [
+        0.00402243691496551,
+        0.0040344769367948174,
+        0.003988857031799853
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024189808569013475,
+      "seconds": 0.0040169269777834415,
+      "samples": [
+        0.003997377003543079,
+        0.004052647040225565,
+        0.0040169269777834415
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002372786924202998,
+      "seconds": 0.025553202023729682,
+      "samples": [
+        0.02566332195419818,
+        0.025204072007909417,
+        0.025553202023729682
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0023783100914100503,
+      "seconds": 0.04192807001527399,
+      "samples": [
+        0.03978530201129615,
+        0.04192807001527399,
+        0.04253300896380097
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002418665064538145,
+      "seconds": 0.050044553936459124,
+      "samples": [
+        0.050044553936459124,
+        0.05861184804234654,
+        0.04752669599838555
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0024129117139115265,
+      "seconds": 0.02536260092165321,
+      "samples": [
+        0.02536260092165321,
+        0.026241031009703875,
+        0.025255452026613057
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024080241526041974,
+      "seconds": 0.004019177984446287,
+      "samples": [
+        0.00399678701069206,
+        0.004019177984446287,
+        0.004044607048854232
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0023993156550201943,
+      "seconds": 0.004026356968097389,
+      "samples": [
+        0.003995076986029744,
+        0.004026356968097389,
+        0.004038337036035955
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0023798131230336832,
+      "seconds": 0.025435101008042693,
+      "samples": [
+        0.025388361886143684,
+        0.026466430979780853,
+        0.025435101008042693
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00242161757205268,
+      "seconds": 0.04782784590497613,
+      "samples": [
+        0.062418436049483716,
+        0.04782784590497613,
+        0.038993122056126595
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002487610582632769,
+      "seconds": 0.037227933993563056,
+      "samples": [
+        0.03730847395490855,
+        0.03674215392675251,
+        0.037227933993563056
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002453656293504889,
+      "seconds": 0.02543761197011918,
+      "samples": [
+        0.02543761197011918,
+        0.025207541999407113,
+        0.025993091985583305
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024896031402601663,
+      "seconds": 0.003994707018136978,
+      "samples": [
+        0.003994707018136978,
+        0.00400565704330802,
+        0.003970758058130741
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024274836976544835,
+      "seconds": 0.004043856984935701,
+      "samples": [
+        0.004043856984935701,
+        0.004049847018904984,
+        0.004022317007184029
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002435467113281362,
+      "seconds": 0.02532276208512485,
+      "samples": [
+        0.02532276208512485,
+        0.02519399207085371,
+        0.026005421997979283
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0024342147096665335,
+      "seconds": 0.04174591007176787,
+      "samples": [
+        0.04174591007176787,
+        0.0579935290152207,
+        0.03992459096480161
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0024046567628144217,
+      "seconds": 0.04434295801911503,
+      "samples": [
+        0.12138007394969463,
+        0.03830168291460723,
+        0.04434295801911503
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0024328607653173557,
+      "seconds": 0.02513583202380687,
+      "samples": [
+        0.02589858102146536,
+        0.02513583202380687,
+        0.025116291944868863
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024021158507812577,
+      "seconds": 0.004039807012304664,
+      "samples": [
+        0.004033076926134527,
+        0.004042727057822049,
+        0.004039807012304664
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.002399402233686146,
+      "seconds": 0.003997687017545104,
+      "samples": [
+        0.003970757010392845,
+        0.003997687017545104,
+        0.004003506968729198
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0023905101696887155,
+      "seconds": 0.025225591962225735,
+      "samples": [
+        0.025225591962225735,
+        0.025177901959978044,
+        0.025363751919940114
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0024162370307397882,
+      "seconds": 0.03860135201830417,
+      "samples": [
+        0.038188762962818146,
+        0.06018708704505116,
+        0.03860135201830417
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0024464853022937117,
+      "seconds": 0.04242214001715183,
+      "samples": [
+        0.046540937037207186,
+        0.03959316201508045,
+        0.04242214001715183
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002424622393859528,
+      "seconds": 0.025192111963406205,
+      "samples": [
+        0.025039381929673254,
+        0.025192111963406205,
+        0.02660307101905346
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024625563251360364,
+      "seconds": 0.003995487000793219,
+      "samples": [
+        0.004029528005048633,
+        0.003960596979595721,
+        0.003995487000793219
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 50,
+      "graph": false,
+      "mse": 0.0024012435966002154,
+      "seconds": 0.003978456952609122,
+      "samples": [
+        0.003969638026319444,
+        0.003978456952609122,
+        0.0040000369772315025
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0023999930703600247,
+      "seconds": 0.02515712205786258,
+      "samples": [
+        0.02515712205786258,
+        0.025228171958588064,
+        0.025085411965847015
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "bunny_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 256,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.002410895414872636,
+      "seconds": 0.052515213028527796,
+      "samples": [
+        0.0424050900619477,
+        0.052515213028527796,
+        0.07481750601436943
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024085238642985166,
+      "seconds": 0.04562604799866676,
+      "samples": [
+        0.04562604799866676,
+        0.0451648379676044,
+        0.08752981689758599
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002409271721219306,
+      "seconds": 0.02509257197380066,
+      "samples": [
+        0.02509257197380066,
+        0.02504647197201848,
+        0.02518267196137458
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.00024369387155817612,
+      "seconds": 0.0013619890669360757,
+      "samples": [
+        0.001365519012324512,
+        0.0013527990086004138,
+        0.0013619890669360757
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.0002461121066904854,
+      "seconds": 0.0013462790520861745,
+      "samples": [
+        0.0014046289725229144,
+        0.0013462790520861745,
+        0.0013428200036287308
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024226071041869913,
+      "seconds": 0.02512794197537005,
+      "samples": [
+        0.02526483207475394,
+        0.02512197196483612,
+        0.02512794197537005
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024108022377986534,
+      "seconds": 0.051811413024552166,
+      "samples": [
+        0.051811413024552166,
+        0.04481168801430613,
+        0.06597939296625555
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002417295460071482,
+      "seconds": 0.05108806397765875,
+      "samples": [
+        0.05108806397765875,
+        0.038937842939049006,
+        0.057839288958348334
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024058448630887334,
+      "seconds": 0.025328122079372406,
+      "samples": [
+        0.025378072052262723,
+        0.025328122079372406,
+        0.02504843205679208
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.00024420233360660654,
+      "seconds": 0.0013550389558076859,
+      "samples": [
+        0.001420669024810195,
+        0.0013550389558076859,
+        0.0013279600534588099
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.00024872840977290857,
+      "seconds": 0.0013589590089395642,
+      "samples": [
+        0.0013855090364813805,
+        0.0013520789798349142,
+        0.0013589590089395642
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002480937516197284,
+      "seconds": 0.026501730899326503,
+      "samples": [
+        0.026841611019335687,
+        0.025199212017469108,
+        0.026501730899326503
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002470461510346031,
+      "seconds": 0.052435231977142394,
+      "samples": [
+        0.03830677201040089,
+        0.06708165304735303,
+        0.052435231977142394
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.000243080058288116,
+      "seconds": 0.06077336601447314,
+      "samples": [
+        0.058254609000869095,
+        0.06077336601447314,
+        0.06259301502723247
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002460778758083802,
+      "seconds": 0.025704952073283494,
+      "samples": [
+        0.0256370009155944,
+        0.025704952073283494,
+        0.025891651050187647
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.0002498090491989876,
+      "seconds": 0.001411709003150463,
+      "samples": [
+        0.0013723589945584536,
+        0.0014278790913522243,
+        0.001411709003150463
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.0002466599814599181,
+      "seconds": 0.0013514789752662182,
+      "samples": [
+        0.0013514789752662182,
+        0.0014270590618252754,
+        0.001351259066723287
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024375478235181514,
+      "seconds": 0.02584745199419558,
+      "samples": [
+        0.025715591968037188,
+        0.02584745199419558,
+        0.025997370947152376
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024484564582029063,
+      "seconds": 0.05896085791755468,
+      "samples": [
+        0.04867276502773166,
+        0.05896085791755468,
+        0.11407750903163105
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002408709679432542,
+      "seconds": 0.0563969099894166,
+      "samples": [
+        0.036583474022336304,
+        0.0563969099894166,
+        0.11139992997050285
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00023980390638664144,
+      "seconds": 0.02607094100676477,
+      "samples": [
+        0.02579481096472591,
+        0.03226085705682635,
+        0.02607094100676477
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.00024355018487424795,
+      "seconds": 0.0014243689365684986,
+      "samples": [
+        0.0014243689365684986,
+        0.0014240789460018277,
+        0.0015099390875548124
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.0002509707245679078,
+      "seconds": 0.0013924890663474798,
+      "samples": [
+        0.0013924890663474798,
+        0.0014147289330139756,
+        0.0013561389641836286
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002470901459807449,
+      "seconds": 0.02608520200010389,
+      "samples": [
+        0.02608520200010389,
+        0.026129502104595304,
+        0.026065481011755764
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024737972383045276,
+      "seconds": 0.04297283000778407,
+      "samples": [
+        0.038249121978878975,
+        0.06023865705356002,
+        0.04297283000778407
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024306122359801183,
+      "seconds": 0.06957328005228192,
+      "samples": [
+        0.06957328005228192,
+        0.09324486390687525,
+        0.03976683097425848
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024246749608994742,
+      "seconds": 0.025603062007576227,
+      "samples": [
+        0.025622651912271976,
+        0.025603062007576227,
+        0.025303111993707716
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.000248969832595163,
+      "seconds": 0.0013848589733242989,
+      "samples": [
+        0.0013582489918917418,
+        0.0013848589733242989,
+        0.001403419068083167
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 25,
+      "graph": false,
+      "mse": 0.00024279204764479162,
+      "seconds": 0.0014990291092544794,
+      "samples": [
+        0.0014990291092544794,
+        0.001510139089077711,
+        0.0013525490649044514
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.00024083283286685024,
+      "seconds": 0.02563214092515409,
+      "samples": [
+        0.026231450960040092,
+        0.02563214092515409,
+        0.02563141193240881
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyz",
+      "n": 100000,
+      "d": 3,
+      "k": 128,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0002414542846514987,
+      "seconds": 0.06471023405902088,
+      "samples": [
+        0.07906055403873324,
+        0.06471023405902088,
+        0.056979559012688696
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 200,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008026906335103969,
+      "seconds": 0.047052976908162236,
+      "samples": [
+        0.05510206997860223,
+        0.037849592976272106,
+        0.047052976908162236
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 200,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.000797162044314339,
+      "seconds": 0.02564289199654013,
+      "samples": [
+        0.02564289199654013,
+        0.025358531973324716,
+        0.025962361018173397
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 200,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0008095283912826047,
+      "seconds": 0.00896573404315859,
+      "samples": [
+        0.00896573404315859,
+        0.009039964061230421,
+        0.008961942978203297
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 201,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0008218674788640135,
+      "seconds": 0.00910341297276318,
+      "samples": [
+        0.009141133050434291,
+        0.00910341297276318,
+        0.009080804069526494
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 201,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007883189315995913,
+      "seconds": 0.025219561997801065,
+      "samples": [
+        0.025127622997388244,
+        0.025281182024627924,
+        0.025219561997801065
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 201,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008106158602306104,
+      "seconds": 0.06327467504888773,
+      "samples": [
+        0.04465129890013486,
+        0.06327467504888773,
+        0.1346344839548692
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 202,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.000809480094565172,
+      "seconds": 0.05373363196849823,
+      "samples": [
+        0.05373363196849823,
+        0.049452565028332174,
+        0.0904152860166505
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 202,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008032417617098652,
+      "seconds": 0.025019012042321265,
+      "samples": [
+        0.02493238204624504,
+        0.025019012042321265,
+        0.025250512058846653
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 202,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0008088098821478204,
+      "seconds": 0.008995254058390856,
+      "samples": [
+        0.008995254058390856,
+        0.009096614085137844,
+        0.008985053980723023
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 203,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0008011279319587153,
+      "seconds": 0.009030723944306374,
+      "samples": [
+        0.009030723944306374,
+        0.008996233926154673,
+        0.009045173996128142
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 203,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008187372529408494,
+      "seconds": 0.025257671950384974,
+      "samples": [
+        0.02528898196760565,
+        0.02509723196271807,
+        0.025257671950384974
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 203,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008211099737190401,
+      "seconds": 0.06127036607358605,
+      "samples": [
+        0.06127036607358605,
+        0.042229939019307494,
+        0.0705813990207389
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 204,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007805405129294935,
+      "seconds": 0.058255958021618426,
+      "samples": [
+        0.03858478297479451,
+        0.058255958021618426,
+        0.10744767391588539
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 204,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007817378171913241,
+      "seconds": 0.02561170095577836,
+      "samples": [
+        0.027446351014077663,
+        0.02561170095577836,
+        0.02559810201637447
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 204,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0007876422076732935,
+      "seconds": 0.009053192916326225,
+      "samples": [
+        0.009047243976965547,
+        0.009109584032557905,
+        0.009053192916326225
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 205,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0007927505191384737,
+      "seconds": 0.00905851402785629,
+      "samples": [
+        0.009071122971363366,
+        0.009047002997249365,
+        0.00905851402785629
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 205,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007954620286217842,
+      "seconds": 0.02566274197306484,
+      "samples": [
+        0.0256122819846496,
+        0.02566274197306484,
+        0.02660235099028796
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 205,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007860215216656402,
+      "seconds": 0.05574395996518433,
+      "samples": [
+        0.11062372103333473,
+        0.05574395996518433,
+        0.04264051897916943
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 206,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.000802269180416285,
+      "seconds": 0.05375239206478,
+      "samples": [
+        0.06816799193620682,
+        0.04389631899539381,
+        0.05375239206478
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 206,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008008463536031835,
+      "seconds": 0.025319742038846016,
+      "samples": [
+        0.025319742038846016,
+        0.02529416198376566,
+        0.025493982015177608
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 206,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0008031725914323714,
+      "seconds": 0.009170433972030878,
+      "samples": [
+        0.009183412999846041,
+        0.009170433972030878,
+        0.009093924076296389
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 207,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0008150797702426793,
+      "seconds": 0.009041632991284132,
+      "samples": [
+        0.009049162967130542,
+        0.009041632991284132,
+        0.009026774088852108
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 207,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0008251773662371338,
+      "seconds": 0.02540109201800078,
+      "samples": [
+        0.02540109201800078,
+        0.025701820966787636,
+        0.025218222057446837
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 207,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007932097770377558,
+      "seconds": 0.03899154195096344,
+      "samples": [
+        0.04576722695492208,
+        0.037588853971101344,
+        0.03899154195096344
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 208,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007811253181317715,
+      "seconds": 0.040351141011342406,
+      "samples": [
+        0.0578688089735806,
+        0.03843206295277923,
+        0.040351141011342406
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 208,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007855976196914484,
+      "seconds": 0.02559663204010576,
+      "samples": [
+        0.025714001967571676,
+        0.02559663204010576,
+        0.025513191940262914
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 208,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0007765741862150828,
+      "seconds": 0.009025164064951241,
+      "samples": [
+        0.009025164064951241,
+        0.009134783991612494,
+        0.00899465405382216
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 209,
+      "backend": "warp_lloyd",
+      "budget": 200,
+      "graph": false,
+      "mse": 0.0007840538951470752,
+      "seconds": 0.009042043006047606,
+      "samples": [
+        0.009065294056199491,
+        0.009042043006047606,
+        0.009015423012897372
+      ],
+      "setup_seconds": null,
+      "assignment": "scalar"
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 209,
+      "backend": "warp_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.000778769149015049,
+      "seconds": 0.025541392038576305,
+      "samples": [
+        0.025337192113511264,
+        0.02570779190864414,
+        0.025541392038576305
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    },
+    {
+      "dataset": "drill_xyzn",
+      "n": 100000,
+      "d": 6,
+      "k": 128,
+      "seed": 209,
+      "backend": "triton_emeans",
+      "budget": 3,
+      "graph": false,
+      "mse": 0.0007793444898998403,
+      "seconds": 0.05480606108903885,
+      "samples": [
+        0.05480606108903885,
+        0.10640101495664567,
+        0.05277088307775557
+      ],
+      "setup_seconds": null,
+      "assignment": null
+    }
+  ]
+}

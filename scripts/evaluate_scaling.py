@@ -13,7 +13,7 @@ import warp as wp
 from fit_scaling import aggregate, predict
 from scipy.spatial.distance import cdist
 
-from warp_emeans import Emeans
+from warp_emeans import Emeans, Kmeans
 from warp_emeans.datasets import load_dataset
 
 
@@ -91,6 +91,8 @@ def main():
                     "alpha0": float(problem["alphas"][ai]),
                 },
                 "lloyd25": {},
+                "warp_lloyd25": {"niter": 25},
+                "warp_lloyd100": {"niter": 100},
             }
             for label, model in models.items():
                 if model["alpha"] is not None and model["batch"] is not None:
@@ -125,6 +127,11 @@ def main():
                         model.train(x, init_centroids=initial)
                         centers = model.centroids
                         recipe = {"backend": "faiss_cpu", "iterations": 25, "training_rows": n}
+                    elif label.startswith("warp_lloyd"):
+                        model = Kmeans(k, seed=seed, **parameters)
+                        centers, _ = model.train(x_wp, initial_wp)
+                        centers = centers.numpy()
+                        recipe = {"backend": "warp", "iterations": model.niter, "training_rows": n}
                     else:
                         model = Emeans(
                             k,
