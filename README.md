@@ -38,8 +38,8 @@ uv run pytest -q
 
 ## Current flagship result
 
-**Pure Warp Lloyd k-means trains RGB clusters in 3.46 ms**, versus **25.28 ms for Warp e-means** and **36.16 ms for upstream Triton e-means**: 86% and 90% less time, respectively. This uses 100,000 RGB vectors, k=64, 100 Lloyd iterations versus three e-means passes, and ordinary training on an RTX PRO 6000 Blackwell MIG slice.
+**Pure Warp Lloyd trains RGB clusters in 3.43 ms**, versus **18.87 ms for Flash-KMeans with IEEE FP32 products** and **20.78 ms for its paper-style FP16 mode**: 82% and 83% less time. All three run 100 Lloyd iterations on 100,000 RGB vectors with k=64 and shared starting centers, using ordinary training on an RTX PRO 6000 Blackwell MIG slice.
 
-The Lloyd budget was selected on validation data. Across ten new paired initialization seeds, its mean test loss is 1.85% lower than Triton's (paired 95% interval: 0.34–3.26% lower). **Only this one of seven real feature datasets establishes the specified 0.2% loss margin against Triton.** E-means retains advantages on other workloads, including some large and high-dimensional cases. [All cases, fixed-budget matrix, graph timings and limitations](docs/experiments/kmeans-baseline.md).
+Across ten new initialization seeds, Warp meets the specified 0.2% loss margin against both modes. Its mean test loss is 0.03% lower than Flash IEEE (paired 95% interval: 0.16% lower to 0.15% higher). **Flash's default TF32 mode takes 19.27 ms and has lower mean loss; Warp's quality margin against it is not established.** Flash also wins on some larger and higher-dimensional workloads. The new seeds do not establish the earlier RGB quality advantage over e-means.
 
-The [scaling-study evaluator](docs/experiments/kmeans-baseline.md#scaling-study-integration) includes `warp_lloyd25` and `warp_lloyd100` alongside e-means on the same held-out configurations through d=100.
+[Full Flash comparison, precision controls, all seven real feature datasets and scaling configurations through d=100](docs/experiments/flash-kmeans.md). [Earlier Warp/e-means study and graph timings](docs/experiments/kmeans-baseline.md).

@@ -1,0 +1,80 @@
+{
+  "engine": "Codex",
+  "archives": {
+    "matrix": {
+      "sha256": "82627af874e8309cdf949db3242a32dcde14adf9f895dc3246ceb681e6a8edc3",
+      "records": 396,
+      "source_commit": "e3d54cf0ed0af1293c981b2eac4f16393fc61253",
+      "source_and_input_hashes_verified": true,
+      "raw_samples_per_record": 3
+    },
+    "confirmation": {
+      "sha256": "830781a2f345be37f6ee28a2d3707f785442d431516467ec0b59a4271e0da241",
+      "records": 420,
+      "source_commit": "e3d54cf0ed0af1293c981b2eac4f16393fc61253",
+      "source_and_input_hashes_verified": true,
+      "raw_samples_per_record": 3
+    },
+    "scaling": {
+      "sha256": "ed774a0acc23c8884d6da11f43a6ca74e3c103637da4828eff7ef71ccb275b1a",
+      "records": 891,
+      "source_commit": "e3d54cf0ed0af1293c981b2eac4f16393fc61253",
+      "source_and_input_hashes_verified": true,
+      "raw_samples_per_record": 1
+    }
+  },
+  "checks": [
+    {
+      "command": "TRITON_F32_DEFAULT=tf32 TRITON_DEFAULT_FP_FUSION=1 uv run --no-sync pytest -q tests/test_flash.py",
+      "result": "14 passed in 6.18s"
+    },
+    {
+      "command": "TRITON_F32_DEFAULT=ieee TRITON_DEFAULT_FP_FUSION=1 uv run --no-sync pytest -q",
+      "result": "86 passed in 7.62s"
+    },
+    {
+      "command": "uv run --no-sync ruff check src scripts tests",
+      "result": "passed"
+    },
+    {
+      "check": "report completeness, paired seeds, data hashes and initial-center hashes",
+      "result": "verified by scripts/report_flash.py"
+    },
+    {
+      "command": "compute-sanitizer --tool memcheck --error-exitcode 1 .venv/bin/python -m pytest -q tests/test_flash.py -k \"empty_ties or (lloyd and 100)\"",
+      "environment": {
+        "TRITON_F32_DEFAULT": "ieee",
+        "TRITON_DEFAULT_FP_FUSION": "1"
+      },
+      "result": "4 passed, 10 deselected; 0 memory errors"
+    },
+    {
+      "check": "GitHub Markdown render",
+      "result": {
+        "tables_rows_columns": [
+          [
+            5,
+            3
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            36,
+            5
+          ],
+          [
+            67,
+            6
+          ]
+        ],
+        "readme": "rendered successfully"
+      }
+    }
+  ]
+}
