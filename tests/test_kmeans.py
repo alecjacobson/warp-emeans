@@ -4,7 +4,8 @@ import numpy as np
 import pytest
 import warp as wp
 
-from warp_emeans import Kmeans
+from warp_emeans import Kmeans, lloyd_kernels
+from warp_emeans import kmeans as kmeans_module
 
 wp.init()
 DEVICES = ["cpu"] + (["cuda:0"] if wp.is_cuda_available() else [])
@@ -76,7 +77,16 @@ def test_lloyd_graph_reset():
     np.testing.assert_allclose(first, second, atol=2e-6, rtol=2e-6)
 
 
-@pytest.mark.parametrize("kwargs,error", [({"k": 0}, ValueError), ({"k": True}, TypeError), ({"k": 2,"niter": 0}, ValueError), ({"k": 2,"niter": 1.5}, TypeError), ({"k": 2,"seed": -1}, ValueError)])
+@pytest.mark.parametrize(
+    "kwargs,error",
+    [
+        ({"k": 0}, ValueError),
+        ({"k": True}, TypeError),
+        ({"k": 2, "niter": 0}, ValueError),
+        ({"k": 2, "niter": 1.5}, TypeError),
+        ({"k": 2, "seed": -1}, ValueError),
+    ],
+)
 def test_lloyd_invalid_options(kwargs, error):
     """Reject invalid clustering parameters before allocating a workload."""
     with pytest.raises(error):
@@ -96,3 +106,79 @@ def test_lloyd_invalid_data():
         model.train(wp.full((10, 3), float("nan"), device="cpu"))
     with pytest.raises(ValueError, match="differentiation"):
         model.train(wp.zeros((10, 3), device="cpu", requires_grad=True))
+    with pytest.raises(ValueError, match="rescale"):
+        model.train(wp.full((10, 3), 1e30, device="cpu"))
+
+
+@pytest.mark.parametrize("device", DEVICES)
+@pytest.mark.parametrize("n", [1, 259])
+def test_lloyd_single_cluster(device, n):
+    """Return the global mean for a single cluster, including a singleton input."""
+    x = np.random.default_rng(23).normal(size=(n, 3)).astype(np.float32)
+    centers, labels = Kmeans(1, niter=3).train(wp.array(x, device=device))
+    np.testing.assert_allclose(centers.numpy()[0], x.astype(float).mean(axis=0), atol=2e-6)
+    np.testing.assert_array_equal(labels.numpy(), np.zeros(n, dtype=np.int32))
+
+
+@pytest.mark.skipif(not wp.is_cuda_available(), reason="CUDA compaction required")
+@pytest.mark.parametrize("capture", [False, True])
+def test_compact_lloyd_reference(monkeypatch, capture):
+    """Exercise compacted searches and match dense Lloyd on a tail-sized workload."""
+    monkeypatch.setattr(kmeans_module, "_assignment_policy", lambda *args: "compact")
+    rng = np.random.default_rng(12)
+    x = rng.normal(size=(2051, 3)).astype(np.float32)
+    initial = x[rng.choice(len(x), 37, replace=False)]
+    expected, labels = reference_lloyd(x, initial, 15)
+    model = Kmeans(37, niter=15).prepare(
+        wp.array(x, device="cuda"), wp.array(initial, device="cuda"), capture=capture
+    )
+    centers, actual = model.run()
+    np.testing.assert_array_equal(actual.numpy(), labels)
+    np.testing.assert_allclose(centers.numpy(), expected, atol=2e-6, rtol=2e-6)
+    if not (len(x) <= model._searches.numpy().sum() < len(x) * 15):
+        pytest.fail("Compaction did not skip any full searches")
+    first = centers.numpy().copy()
+    model._lower_bounds.fill_(wp.inf)
+    model._prefix.fill_(999)
+    model._searches.fill_(999)
+    np.testing.assert_allclose(model.run()[0].numpy(), first, atol=2e-6, rtol=2e-6)
+
+
+@pytest.mark.skipif(not wp.is_cuda_available(), reason="CUDA compaction required")
+def test_compact_empty_active_set():
+    """Select the large-workload fast path and handle an empty compacted search."""
+    n, k = 500003, 256
+    initial = np.arange(k, dtype=np.float32)[:, None] * np.array([[1, 3, 7, 1, 3]], dtype=np.float32)
+    labels = np.arange(n) % k
+    x = initial[labels]
+    model = Kmeans(k, niter=10).prepare(
+        wp.array(x, device="cuda"), wp.array(initial, device="cuda"), capture=True
+    )
+    if model._assignment != "compact":
+        pytest.fail("Expected automatic compacted assignment")
+    centers, actual = model.run()
+    np.testing.assert_array_equal(centers.numpy(), initial)
+    np.testing.assert_array_equal(actual.numpy(), labels)
+    np.testing.assert_equal(model._prefix.numpy()[-1], 0)
+    np.testing.assert_equal(model._searches.numpy().sum(), n)
+
+
+@pytest.mark.skipif(not wp.is_cuda_available(), reason="CUDA compaction required")
+def test_bound_roundoff_tie():
+    """Search a mathematically farther lower-index center when FP32 distances tie."""
+    x = wp.zeros((1, 3), device="cuda")
+    centers = wp.array(np.array([[1, 1e-4, 0], [1, 0, 0]], dtype=np.float32), device="cuda")
+    labels = wp.array(np.array([1], dtype=np.int32), device="cuda")
+    distances = wp.zeros(1, device="cuda")
+    # A valid true-distance lower bound for center zero, above one, is not
+    # enough to skip it: both direct FP32 squared distances round to one.
+    lower = wp.array(np.array([1.000000001], dtype=np.float64), dtype=wp.float64, device="cuda")
+    maximum = wp.zeros(1, dtype=wp.float64, device="cuda")
+    flags = wp.zeros(1, dtype=int, device="cuda")
+    wp.launch(
+        lloyd_kernels.screen_kernel(3),
+        1,
+        [x, centers, labels, distances, lower, maximum, flags],
+        device="cuda",
+    )
+    np.testing.assert_array_equal(flags.numpy(), [1])

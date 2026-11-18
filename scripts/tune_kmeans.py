@@ -7,9 +7,11 @@ import statistics
 import time
 from pathlib import Path
 
+import kmeans_variants
 import numpy as np
 import warp as wp
 from scipy.spatial.distance import cdist
+from warp import utils
 
 from warp_emeans import lloyd_kernels
 
@@ -31,7 +33,7 @@ for d in args.dimensions:
     for variant in args.variants:
         centers = (
             wp.empty((args.k, d), dtype=float, device="cuda")
-            if variant == "scalar"
+            if variant in ("scalar", "unrolled", "bounded", "compact")
             else wp.empty((d, args.k), dtype=float, device="cuda").transpose()
         )
         initial_wp = wp.array(initial, device="cuda")
@@ -40,22 +42,55 @@ for d in args.dimensions:
         counts = wp.zeros((64, args.k), dtype=int, device="cuda")
         labels = wp.empty(args.n, dtype=int, device="cuda")
         distances = wp.empty(args.n, dtype=float, device="cuda")
-        if variant == "scalar":
-            kernel = lloyd_kernels.scalar_assignment_kernel(d)
+        if variant in ("bounded", "compact"):
+            lower_bounds = wp.zeros(args.n, dtype=wp.float64, device="cuda")
+            maximum = wp.zeros(1, dtype=wp.float64, device="cuda")
+            searches = wp.zeros(args.n, dtype=int, device="cuda")
+            previous = wp.empty_like(centers)
+            if variant == "compact":
+                flags = wp.empty(args.n, dtype=int, device="cuda")
+                prefix = wp.empty_like(flags)
+                active = wp.empty_like(flags)
+                screen = lloyd_kernels.screen_kernel(d)
+                compact_assign = lloyd_kernels.compact_assignment_kernel(d)
+            labels.zero_()
+            kernel = lloyd_kernels.bounded_assignment_kernel(d)
+        elif variant in ("scalar", "unrolled"):
+            kernel = lloyd_kernels.scalar_assignment_kernel(d, unroll=variant == "unrolled")
         elif variant == "cooperative":
-            kernel = lloyd_kernels.cooperative_assignment_kernel(d)
+            kernel = kmeans_variants.cooperative_assignment_kernel(d)
         else:
-            point_tile, center_tile = map(int, variant.removeprefix("tile").split("x"))
-            kernel = lloyd_kernels.tiled_assignment_kernel(d, point_tile, center_tile)
+            point_tile, center_tile = map(int, variant.removeprefix("tile").removeprefix("matmul").split("x"))
+            factory = (
+                kmeans_variants.matmul_assignment_kernel
+                if variant.startswith("matmul")
+                else kmeans_variants.tiled_assignment_kernel
+            )
+            kernel = factory(d, point_tile, center_tile)
 
         def assign():
-            if variant.startswith("tile"):
-                wp.launch_tiled(kernel, dim=(args.n + point_tile - 1) // point_tile, inputs=[points, centers, labels, distances], block_dim=128)
+            if variant in ("bounded", "compact"):
+                wp.launch(
+                    kernel,
+                    args.n,
+                    [points, centers, sums, counts, labels, distances, lower_bounds, maximum, searches],
+                    block_dim=128,
+                )
+            elif variant.startswith(("tile", "matmul")):
+                wp.launch_tiled(
+                    kernel,
+                    dim=(args.n + point_tile - 1) // point_tile,
+                    inputs=[points, centers, labels, distances],
+                    block_dim=128,
+                )
                 wp.launch(lloyd_kernels.accumulate_kernel, (args.n, d), [points, labels, sums, counts])
             else:
-                wp.launch(kernel, (args.n, 32) if variant == "cooperative" else args.n,
-                          [points, centers, sums, counts, labels, distances, 1],
-                          block_dim=32 if variant == "cooperative" else 128)
+                wp.launch(
+                    kernel,
+                    (args.n, 32) if variant == "cooperative" else args.n,
+                    [points, centers, sums, counts, labels, distances, 1],
+                    block_dim=32 if variant == "cooperative" else 128,
+                )
 
         assign()
         expected = cdist(x[:511], initial, "sqeuclidean")
@@ -64,11 +99,38 @@ for d in args.dimensions:
 
         def execute():
             wp.copy(centers, initial_wp)
-            for _ in range(25):
+            if variant in ("bounded", "compact"):
+                lower_bounds.zero_()
+                maximum.zero_()
+                searches.zero_()
+                labels.zero_()
+            for iteration in range(25):
                 sums.zero_()
                 counts.zero_()
-                assign()
+                if variant == "compact" and iteration > 0:
+                    wp.launch(
+                        screen,
+                        args.n,
+                        [points, centers, labels, distances, lower_bounds, maximum, flags],
+                        block_dim=128,
+                    )
+                    utils.array_scan(flags, prefix)
+                    wp.launch(lloyd_kernels.compact_kernel, args.n, [flags, prefix, active])
+                    wp.launch(
+                        compact_assign,
+                        args.n,
+                        [points, centers, labels, distances, lower_bounds, searches, active, prefix],
+                        block_dim=128,
+                    )
+                    wp.launch(lloyd_kernels.accumulate_kernel, (args.n, d), [points, labels, sums, counts])
+                else:
+                    assign()
+                if variant in ("bounded", "compact"):
+                    wp.copy(previous, centers)
                 wp.launch(lloyd_kernels.update_kernel, centers.shape, [centers, sums, counts])
+                if variant in ("bounded", "compact"):
+                    maximum.zero_()
+                    wp.launch(lloyd_kernels.movement_kernel, args.k, [previous, centers, maximum])
 
         execute()
         wp.synchronize()
@@ -81,12 +143,32 @@ for d in args.dimensions:
             wp.capture_launch(captured.graph)
             wp.synchronize()
             samples.append(time.perf_counter() - start)
-        record = dict(n=args.n, k=args.k, d=d, variant=variant, seconds=statistics.median(samples), samples=samples)
+        record = dict(
+            n=args.n, k=args.k, d=d, variant=variant, seconds=statistics.median(samples), samples=samples
+        )
+        if variant in ("bounded", "compact"):
+            record["full_search_fraction"] = float(searches.numpy().sum() / (args.n * 25))
         records.append(record)
         print(json.dumps(record), flush=True)
         del captured
-    Path(args.output).write_text(json.dumps({
-        "records": records, "iterations": 25, "timing": "Prepared graph replay; includes reset and full assignment/accumulation/mean updates; setup excluded",
-        "warp": wp.__version__, "gpu": wp.get_device("cuda").name,
-        "code_sha256": {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__), Path("src/warp_emeans/lloyd_kernels.py")]},
-    }, indent=2) + "\n")
+    Path(args.output).write_text(
+        json.dumps(
+            {
+                "records": records,
+                "iterations": 25,
+                "timing": "Prepared graph replay; includes reset and full assignment/accumulation/mean updates; setup excluded",
+                "warp": wp.__version__,
+                "gpu": wp.get_device("cuda").name,
+                "code_sha256": {
+                    str(p): hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in [
+                        Path(__file__),
+                        Path("src/warp_emeans/lloyd_kernels.py"),
+                        Path("scripts/kmeans_variants.py"),
+                    ]
+                },
+            },
+            indent=2,
+        )
+        + "\n"
+    )
