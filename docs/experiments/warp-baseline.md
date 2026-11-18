@@ -2,10 +2,10 @@
 
 Measured 2026-11-17; RTX PRO 6000 Blackwell MIG 2g.48gb, Warp 1.19.0, PyTorch 2.15.0+cu132. Upstream Faiss c8f283867285af547db7a701c1b8dfa89631b3ea with explicit Triton. FP32 standard-normal inputs and same supplied initial centroids. Three seeds, one warmup per configuration then one timed run per seed; medians below. Transfers and FP64 validation evaluation excluded from timing. Ordinary Warp includes allocation and finite-input checks; Triton uses its normal train API. All final timing sweeps ran sequentially with no other GPU experiment from this session. The GPU can be shared with other users; this remains single-machine evidence. Model/graph destruction and garbage collection are outside the timers.
 
-Different RNG streams mean this is a recipe-matched comparison, not strict equal-loss timing. The largest median relative MSE difference in this matrix is reported below. Raw files retain every seed, cold call, recipe and graph setup time.
+Both implementations use the same batch sizes, learning-rate schedules and three training passes. Their different random sequences can produce different final clusterings, so these runtime comparisons do not establish equal clustering quality. Dimension d is the number of features per point. The largest median relative MSE difference in this matrix is reported below. Raw files retain every seed, cold call, training settings and graph setup time.
 
 | n | k | d | Triton ms | Warp train ms | Warp graph replay ms | Graph setup ms | Train speedup | Warp/Triton validation MSE |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 10,000 | 32 | 2 | 25.97 | 15.53 | 3.70 | 29.97 | 1.67× | 1.00794 |
 | 10,000 | 32 | 5 | 28.32 | 20.63 | 8.68 | 39.94 | 1.37× | 1.00380 |
 | 10,000 | 32 | 10 | 29.64 | 20.41 | 9.60 | 39.86 | 1.45× | 1.00001 |

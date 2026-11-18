@@ -10,7 +10,7 @@ start = text.index("| n |")
 end = text.index("\nThe original", start)
 lines = [
     "| n | k | d | Triton ms | Warp train ms | Warp graph replay ms | Graph setup ms | Train speedup | Warp/Triton validation MSE |",
-    "|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+    "|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
 ]
 ratios = []
 for name in ("benchmark_small_final", "benchmark_transposed", "benchmark_large_final"):
